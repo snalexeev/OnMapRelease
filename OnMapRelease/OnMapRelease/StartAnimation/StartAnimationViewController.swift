@@ -19,5 +19,7 @@ class StartAnimationViewController: UIViewController {
                 self.logoImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             }
         }
+        
+        // проверка на то, вошел ли пользователь
     }
 }
