@@ -11,6 +11,7 @@
 		0410F07623A0D8BE00483D16 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410F07523A0D8BE00483D16 /* ChatInfo.swift */; };
 		0410F07823A0D8F300483D16 /* FirestoreMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410F07723A0D8F300483D16 /* FirestoreMessenger.swift */; };
 		0410F07A23A0D90700483D16 /* MessengerOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410F07923A0D90700483D16 /* MessengerOnMap.swift */; };
+		0427577323A29A1F00E876C7 /* StartAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427577223A29A1F00E876C7 /* StartAnimationViewController.swift */; };
 		04474E8023A0EB8E00AFC7AC /* AddChatMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04474E7F23A0EB8E00AFC7AC /* AddChatMock.swift */; };
 		04752F6A23A0D2520091B5F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04752F6923A0D2520091B5F0 /* AppDelegate.swift */; };
 		04752F6C23A0D2520091B5F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04752F6B23A0D2520091B5F0 /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 		0410F07523A0D8BE00483D16 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
 		0410F07723A0D8F300483D16 /* FirestoreMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessenger.swift; sourceTree = "<group>"; };
 		0410F07923A0D90700483D16 /* MessengerOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerOnMap.swift; sourceTree = "<group>"; };
+		0427577223A29A1F00E876C7 /* StartAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAnimationViewController.swift; sourceTree = "<group>"; };
 		04474E7F23A0EB8E00AFC7AC /* AddChatMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddChatMock.swift; path = /Users/seren/Documents/GitHub/OnMapRelease/OnMapRelease/OnMapReleaseTests/AddChatMock.swift; sourceTree = "<absolute>"; };
 		04752F6623A0D2520091B5F0 /* OnMapRelease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnMapRelease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04752F6923A0D2520091B5F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,44 @@
 			path = MessengerOnMap;
 			sourceTree = "<group>";
 		};
+		0427576D23A297FB00E876C7 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		0427576E23A2980E00E876C7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0427576F23A2983C00E876C7 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		0427577023A2988D00E876C7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0427577123A298F400E876C7 /* StartAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				04752F6F23A0D2520091B5F0 /* Main.storyboard */,
+				0427577223A29A1F00E876C7 /* StartAnimationViewController.swift */,
+				04752F6D23A0D2520091B5F0 /* ViewController.swift */,
+			);
+			path = StartAnimation;
+			sourceTree = "<group>";
+		};
 		04752F5D23A0D2520091B5F0 = {
 			isa = PBXGroup;
 			children = (
@@ -144,11 +184,14 @@
 				04752F9C23A0D6AB0091B5F0 /* GoogleService-Info.plist */,
 				04752F6923A0D2520091B5F0 /* AppDelegate.swift */,
 				04752F6B23A0D2520091B5F0 /* SceneDelegate.swift */,
-				04752F6D23A0D2520091B5F0 /* ViewController.swift */,
-				04752F6F23A0D2520091B5F0 /* Main.storyboard */,
-				0410F07223A0D89700483D16 /* MessengerOnMap */,
-				04752F7523A0D2540091B5F0 /* Assets.xcassets */,
 				04752F7723A0D2540091B5F0 /* LaunchScreen.storyboard */,
+				0427577123A298F400E876C7 /* StartAnimation */,
+				0427577023A2988D00E876C7 /* Map */,
+				0427576D23A297FB00E876C7 /* ChatRoom */,
+				0427576E23A2980E00E876C7 /* Settings */,
+				0410F07223A0D89700483D16 /* MessengerOnMap */,
+				0427576F23A2983C00E876C7 /* Account */,
+				04752F7523A0D2540091B5F0 /* Assets.xcassets */,
 				04752F7A23A0D2540091B5F0 /* Info.plist */,
 				04752F7223A0D2520091B5F0 /* OnMapRelease.xcdatamodeld */,
 			);
@@ -429,6 +472,7 @@
 				0410F07823A0D8F300483D16 /* FirestoreMessenger.swift in Sources */,
 				04752F6E23A0D2520091B5F0 /* ViewController.swift in Sources */,
 				0410F07623A0D8BE00483D16 /* ChatInfo.swift in Sources */,
+				0427577323A29A1F00E876C7 /* StartAnimationViewController.swift in Sources */,
 				0410F07A23A0D90700483D16 /* MessengerOnMap.swift in Sources */,
 				04752F7423A0D2520091B5F0 /* OnMapRelease.xcdatamodeld in Sources */,
 				04752F6A23A0D2520091B5F0 /* AppDelegate.swift in Sources */,

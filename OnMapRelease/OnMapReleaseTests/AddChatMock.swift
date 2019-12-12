@@ -8,7 +8,7 @@
 import Foundation
 @testable import OnMapRelease
 
-final class AddChatMockt {
+final class AddChatMock {
     let bd = FirestoreMessenger.shared
     var count: Int {
         get {
