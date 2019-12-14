@@ -66,11 +66,11 @@
             </objects>
             <point key="canvasLocation" x="1189.8550724637682" y="-244.41964285714283"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--General Tab Bar Controller-->
         <scene sceneID="F6f-v0-aOL">
             <objects>
-                <tabBarController id="J9z-Og-Uj9" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l5u-PF-lZ5">
+                <tabBarController storyboardIdentifier="GeneralTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J9z-Og-Uj9" customClass="GeneralTabBarController" customModule="OnMapRelease" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="l5u-PF-lZ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,7 +83,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3RD-SC-nzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269" y="81"/>
+            <point key="canvasLocation" x="-483" y="220"/>
         </scene>
     </scenes>
     <resources>

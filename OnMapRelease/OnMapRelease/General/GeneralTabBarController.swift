@@ -2,9 +2,7 @@
 //  GeneralTabBarController.swift
 //  OnMapRelease
 //
-//  Created by Sergei Alexeev on 14.12.2019.
-//  Copyright © 2019 Sergei Alexeev. All rights reserved.
-//
+
 
 import UIKit
 
@@ -13,7 +11,10 @@ class GeneralTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //self.tabBarController?.
+        
+        //self.tabBarController?.selectedIndex = 1
+       
+        //selectedViewController = MapViewController()
         // Do any additional setup after loading the view.
     }
     
