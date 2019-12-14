@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/seren/Documents/GitHub/OnMapRelease/OnMapRelease/OnMapReleaseTests/AddChatMock.swift">
-   </FileRef>
-   <FileRef
       location = "group:OnMapRelease.xcodeproj">
    </FileRef>
    <FileRef
