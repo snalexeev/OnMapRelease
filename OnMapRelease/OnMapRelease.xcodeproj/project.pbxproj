@@ -25,6 +25,7 @@
 		04764F5723A5443400AB2CC1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04764F5623A5443400AB2CC1 /* MapViewController.swift */; };
 		04AD7CFA23A55BC90071065A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD7CF923A55BC90071065A /* AccountViewController.swift */; };
 		04AD7CFC23A55D0B0071065A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD7CFB23A55D0B0071065A /* SettingsViewController.swift */; };
+		04AD7CFE23A5609B0071065A /* GeneralTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD7CFD23A5609B0071065A /* GeneralTabBarController.swift */; };
 		3F23AB1F7A3C52DDC7E3CAB5 /* Pods_OnMapReleaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B646B37A566B98E2DA9EC057 /* Pods_OnMapReleaseUITests.framework */; };
 		E354CF3DB513D957B62EB548 /* Pods_OnMapRelease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA0B761D486ED0EF45D9870 /* Pods_OnMapRelease.framework */; };
 		F35F9EE0801A7BA9EB3669AA /* Pods_OnMapReleaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671134E54BD887BBF42E8D65 /* Pods_OnMapReleaseTests.framework */; };
@@ -72,6 +73,7 @@
 		04764F5623A5443400AB2CC1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		04AD7CF923A55BC90071065A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		04AD7CFB23A55D0B0071065A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		04AD7CFD23A5609B0071065A /* GeneralTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabBarController.swift; sourceTree = "<group>"; };
 		3113799C486B3671EED3824A /* Pods-OnMapReleaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnMapReleaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnMapReleaseUITests/Pods-OnMapReleaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		671134E54BD887BBF42E8D65 /* Pods_OnMapReleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnMapReleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99313945F07ECC27121DE582 /* Pods-OnMapRelease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnMapRelease.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnMapRelease/Pods-OnMapRelease.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				04752F6F23A0D2520091B5F0 /* Main.storyboard */,
+				04AD7CFD23A5609B0071065A /* GeneralTabBarController.swift */,
 				0427576F23A2983C00E876C7 /* Account */,
 				0427576E23A2980E00E876C7 /* Settings */,
 				0427577023A2988D00E876C7 /* Map */,
@@ -485,6 +488,7 @@
 				04752F6C23A0D2520091B5F0 /* SceneDelegate.swift in Sources */,
 				0427577523A29E9200E876C7 /* MessageCell.swift in Sources */,
 				04AD7CFA23A55BC90071065A /* AccountViewController.swift in Sources */,
+				04AD7CFE23A5609B0071065A /* GeneralTabBarController.swift in Sources */,
 				04AD7CFC23A55D0B0071065A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
