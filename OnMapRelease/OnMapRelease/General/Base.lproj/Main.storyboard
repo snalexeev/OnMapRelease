@@ -10,7 +10,7 @@
         <!--Settings-->
         <scene sceneID="lPo-1Y-6BA">
             <objects>
-                <viewController storyboardIdentifier="AccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WkF-kX-aUs" customClass="AccountViewController" customModule="OnMapRelease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WkF-kX-aUs" customClass="SettingsViewController" customModule="OnMapRelease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J9j-iz-lKj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
         <!--Account-->
         <scene sceneID="JVC-ca-y1w">
             <objects>
-                <viewController id="wbx-3U-dg5" customClass="AccountViewController" customModule="OnMapRelease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wbx-3U-dg5" customClass="AccountViewController" customModule="OnMapRelease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sFo-rJ-ZVu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

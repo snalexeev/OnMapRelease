@@ -2,34 +2,65 @@
 //  SceneDelegate.swift
 //  OnMapRelease
 //
-//  Created by Sergei Alexeev on 11.12.2019.
-//  Copyright © 2019 Sergei Alexeev. All rights reserved.
-//
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    func checkLogin() -> Bool {
+        return true
+    }
 
-
+    func rootMainTabBar(_ winScene: UIWindowScene) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let newViewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+        let vc1 = storyboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+        
+        let vc2 = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        
+        let vc3 = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        
+        let tb = UITabBarController()
+        
+        tb.setViewControllers([vc1, vc2, vc3], animated: false)
+        
+        tb.selectedIndex = 1
+        
+        let win = UIWindow(windowScene: winScene)
+        win.rootViewController = tb
+        win.makeKeyAndVisible()
+        window = win
+        
+        //let
+//        let vc1 = FirstViewController()
+//        let vc2 = SecondViewController()
+//        //let nc = UINavigationController(rootViewController: vc)
+//
+//        let tb = UITabBarController()
+//        tb.setViewControllers([vc1, vc2], animated: false)
+//        tb.selectedIndex = 1
+//        // Create the window. Be sure to use this initializer and not the frame one.
+//        let win = UIWindow(windowScene: winScene)
+//        win.rootViewController = tb
+//        win.makeKeyAndVisible()
+//        window = win
+    }
+    
+    func rootLoginViewController(_ winScene: UIWindowScene) {
+        
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
-        guard let _ = (scene as? UIWindowScene) else { return }
-        
-        
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-//        newViewController.modalPresentationStyle = .fullScreen
-//        window?.rootViewController = newViewController
-        
-        
-//        let kek = GeneralTabBarController()
-//        window?.rootViewController = kek
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        let key = checkLogin()
+        if key {
+            rootMainTabBar(winScene)
+        } else {
+            rootLoginViewController(winScene)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
