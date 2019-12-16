@@ -24,6 +24,25 @@
 		04752F8F23A0D2540091B5F0 /* OnMapReleaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04752F8E23A0D2540091B5F0 /* OnMapReleaseUITests.swift */; };
 		04752F9D23A0D6AB0091B5F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04752F9C23A0D6AB0091B5F0 /* GoogleService-Info.plist */; };
 		3F23AB1F7A3C52DDC7E3CAB5 /* Pods_OnMapReleaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B646B37A566B98E2DA9EC057 /* Pods_OnMapReleaseUITests.framework */; };
+		442E1E5B23A67C960091DCC5 /* LoginSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E5A23A67C960091DCC5 /* LoginSB.storyboard */; };
+		442E1E5D23A67D830091DCC5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E5C23A67D830091DCC5 /* LoginVC.swift */; };
+		442E1E5F23A67D8A0091DCC5 /* LoginNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E5E23A67D8A0091DCC5 /* LoginNetworking.swift */; };
+		442E1E6123A67D970091DCC5 /* ResetPasswordSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E6023A67D970091DCC5 /* ResetPasswordSB.storyboard */; };
+		442E1E6323A67D9E0091DCC5 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E6223A67D9E0091DCC5 /* ResetPasswordVC.swift */; };
+		442E1E6523A67DB50091DCC5 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E6423A67DB50091DCC5 /* AccountViewController.storyboard */; };
+		442E1E6723A67DBC0091DCC5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E6623A67DBC0091DCC5 /* AccountViewController.swift */; };
+		442E1E6923A67DC50091DCC5 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E6823A67DC40091DCC5 /* Account.swift */; };
+		442E1E6B23A67DCB0091DCC5 /* Confirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E6A23A67DCB0091DCC5 /* Confirmation.storyboard */; };
+		442E1E6D23A67DD50091DCC5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E6C23A67DD50091DCC5 /* ConfirmationViewController.swift */; };
+		442E1E6F23A67DEE0091DCC5 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E6E23A67DEE0091DCC5 /* NetworkingService.swift */; };
+		442E1E7123A67DF50091DCC5 /* PhotoNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E7023A67DF50091DCC5 /* PhotoNetworking.swift */; };
+		442E1E7323A67DFD0091DCC5 /* PhoneAuthSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E7223A67DFD0091DCC5 /* PhoneAuthSB.storyboard */; };
+		442E1E7523A67E080091DCC5 /* PhoneAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E7423A67E080091DCC5 /* PhoneAuthVC.swift */; };
+		442E1E7723A67E120091DCC5 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E7623A67E120091DCC5 /* RegistrationVC.swift */; };
+		442E1E7923A67E190091DCC5 /* RegistrationSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E7823A67E190091DCC5 /* RegistrationSB.storyboard */; };
+		442E1E7B23A67E1E0091DCC5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E7A23A67E1E0091DCC5 /* User.swift */; };
+		442E1E7D23A680080091DCC5 /* PhotoSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442E1E7C23A680080091DCC5 /* PhotoSB.storyboard */; };
+		442E1E7F23A680190091DCC5 /* PickUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442E1E7E23A680190091DCC5 /* PickUpPhotoController.swift */; };
 		E354CF3DB513D957B62EB548 /* Pods_OnMapRelease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA0B761D486ED0EF45D9870 /* Pods_OnMapRelease.framework */; };
 		F35F9EE0801A7BA9EB3669AA /* Pods_OnMapReleaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671134E54BD887BBF42E8D65 /* Pods_OnMapReleaseTests.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +88,25 @@
 		04752F9023A0D2540091B5F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04752F9C23A0D6AB0091B5F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3113799C486B3671EED3824A /* Pods-OnMapReleaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnMapReleaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnMapReleaseUITests/Pods-OnMapReleaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		442E1E5A23A67C960091DCC5 /* LoginSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginSB.storyboard; sourceTree = "<group>"; };
+		442E1E5C23A67D830091DCC5 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		442E1E5E23A67D8A0091DCC5 /* LoginNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworking.swift; sourceTree = "<group>"; };
+		442E1E6023A67D970091DCC5 /* ResetPasswordSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordSB.storyboard; sourceTree = "<group>"; };
+		442E1E6223A67D9E0091DCC5 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		442E1E6423A67DB50091DCC5 /* AccountViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
+		442E1E6623A67DBC0091DCC5 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		442E1E6823A67DC40091DCC5 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		442E1E6A23A67DCB0091DCC5 /* Confirmation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Confirmation.storyboard; sourceTree = "<group>"; };
+		442E1E6C23A67DD50091DCC5 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		442E1E6E23A67DEE0091DCC5 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		442E1E7023A67DF50091DCC5 /* PhotoNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoNetworking.swift; sourceTree = "<group>"; };
+		442E1E7223A67DFD0091DCC5 /* PhoneAuthSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhoneAuthSB.storyboard; sourceTree = "<group>"; };
+		442E1E7423A67E080091DCC5 /* PhoneAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthVC.swift; sourceTree = "<group>"; };
+		442E1E7623A67E120091DCC5 /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		442E1E7823A67E190091DCC5 /* RegistrationSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationSB.storyboard; sourceTree = "<group>"; };
+		442E1E7A23A67E1E0091DCC5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		442E1E7C23A680080091DCC5 /* PhotoSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoSB.storyboard; sourceTree = "<group>"; };
+		442E1E7E23A680190091DCC5 /* PickUpPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpPhotoController.swift; sourceTree = "<group>"; };
 		671134E54BD887BBF42E8D65 /* Pods_OnMapReleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnMapReleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99313945F07ECC27121DE582 /* Pods-OnMapRelease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnMapRelease.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnMapRelease/Pods-OnMapRelease.release.xcconfig"; sourceTree = "<group>"; };
 		A849DDFA02C8F2BB982A82AA /* Pods-OnMapRelease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnMapRelease.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnMapRelease/Pods-OnMapRelease.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +174,11 @@
 		0427576F23A2983C00E876C7 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				442E1E6423A67DB50091DCC5 /* AccountViewController.storyboard */,
+				442E1E6623A67DBC0091DCC5 /* AccountViewController.swift */,
+				442E1E6823A67DC40091DCC5 /* Account.swift */,
+				442E1E6A23A67DCB0091DCC5 /* Confirmation.storyboard */,
+				442E1E6C23A67DD50091DCC5 /* ConfirmationViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -190,8 +233,10 @@
 				0427576D23A297FB00E876C7 /* ChatRoom */,
 				0427576E23A2980E00E876C7 /* Settings */,
 				0410F07223A0D89700483D16 /* MessengerOnMap */,
-				0427576F23A2983C00E876C7 /* Account */,
 				04752F7523A0D2540091B5F0 /* Assets.xcassets */,
+				442E1E5923A67B120091DCC5 /* Login */,
+				0427576F23A2983C00E876C7 /* Account */,
+				442E1E5823A53B9E0091DCC5 /* Registration */,
 				04752F7A23A0D2540091B5F0 /* Info.plist */,
 				04752F7223A0D2520091B5F0 /* OnMapRelease.xcdatamodeld */,
 			);
@@ -228,6 +273,34 @@
 				B4304973F16CACF5E4F020F1 /* Pods-OnMapReleaseUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		442E1E5823A53B9E0091DCC5 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				442E1E6E23A67DEE0091DCC5 /* NetworkingService.swift */,
+				442E1E7C23A680080091DCC5 /* PhotoSB.storyboard */,
+				442E1E7E23A680190091DCC5 /* PickUpPhotoController.swift */,
+				442E1E7023A67DF50091DCC5 /* PhotoNetworking.swift */,
+				442E1E7223A67DFD0091DCC5 /* PhoneAuthSB.storyboard */,
+				442E1E7423A67E080091DCC5 /* PhoneAuthVC.swift */,
+				442E1E7623A67E120091DCC5 /* RegistrationVC.swift */,
+				442E1E7823A67E190091DCC5 /* RegistrationSB.storyboard */,
+				442E1E7A23A67E1E0091DCC5 /* User.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		442E1E5923A67B120091DCC5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				442E1E5A23A67C960091DCC5 /* LoginSB.storyboard */,
+				442E1E6223A67D9E0091DCC5 /* ResetPasswordVC.swift */,
+				442E1E6023A67D970091DCC5 /* ResetPasswordSB.storyboard */,
+				442E1E5E23A67D8A0091DCC5 /* LoginNetworking.swift */,
+				442E1E5C23A67D830091DCC5 /* LoginVC.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		F47D523156046D1C186F6745 /* Frameworks */ = {
@@ -350,8 +423,15 @@
 			files = (
 				04752F7923A0D2540091B5F0 /* LaunchScreen.storyboard in Resources */,
 				04752F9D23A0D6AB0091B5F0 /* GoogleService-Info.plist in Resources */,
+				442E1E6123A67D970091DCC5 /* ResetPasswordSB.storyboard in Resources */,
+				442E1E5B23A67C960091DCC5 /* LoginSB.storyboard in Resources */,
+				442E1E7323A67DFD0091DCC5 /* PhoneAuthSB.storyboard in Resources */,
 				04752F7623A0D2540091B5F0 /* Assets.xcassets in Resources */,
+				442E1E7D23A680080091DCC5 /* PhotoSB.storyboard in Resources */,
+				442E1E7923A67E190091DCC5 /* RegistrationSB.storyboard in Resources */,
+				442E1E6523A67DB50091DCC5 /* AccountViewController.storyboard in Resources */,
 				04752F7123A0D2520091B5F0 /* Main.storyboard in Resources */,
+				442E1E6B23A67DCB0091DCC5 /* Confirmation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,13 +551,25 @@
 			files = (
 				0410F07823A0D8F300483D16 /* FirestoreMessenger.swift in Sources */,
 				0410F07623A0D8BE00483D16 /* ChatInfo.swift in Sources */,
+				442E1E6723A67DBC0091DCC5 /* AccountViewController.swift in Sources */,
 				0427577323A29A1F00E876C7 /* StartAnimationViewController.swift in Sources */,
+				442E1E7723A67E120091DCC5 /* RegistrationVC.swift in Sources */,
+				442E1E5F23A67D8A0091DCC5 /* LoginNetworking.swift in Sources */,
 				0410F07A23A0D90700483D16 /* MessengerOnMap.swift in Sources */,
+				442E1E5D23A67D830091DCC5 /* LoginVC.swift in Sources */,
+				442E1E7B23A67E1E0091DCC5 /* User.swift in Sources */,
 				04752F7423A0D2520091B5F0 /* OnMapRelease.xcdatamodeld in Sources */,
 				04752F6A23A0D2520091B5F0 /* AppDelegate.swift in Sources */,
+				442E1E6D23A67DD50091DCC5 /* ConfirmationViewController.swift in Sources */,
+				442E1E7123A67DF50091DCC5 /* PhotoNetworking.swift in Sources */,
 				0410F07423A0D8AE00483D16 /* ChatRoom.swift in Sources */,
+				442E1E7F23A680190091DCC5 /* PickUpPhotoController.swift in Sources */,
+				442E1E6F23A67DEE0091DCC5 /* NetworkingService.swift in Sources */,
+				442E1E7523A67E080091DCC5 /* PhoneAuthVC.swift in Sources */,
 				04752F6C23A0D2520091B5F0 /* SceneDelegate.swift in Sources */,
 				0427577523A29E9200E876C7 /* MessageCell.swift in Sources */,
+				442E1E6323A67D9E0091DCC5 /* ResetPasswordVC.swift in Sources */,
+				442E1E6923A67DC50091DCC5 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
