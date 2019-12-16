@@ -1,6 +1,0 @@
-framework module Pods_OnMapRelease {
-  umbrella header "Pods-OnMapRelease-umbrella.h"
-
-  export *
-  module * { export * }
-}
