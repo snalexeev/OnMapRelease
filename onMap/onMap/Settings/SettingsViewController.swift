@@ -1,14 +1,12 @@
 //
-//  MapViewController.swift
+//  SettingsViewController.swift
 //  onMap
 //
 
 import UIKit
-import MapKit
 
-class MapViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

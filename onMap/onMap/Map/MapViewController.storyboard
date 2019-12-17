@@ -1,7 +1,62 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Map-->
+        <scene sceneID="LKt-y2-0t8">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uLg-i4-TmN" customClass="MapViewController" customModule="onMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ebs-sb-SG7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Sqc-JK-uRT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dLg-AU-sMo" firstAttribute="bottom" secondItem="Sqc-JK-uRT" secondAttribute="bottom" id="DZf-KY-TgF"/>
+                            <constraint firstItem="dLg-AU-sMo" firstAttribute="trailing" secondItem="Sqc-JK-uRT" secondAttribute="trailing" id="E5r-OJ-80v"/>
+                            <constraint firstItem="Sqc-JK-uRT" firstAttribute="top" secondItem="dLg-AU-sMo" secondAttribute="top" id="eMf-zl-hUH"/>
+                            <constraint firstItem="Sqc-JK-uRT" firstAttribute="leading" secondItem="dLg-AU-sMo" secondAttribute="leading" id="lmm-U2-WZz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dLg-AU-sMo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="XLe-nw-640"/>
+                    <navigationItem key="navigationItem" id="bIl-jo-8oC"/>
+                    <connections>
+                        <outlet property="mapView" destination="Sqc-JK-uRT" id="gmL-OK-7At"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRt-q1-9a4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2910.144927536232" y="159.375"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Zdb-po-BJZ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lWp-jq-1e7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SJQ-E0-iOO">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uLg-i4-TmN" kind="relationship" relationship="viewControllers" id="oWY-Iw-cgs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ds9-lz-zuR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2000.0000000000002" y="159.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="map" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

@@ -1,14 +1,12 @@
 //
-//  MapViewController.swift
+//  AccountViewController.swift
 //  onMap
 //
 
 import UIKit
-import MapKit
 
-class MapViewController: UIViewController {
+class AccountViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
