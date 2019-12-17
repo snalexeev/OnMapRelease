@@ -99,6 +99,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		04B43F7323A9769C00B95DD9 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				04D22AF223A7F59200C5ADD4 /* MessengerOnMap */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		04B43F7423A976C000B95DD9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				04D22AF323A7F5AD00C5ADD4 /* Settings */,
+				04D22AF423A7F5D700C5ADD4 /* Map */,
+				04D22AF523A7F61E00C5ADD4 /* Account */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		04D22AB323A7F48900C5ADD4 = {
 			isa = PBXGroup;
 			children = (
@@ -126,10 +144,8 @@
 				04D22ABF23A7F48900C5ADD4 /* AppDelegate.swift */,
 				04D22AC123A7F48900C5ADD4 /* SceneDelegate.swift */,
 				04D22AC523A7F48900C5ADD4 /* Main.storyboard */,
-				04D22AF523A7F61E00C5ADD4 /* Account */,
-				04D22AF423A7F5D700C5ADD4 /* Map */,
-				04D22AF323A7F5AD00C5ADD4 /* Settings */,
-				04D22AF223A7F59200C5ADD4 /* MessengerOnMap */,
+				04B43F7323A9769C00B95DD9 /* Framework */,
+				04B43F7423A976C000B95DD9 /* ViewControllers */,
 				04D22ACB23A7F48D00C5ADD4 /* Assets.xcassets */,
 				04D22ACD23A7F48D00C5ADD4 /* LaunchScreen.storyboard */,
 				04D22AD023A7F48D00C5ADD4 /* Info.plist */,
