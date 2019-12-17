@@ -18,10 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc1 = storyboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
         storyboard = UIStoryboard(name: "MapViewController", bundle: nil)
         let vc2 = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        let nc2 = UINavigationController(rootViewController: vc2)
         storyboard = UIStoryboard(name: "SettingsViewController", bundle: nil)
         let vc3 = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         let tb = UITabBarController()
-        tb.setViewControllers([vc1, vc2, vc3], animated: false)
+        tb.setViewControllers([vc1, nc2, vc3], animated: false)
         tb.selectedIndex = 1
         let newWindow = UIWindow(windowScene: winScene)
         newWindow.rootViewController = tb
