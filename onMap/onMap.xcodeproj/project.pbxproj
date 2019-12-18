@@ -13,6 +13,12 @@
 		04B43F7023A9711800B95DD9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F6F23A9711800B95DD9 /* SettingsViewController.swift */; };
 		04B43F7223A9713000B95DD9 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F7123A9713000B95DD9 /* SettingsViewController.storyboard */; };
 		04B43F7723A97B5500B95DD9 /* SettingsOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F7623A97B5500B95DD9 /* SettingsOnMap.swift */; };
+		04B43F7A23AA372300B95DD9 /* ChangeTypeMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F7823AA372300B95DD9 /* ChangeTypeMapCell.swift */; };
+		04B43F7B23AA372300B95DD9 /* ChangeTypeMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F7923AA372300B95DD9 /* ChangeTypeMapCell.xib */; };
+		04B43F7F23AA390100B95DD9 /* ChangeNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F7D23AA390100B95DD9 /* ChangeNotifications.swift */; };
+		04B43F8023AA390100B95DD9 /* ChangeNotifications.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F7E23AA390100B95DD9 /* ChangeNotifications.xib */; };
+		04B43F8323AA397200B95DD9 /* ChangeLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F8123AA397200B95DD9 /* ChangeLanguage.swift */; };
+		04B43F8423AA397200B95DD9 /* ChangeLanguage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F8223AA397200B95DD9 /* ChangeLanguage.xib */; };
 		04D22AC023A7F48900C5ADD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D22ABF23A7F48900C5ADD4 /* AppDelegate.swift */; };
 		04D22AC223A7F48900C5ADD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D22AC123A7F48900C5ADD4 /* SceneDelegate.swift */; };
 		04D22AC723A7F48900C5ADD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D22AC523A7F48900C5ADD4 /* Main.storyboard */; };
@@ -49,6 +55,12 @@
 		04B43F6F23A9711800B95DD9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		04B43F7123A9713000B95DD9 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		04B43F7623A97B5500B95DD9 /* SettingsOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOnMap.swift; sourceTree = "<group>"; };
+		04B43F7823AA372300B95DD9 /* ChangeTypeMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTypeMapCell.swift; sourceTree = "<group>"; };
+		04B43F7923AA372300B95DD9 /* ChangeTypeMapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTypeMapCell.xib; sourceTree = "<group>"; };
+		04B43F7D23AA390100B95DD9 /* ChangeNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNotifications.swift; sourceTree = "<group>"; };
+		04B43F7E23AA390100B95DD9 /* ChangeNotifications.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeNotifications.xib; sourceTree = "<group>"; };
+		04B43F8123AA397200B95DD9 /* ChangeLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguage.swift; sourceTree = "<group>"; };
+		04B43F8223AA397200B95DD9 /* ChangeLanguage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeLanguage.xib; sourceTree = "<group>"; };
 		04D22ABC23A7F48900C5ADD4 /* onMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D22ABF23A7F48900C5ADD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04D22AC123A7F48900C5ADD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +140,19 @@
 			path = SettingsOnMap;
 			sourceTree = "<group>";
 		};
+		04B43F7C23AA372F00B95DD9 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				04B43F7823AA372300B95DD9 /* ChangeTypeMapCell.swift */,
+				04B43F7923AA372300B95DD9 /* ChangeTypeMapCell.xib */,
+				04B43F7D23AA390100B95DD9 /* ChangeNotifications.swift */,
+				04B43F7E23AA390100B95DD9 /* ChangeNotifications.xib */,
+				04B43F8123AA397200B95DD9 /* ChangeLanguage.swift */,
+				04B43F8223AA397200B95DD9 /* ChangeLanguage.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		04D22AB323A7F48900C5ADD4 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +220,7 @@
 			children = (
 				04B43F7123A9713000B95DD9 /* SettingsViewController.storyboard */,
 				04B43F6F23A9711800B95DD9 /* SettingsViewController.swift */,
+				04B43F7C23AA372F00B95DD9 /* TableViewCells */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -321,8 +347,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B43F8023AA390100B95DD9 /* ChangeNotifications.xib in Resources */,
 				04D22AF923A7F67600C5ADD4 /* MapViewController.storyboard in Resources */,
 				04D22ACF23A7F48D00C5ADD4 /* LaunchScreen.storyboard in Resources */,
+				04B43F7B23AA372300B95DD9 /* ChangeTypeMapCell.xib in Resources */,
+				04B43F8423AA397200B95DD9 /* ChangeLanguage.xib in Resources */,
 				04D22ACC23A7F48D00C5ADD4 /* Assets.xcassets in Resources */,
 				04D22AC723A7F48900C5ADD4 /* Main.storyboard in Resources */,
 				04B43F7223A9713000B95DD9 /* SettingsViewController.storyboard in Resources */,
@@ -351,6 +380,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B43F7A23AA372300B95DD9 /* ChangeTypeMapCell.swift in Sources */,
+				04B43F7F23AA390100B95DD9 /* ChangeNotifications.swift in Sources */,
 				04D22ACA23A7F48900C5ADD4 /* onMap.xcdatamodeld in Sources */,
 				04B43F7023A9711800B95DD9 /* SettingsViewController.swift in Sources */,
 				04B43F6C23A96FBA00B95DD9 /* AccountViewController.swift in Sources */,
@@ -358,6 +389,7 @@
 				04D22AF723A7F66100C5ADD4 /* MapViewController.swift in Sources */,
 				04D22AC223A7F48900C5ADD4 /* SceneDelegate.swift in Sources */,
 				04B43F7723A97B5500B95DD9 /* SettingsOnMap.swift in Sources */,
+				04B43F8323AA397200B95DD9 /* ChangeLanguage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

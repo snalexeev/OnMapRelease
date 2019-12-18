@@ -14,5 +14,8 @@ class MapViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        SettingOnMap.shared.setMap(map: mapView)
+        //SettingOnMap.shared.mapType = .hybrid
+        
     }
 }

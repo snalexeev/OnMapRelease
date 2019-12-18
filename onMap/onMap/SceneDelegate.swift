@@ -10,7 +10,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func userIsLogin() -> Bool {
-        return true
+        SettingOnMap.shared.userIsLogin = true
+        return SettingOnMap.shared.userIsLogin
     }
 
     func rootMainTabBar(_ winScene: UIWindowScene) {
@@ -36,6 +37,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
+        
+        
         let key = userIsLogin()
         if key {
             rootMainTabBar(winScene)
