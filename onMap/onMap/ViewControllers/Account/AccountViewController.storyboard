@@ -26,6 +26,9 @@
                                 <state key="normal" title="Выход">
                                     <color key="titleColor" red="0.66250545559999996" green="0.06561455209" blue="0.1056884511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didClickLogOut:" destination="5ia-vx-no4" eventType="touchUpInside" id="95B-og-pIi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -49,6 +52,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1jY-Pi-NpN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2fR-zd-NhK">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

@@ -19,6 +19,8 @@
 		04B43F8023AA390100B95DD9 /* ChangeNotifications.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F7E23AA390100B95DD9 /* ChangeNotifications.xib */; };
 		04B43F8323AA397200B95DD9 /* ChangeLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F8123AA397200B95DD9 /* ChangeLanguage.swift */; };
 		04B43F8423AA397200B95DD9 /* ChangeLanguage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F8223AA397200B95DD9 /* ChangeLanguage.xib */; };
+		04B43F8B23AA493C00B95DD9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B43F8A23AA493C00B95DD9 /* LoginViewController.swift */; };
+		04B43F8D23AA495200B95DD9 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B43F8C23AA495200B95DD9 /* LoginViewController.storyboard */; };
 		04D22AC023A7F48900C5ADD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D22ABF23A7F48900C5ADD4 /* AppDelegate.swift */; };
 		04D22AC223A7F48900C5ADD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D22AC123A7F48900C5ADD4 /* SceneDelegate.swift */; };
 		04D22AC723A7F48900C5ADD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D22AC523A7F48900C5ADD4 /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		04B43F7E23AA390100B95DD9 /* ChangeNotifications.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeNotifications.xib; sourceTree = "<group>"; };
 		04B43F8123AA397200B95DD9 /* ChangeLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLanguage.swift; sourceTree = "<group>"; };
 		04B43F8223AA397200B95DD9 /* ChangeLanguage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeLanguage.xib; sourceTree = "<group>"; };
+		04B43F8A23AA493C00B95DD9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		04B43F8C23AA495200B95DD9 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		04D22ABC23A7F48900C5ADD4 /* onMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D22ABF23A7F48900C5ADD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04D22AC123A7F48900C5ADD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		04B43F7423A976C000B95DD9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04B43F8523AA48E200B95DD9 /* Login */,
 				04D22AF323A7F5AD00C5ADD4 /* Settings */,
 				04D22AF423A7F5D700C5ADD4 /* Map */,
 				04D22AF523A7F61E00C5ADD4 /* Account */,
@@ -151,6 +156,15 @@
 				04B43F8223AA397200B95DD9 /* ChangeLanguage.xib */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		04B43F8523AA48E200B95DD9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04B43F8A23AA493C00B95DD9 /* LoginViewController.swift */,
+				04B43F8C23AA495200B95DD9 /* LoginViewController.storyboard */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		04D22AB323A7F48900C5ADD4 = {
@@ -354,6 +368,7 @@
 				04B43F8423AA397200B95DD9 /* ChangeLanguage.xib in Resources */,
 				04D22ACC23A7F48D00C5ADD4 /* Assets.xcassets in Resources */,
 				04D22AC723A7F48900C5ADD4 /* Main.storyboard in Resources */,
+				04B43F8D23AA495200B95DD9 /* LoginViewController.storyboard in Resources */,
 				04B43F7223A9713000B95DD9 /* SettingsViewController.storyboard in Resources */,
 				04B43F6E23A96FD100B95DD9 /* AccountViewController.storyboard in Resources */,
 			);
@@ -390,6 +405,7 @@
 				04D22AC223A7F48900C5ADD4 /* SceneDelegate.swift in Sources */,
 				04B43F7723A97B5500B95DD9 /* SettingsOnMap.swift in Sources */,
 				04B43F8323AA397200B95DD9 /* ChangeLanguage.swift in Sources */,
+				04B43F8B23AA493C00B95DD9 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

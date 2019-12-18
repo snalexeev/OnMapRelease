@@ -10,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func userIsLogin() -> Bool {
-        SettingOnMap.shared.userIsLogin = true
+        //SettingOnMap.shared.userIsLogin = true
         return SettingOnMap.shared.userIsLogin
     }
 
@@ -32,6 +32,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func rootLoginViewController(_ winScene: UIWindowScene) {
+        let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nc = UINavigationController(rootViewController: vc)
+        let newWindow = UIWindow(windowScene: winScene)
+        newWindow.rootViewController = nc
+        newWindow.makeKeyAndVisible()
+        window = newWindow
         return
     }
 
