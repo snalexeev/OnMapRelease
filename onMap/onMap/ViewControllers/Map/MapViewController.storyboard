@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,19 +12,19 @@
             <objects>
                 <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uLg-i4-TmN" customClass="MapViewController" customModule="onMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ebs-sb-SG7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Sqc-JK-uRT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="-1" y="-1" width="898" height="416"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="dLg-AU-sMo" firstAttribute="bottom" secondItem="Sqc-JK-uRT" secondAttribute="bottom" id="DZf-KY-TgF"/>
-                            <constraint firstItem="dLg-AU-sMo" firstAttribute="trailing" secondItem="Sqc-JK-uRT" secondAttribute="trailing" id="E5r-OJ-80v"/>
-                            <constraint firstItem="Sqc-JK-uRT" firstAttribute="top" secondItem="dLg-AU-sMo" secondAttribute="top" id="eMf-zl-hUH"/>
-                            <constraint firstItem="Sqc-JK-uRT" firstAttribute="leading" secondItem="dLg-AU-sMo" secondAttribute="leading" id="lmm-U2-WZz"/>
+                            <constraint firstItem="Sqc-JK-uRT" firstAttribute="top" secondItem="Ebs-sb-SG7" secondAttribute="top" constant="-1" id="8is-e7-st5"/>
+                            <constraint firstAttribute="trailing" secondItem="Sqc-JK-uRT" secondAttribute="trailing" constant="-1" id="VLo-6O-1nR"/>
+                            <constraint firstItem="Sqc-JK-uRT" firstAttribute="leading" secondItem="Ebs-sb-SG7" secondAttribute="leading" constant="-1" id="WgV-6J-IlR"/>
+                            <constraint firstAttribute="bottom" secondItem="Sqc-JK-uRT" secondAttribute="bottom" constant="-1" id="deD-0N-bhD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dLg-AU-sMo"/>
                     </view>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRt-q1-9a4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2910.144927536232" y="159.375"/>
+            <point key="canvasLocation" x="2909.5982142857142" y="157.97101449275362"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zdb-po-BJZ">
@@ -44,6 +44,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lWp-jq-1e7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SJQ-E0-iOO">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
