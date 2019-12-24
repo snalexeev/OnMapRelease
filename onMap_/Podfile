@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'onMap_login' do
+pod 'RealmSwift', '~> 3.17', :modular_headers => true
+ pod 'Firebase/Auth'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
+pod 'Firebase/Firestore'
+pod 'Firebase/Analytics'
+pod 'Alamofire'
+pod 'SwiftyJSON'
+pod 'Realm', '~> 3.17', :modular_headers => true
+end

@@ -1,0 +1,1 @@
+../../../FirebaseFirestore/Firestore/core/src/firebase/firestore/local/memory_eager_reference_delegate.h

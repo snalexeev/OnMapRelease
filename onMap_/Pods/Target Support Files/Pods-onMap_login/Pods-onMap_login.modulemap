@@ -1,0 +1,6 @@
+module Pods_onMap_login {
+  umbrella header "Pods-onMap_login-umbrella.h"
+
+  export *
+  module * { export * }
+}

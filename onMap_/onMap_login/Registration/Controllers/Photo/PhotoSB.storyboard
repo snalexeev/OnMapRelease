@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PickUpPhotoController-->
+        <scene sceneID="FyL-gZ-A9b">
+            <objects>
+                <viewController storyboardIdentifier="PickUpPhotoController" title="PickUpPhotoController" id="L8u-rR-qF9" customClass="PickUpPhotoController" customModule="onMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w2o-ia-c42">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS9-Pi-XDh">
+                                <rect key="frame" x="30" y="500" width="354" height="30"/>
+                                <state key="normal" title="выбрать из медиатеки">
+                                    <color key="titleColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="getPhoto:" destination="L8u-rR-qF9" eventType="touchUpInside" id="o7D-Zp-gCN"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_default" translatesAutoresizingMaskIntoConstraints="NO" id="t7D-ZM-Xw7">
+                                <rect key="frame" x="87" y="134" width="240" height="331"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="331" id="yI4-Uj-qhh"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-GB-Pz0">
+                                <rect key="frame" x="30" y="538" width="354" height="30"/>
+                                <state key="normal" title="сделать фото">
+                                    <color key="titleColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="L8u-rR-qF9" eventType="touchUpInside" id="nuf-Lf-aUX"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GKa-cm-Uyh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="7uL-9L-DMG">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nIz-73-3CH">
+                                            <color key="tintColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <connections>
+                                                <action selector="back:" destination="L8u-rR-qF9" id="jly-cJ-aE7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nV-be-Ldy">
+                                <rect key="frame" x="152" y="576" width="110" height="30"/>
+                                <state key="normal" title="загрузить фото">
+                                    <color key="titleColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadPhoto:" destination="L8u-rR-qF9" eventType="touchUpInside" id="ESM-vT-KlX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5nV-be-Ldy" firstAttribute="top" secondItem="4Nh-GB-Pz0" secondAttribute="bottom" constant="8" id="6mG-jP-8mJ"/>
+                            <constraint firstItem="FS9-Pi-XDh" firstAttribute="leading" secondItem="Sl7-4n-D1q" secondAttribute="leading" constant="30" id="8GY-DB-Nkw"/>
+                            <constraint firstItem="4Nh-GB-Pz0" firstAttribute="top" secondItem="FS9-Pi-XDh" secondAttribute="bottom" constant="8" symbolic="YES" id="C8W-eG-X5s"/>
+                            <constraint firstItem="Sl7-4n-D1q" firstAttribute="trailing" secondItem="t7D-ZM-Xw7" secondAttribute="trailing" constant="87" id="E1r-ql-qoK"/>
+                            <constraint firstItem="4Nh-GB-Pz0" firstAttribute="leading" secondItem="Sl7-4n-D1q" secondAttribute="leading" constant="30" id="FBp-zX-Qgn"/>
+                            <constraint firstItem="5nV-be-Ldy" firstAttribute="leading" secondItem="Sl7-4n-D1q" secondAttribute="leading" constant="152" id="Hho-mg-PcG"/>
+                            <constraint firstItem="Sl7-4n-D1q" firstAttribute="trailing" secondItem="FS9-Pi-XDh" secondAttribute="trailing" constant="30" id="IiC-eK-vXV"/>
+                            <constraint firstItem="Sl7-4n-D1q" firstAttribute="trailing" secondItem="5nV-be-Ldy" secondAttribute="trailing" constant="152" id="KIQ-QQ-3ey"/>
+                            <constraint firstItem="t7D-ZM-Xw7" firstAttribute="top" secondItem="Sl7-4n-D1q" secondAttribute="top" constant="90" id="R8S-Kc-WEP"/>
+                            <constraint firstItem="t7D-ZM-Xw7" firstAttribute="leading" secondItem="Sl7-4n-D1q" secondAttribute="leading" constant="87" id="RNH-GL-Qer"/>
+                            <constraint firstItem="FS9-Pi-XDh" firstAttribute="top" secondItem="t7D-ZM-Xw7" secondAttribute="bottom" constant="35" id="RO8-jk-fHc"/>
+                            <constraint firstItem="Sl7-4n-D1q" firstAttribute="trailing" secondItem="4Nh-GB-Pz0" secondAttribute="trailing" constant="30" id="mab-yL-f8T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Sl7-4n-D1q"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="t7D-ZM-Xw7" id="aBW-gE-1hO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHI-bA-o5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6039.130434782609" y="-520.3125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="user_default" width="2067" height="1163"/>
+    </resources>
+</document>
