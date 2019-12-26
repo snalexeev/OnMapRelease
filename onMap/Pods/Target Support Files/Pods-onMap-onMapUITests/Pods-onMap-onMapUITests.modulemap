@@ -1,6 +1,0 @@
-framework module Pods_onMap_onMapUITests {
-  umbrella header "Pods-onMap-onMapUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

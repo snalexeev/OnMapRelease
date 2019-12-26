@@ -6,10 +6,47 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func userIsLogin() -> Bool {
+        SettingOnMap.shared.userIsLogin = false
+        return SettingOnMap.shared.userIsLogin
+    }
+    
+    func rootMainTabBar() {
+        var storyboard = UIStoryboard(name: "AccountViewController", bundle: nil)
+        let vc1 = storyboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+        storyboard = UIStoryboard(name: "MapViewController", bundle: nil)
+        let vc2 = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        let nc2 = UINavigationController(rootViewController: vc2)
+        //storyboard = UIStoryboard(name: "SettingsViewController", bundle: nil)
+        //let vc3 = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        let tb = UITabBarController()
+        tb.setViewControllers([vc1, nc2/*, vc3*/], animated: false)
+        tb.selectedIndex = 1
+        self.window?.rootViewController = tb
+        self.window?.makeKeyAndVisible()
+    }
+    func rootLoginViewController() {
+        let bounds = UIScreen.main.bounds
+        self.window = UIWindow(frame: bounds)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nc = UINavigationController.init(rootViewController: vc)
+        self.window?.rootViewController = nc
+        self.window?.makeKeyAndVisible()
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        rootMainTabBar()
+        
+//        let key = SettingOnMap.shared.userIsLogin
+//        if key {
+//            rootMainTabBar()
+//        } else {
+//            rootLoginViewController()
+//        }
         return true
     }
 

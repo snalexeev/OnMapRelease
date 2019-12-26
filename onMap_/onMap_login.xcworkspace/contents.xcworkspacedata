@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:onMap_login.xcodeproj">
+      location = "group:/Users/seren/Documents/GitHub/OnMapRelease/onMap_/onMap.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
