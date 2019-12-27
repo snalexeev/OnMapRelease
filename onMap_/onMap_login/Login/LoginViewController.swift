@@ -162,6 +162,7 @@ final class LoginViewController: UIViewController {
         }
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
+        //true = islogin
         logIn()
     }
     func logIn(){

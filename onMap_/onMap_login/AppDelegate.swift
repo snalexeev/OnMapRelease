@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func userIsLogin() -> Bool {
-        SettingOnMap.shared.userIsLogin = false
+        //SettingOnMap.shared.userIsLogin = false
         return SettingOnMap.shared.userIsLogin
     }
     
