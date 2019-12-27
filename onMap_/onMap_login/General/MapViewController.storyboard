@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="ZTI-rP-Jdr">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vac-LR-AKV" customClass="MapViewController" customModule="onMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UiX-P3-wRc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qji-vg-oMM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DZy-lI-kzp" appends="YES" id="Iwf-Yb-wV6"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIX-OS-QpK">
+                                <rect key="frame" x="354" y="118" width="30" height="30"/>
+                                <state key="normal" title="test">
+                                    <color key="titleColor" red="0.69670414920000001" green="0.50540000200000001" blue="0.92422920470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didCkickTest:" destination="Vac-LR-AKV" eventType="touchUpInside" id="VrP-OM-ybm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-jI-Iau">
+                                <rect key="frame" x="45" y="133" width="30" height="30"/>
+                                <state key="normal" title="kek"/>
+                                <connections>
+                                    <action selector="kek:" destination="Vac-LR-AKV" eventType="touchUpInside" id="sCI-EF-nQ8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Qji-vg-oMM" firstAttribute="trailing" secondItem="EAX-HY-VyS" secondAttribute="trailing" id="B8T-jZ-llJ"/>
+                            <constraint firstItem="Qji-vg-oMM" firstAttribute="leading" secondItem="EAX-HY-VyS" secondAttribute="leading" id="OHr-Nc-8iN"/>
+                            <constraint firstItem="EAX-HY-VyS" firstAttribute="trailing" secondItem="HIX-OS-QpK" secondAttribute="trailing" constant="30" id="OZt-oL-k1V"/>
+                            <constraint firstItem="VBB-jI-Iau" firstAttribute="leading" secondItem="EAX-HY-VyS" secondAttribute="leading" constant="45" id="Sbx-r2-aAN"/>
+                            <constraint firstItem="VBB-jI-Iau" firstAttribute="top" secondItem="EAX-HY-VyS" secondAttribute="top" constant="45" id="TQN-yh-pzA"/>
+                            <constraint firstAttribute="bottom" secondItem="Qji-vg-oMM" secondAttribute="bottom" id="Y12-xo-l20"/>
+                            <constraint firstItem="HIX-OS-QpK" firstAttribute="top" secondItem="EAX-HY-VyS" secondAttribute="top" constant="30" id="qMF-SD-nQg"/>
+                            <constraint firstItem="Qji-vg-oMM" firstAttribute="top" secondItem="EAX-HY-VyS" secondAttribute="top" id="tii-lb-1OY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EAX-HY-VyS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="On9-iG-jat">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="UXL-S6-orp">
+                            <color key="tintColor" red="0.69670414920000001" green="0.50540000200000001" blue="0.92422920470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logOut:" destination="Vac-LR-AKV" id="L1t-TZ-fAG"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Account" id="DAf-9Y-4b9">
+                                <color key="tintColor" red="0.69670414920000001" green="0.50540000200000001" blue="0.92422920470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="didClickBarAccountButton:" destination="Vac-LR-AKV" id="BT3-MQ-jZo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="gTf-pL-cyT">
+                                <color key="tintColor" red="0.69670414920000001" green="0.50540000200000001" blue="0.92422920470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="Qji-vg-oMM" id="sUr-5T-DFD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzP-bz-8do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="DZy-lI-kzp">
+                    <connections>
+                        <action selector="didLongPressMap:" destination="Vac-LR-AKV" id="2st-6U-zDe"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2057.971014492754" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WoM-Jg-Qsp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aY1-TW-UBd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k2t-TE-fgE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vac-LR-AKV" kind="relationship" relationship="rootViewController" id="iNP-br-dYj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJm-os-qRB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147.8260869565217" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>

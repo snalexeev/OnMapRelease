@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LoginViewController-->
+        <scene sceneID="Ooc-bN-rl2">
+            <objects>
+                <viewController title="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vIs-gu-yBn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ITn-1S-U2r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FcC-pR-aug">
+                                <rect key="frame" x="0.0" y="39" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odN-vh-ERm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UC-nF-0fu" userLabel="WidthView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="OHY-il-Krt"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-1d-wZo" userLabel="HeightView">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="896"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" id="5RT-gz-pYE"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="46g-B7-Hgt">
+                                        <rect key="frame" x="10" y="340" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnv-hr-aDs">
+                                        <rect key="frame" x="10" y="418" width="394" height="30"/>
+                                        <state key="normal" title="войти">
+                                            <color key="titleColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="vIs-gu-yBn" eventType="touchUpInside" id="aWd-vZ-0dr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xP9-rQ-uaJ">
+                                        <rect key="frame" x="10" y="458" width="394" height="30"/>
+                                        <state key="normal" title="регистрация">
+                                            <color key="titleColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="vIs-gu-yBn" eventType="touchUpInside" id="fzC-wi-Teq"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQO-mZ-ks9">
+                                        <rect key="frame" x="10" y="374" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9f-jo-X55">
+                                        <rect key="frame" x="10" y="498" width="394" height="30"/>
+                                        <state key="normal" title="забыли пароль?">
+                                            <color key="titleColor" red="0.59832799430000005" green="0.1175555065" blue="0.16469120979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotPassword:" destination="vIs-gu-yBn" eventType="touchUpInside" id="sei-7u-9ht"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gGB-uU-4z4">
+                                        <rect key="frame" x="30" y="288" width="354" height="32"/>
+                                        <segments>
+                                            <segment title="войти с помощью Email"/>
+                                            <segment title="войти по номеру"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.59832799430000005" green="0.1175555065" blue="0.16469120979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="vIs-gu-yBn" eventType="valueChanged" id="13m-aC-JNl"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfK-Fy-R7s">
+                                        <rect key="frame" x="10" y="379" width="394" height="30"/>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="отправить код">
+                                            <color key="titleColor" red="0.65304070709999995" green="0.0024888867049999998" blue="0.14508005979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendCode:" destination="vIs-gu-yBn" eventType="touchUpInside" id="Lab-nm-0xB"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Код из SMS" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UP-8Q-cmM">
+                                        <rect key="frame" x="10" y="374" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dnv-hr-aDs" secondAttribute="trailing" constant="10" id="1sN-1K-dib"/>
+                                    <constraint firstAttribute="trailing" secondItem="46g-B7-Hgt" secondAttribute="trailing" constant="10" id="4le-l1-Tf7"/>
+                                    <constraint firstItem="46g-B7-Hgt" firstAttribute="top" secondItem="gGB-uU-4z4" secondAttribute="bottom" constant="21" id="6Id-Ci-eGV"/>
+                                    <constraint firstItem="YfK-Fy-R7s" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="Dwb-qZ-JBy"/>
+                                    <constraint firstItem="Z9f-jo-X55" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="EE6-Lt-gAz"/>
+                                    <constraint firstItem="6UP-8Q-cmM" firstAttribute="top" secondItem="46g-B7-Hgt" secondAttribute="bottom" id="EJE-wh-OxE"/>
+                                    <constraint firstItem="YfK-Fy-R7s" firstAttribute="top" secondItem="46g-B7-Hgt" secondAttribute="bottom" constant="5" id="G5a-wt-M3O"/>
+                                    <constraint firstItem="Z9f-jo-X55" firstAttribute="top" secondItem="xP9-rQ-uaJ" secondAttribute="bottom" constant="10" id="Hwp-4o-b2y"/>
+                                    <constraint firstItem="xP9-rQ-uaJ" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="Jt3-ZL-7gV"/>
+                                    <constraint firstAttribute="trailing" secondItem="3UC-nF-0fu" secondAttribute="trailing" id="KNq-Sl-tJd"/>
+                                    <constraint firstItem="6UP-8Q-cmM" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="MbP-gR-gEk"/>
+                                    <constraint firstAttribute="trailing" secondItem="xP9-rQ-uaJ" secondAttribute="trailing" constant="10" id="O8R-iU-sp6"/>
+                                    <constraint firstAttribute="trailing" secondItem="FQO-mZ-ks9" secondAttribute="trailing" constant="10" id="OkD-Wc-Wop"/>
+                                    <constraint firstItem="3UC-nF-0fu" firstAttribute="top" secondItem="odN-vh-ERm" secondAttribute="top" id="QGR-Sk-rVi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jyg-1d-wZo" secondAttribute="bottom" id="U9w-nj-4Tc"/>
+                                    <constraint firstItem="Jyg-1d-wZo" firstAttribute="top" secondItem="3UC-nF-0fu" secondAttribute="bottom" id="bmP-5A-FPK"/>
+                                    <constraint firstItem="gGB-uU-4z4" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="30" id="bpS-ag-HlK"/>
+                                    <constraint firstItem="46g-B7-Hgt" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="exQ-wV-sjO"/>
+                                    <constraint firstItem="FQO-mZ-ks9" firstAttribute="top" secondItem="46g-B7-Hgt" secondAttribute="bottom" id="gPD-91-Ysh"/>
+                                    <constraint firstAttribute="trailing" secondItem="gGB-uU-4z4" secondAttribute="trailing" constant="30" id="ghG-iz-I9A"/>
+                                    <constraint firstItem="FQO-mZ-ks9" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="h2l-Ax-27u"/>
+                                    <constraint firstItem="gGB-uU-4z4" firstAttribute="top" secondItem="3UC-nF-0fu" secondAttribute="bottom" constant="288" id="iP8-zl-3xG"/>
+                                    <constraint firstAttribute="trailing" secondItem="6UP-8Q-cmM" secondAttribute="trailing" constant="10" id="mFz-3V-0ba"/>
+                                    <constraint firstItem="xP9-rQ-uaJ" firstAttribute="top" secondItem="dnv-hr-aDs" secondAttribute="bottom" constant="10" id="qFb-xU-DOu"/>
+                                    <constraint firstItem="Jyg-1d-wZo" firstAttribute="leading" secondItem="odN-vh-ERm" secondAttribute="leading" id="sQl-ay-Atp"/>
+                                    <constraint firstItem="dnv-hr-aDs" firstAttribute="leading" secondItem="Jyg-1d-wZo" secondAttribute="trailing" constant="10" id="tKs-bb-06C"/>
+                                    <constraint firstItem="3UC-nF-0fu" firstAttribute="leading" secondItem="odN-vh-ERm" secondAttribute="leading" id="utC-IC-pzT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z9f-jo-X55" secondAttribute="trailing" constant="10" id="weQ-TW-1uz"/>
+                                    <constraint firstItem="dnv-hr-aDs" firstAttribute="top" secondItem="FQO-mZ-ks9" secondAttribute="bottom" constant="10" id="wuF-x5-qcQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="YfK-Fy-R7s" secondAttribute="trailing" constant="10" id="z2t-b1-l9U"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="odN-vh-ERm" firstAttribute="leading" secondItem="SHg-Zy-wiX" secondAttribute="leading" id="5eG-cL-38V"/>
+                            <constraint firstItem="Jyg-1d-wZo" firstAttribute="height" secondItem="ITn-1S-U2r" secondAttribute="height" id="ECe-sZ-LvI"/>
+                            <constraint firstItem="SHg-Zy-wiX" firstAttribute="trailing" secondItem="odN-vh-ERm" secondAttribute="trailing" id="JDY-Qg-CKa"/>
+                            <constraint firstItem="odN-vh-ERm" firstAttribute="top" secondItem="SHg-Zy-wiX" secondAttribute="top" id="M0Q-6F-s5c"/>
+                            <constraint firstItem="3UC-nF-0fu" firstAttribute="width" secondItem="ITn-1S-U2r" secondAttribute="width" id="nWD-Ko-AaU"/>
+                            <constraint firstItem="SHg-Zy-wiX" firstAttribute="bottom" secondItem="odN-vh-ERm" secondAttribute="bottom" id="zJg-eG-Mzt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SHg-Zy-wiX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ejr-Wr-L0K"/>
+                    <connections>
+                        <outlet property="codeField" destination="6UP-8Q-cmM" id="aKr-CW-fZK"/>
+                        <outlet property="enterButton" destination="dnv-hr-aDs" id="mt0-Gq-BV8"/>
+                        <outlet property="login" destination="46g-B7-Hgt" id="oPC-zf-wdr"/>
+                        <outlet property="password" destination="FQO-mZ-ks9" id="z9m-iq-KhA"/>
+                        <outlet property="scrollView" destination="odN-vh-ERm" id="wuB-8m-geq"/>
+                        <outlet property="second" destination="FcC-pR-aug" id="H0A-Ll-Hd1"/>
+                        <outlet property="segmentedControl" destination="gGB-uU-4z4" id="beV-CM-PRX"/>
+                        <outlet property="senfCodeButton" destination="YfK-Fy-R7s" id="beW-0C-K6j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDo-el-vya" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2568" y="199"/>
+        </scene>
+    </scenes>
+</document>
