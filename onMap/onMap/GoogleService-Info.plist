@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>388524501025-kljlbrpldc58jg8jdhs2j2q8i05g7kl2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.388524501025-kljlbrpldc58jg8jdhs2j2q8i05g7kl2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8gCROZknlAQCPA91M_b12v2T_DvFBdQU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>388524501025</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>onMap.onMap</string>
+	<key>PROJECT_ID</key>
+	<string>onmap-6988a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>onmap-6988a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:388524501025:ios:7cc0797c26732ef646db60</string>
+	<key>DATABASE_URL</key>
+	<string>https://onmap-6988a.firebaseio.com</string>
+</dict>
+</plist>
