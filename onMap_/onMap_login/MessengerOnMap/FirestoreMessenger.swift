@@ -3,7 +3,7 @@
 
 import Foundation
 import Firebase
-import MapKit
+
 
 final class FirestoreMessenger: MessengerOnMap {
     private let pathRooms = "rooms" //  путь до документа с самими чатрумами

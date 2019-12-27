@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043B47C623B6768D0083ABAC /* SettingOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B47C523B6768D0083ABAC /* SettingOnMap.swift */; };
 		045ADF92238F1B7500EC0067 /* ChatPointAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ADF91238F1B7500EC0067 /* ChatPointAnnotaion.swift */; };
 		045ADF94238F8F5C00EC0067 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ADF93238F8F5C00EC0067 /* MessageCell.swift */; };
 		046EAE3B2387205D00CBE825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046EAE3A2387205D00CBE825 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043B47C523B6768D0083ABAC /* SettingOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingOnMap.swift; path = onMap_login/Framework/SettingOnMap.swift; sourceTree = SOURCE_ROOT; };
 		045ADF91238F1B7500EC0067 /* ChatPointAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPointAnnotaion.swift; sourceTree = "<group>"; };
 		045ADF93238F8F5C00EC0067 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		046EAE3A2387205D00CBE825 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043B47C323B676010083ABAC /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				043B47C423B6763F0083ABAC /* SettingsOnMap */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		043B47C423B6763F0083ABAC /* SettingsOnMap */ = {
+			isa = PBXGroup;
+			children = (
+				043B47C523B6768D0083ABAC /* SettingOnMap.swift */,
+			);
+			path = SettingsOnMap;
+			sourceTree = "<group>";
+		};
 		046EAE47238BC1B700CBE825 /* MessengerOnMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +305,7 @@
 		44D32B692361F9370043776A /* onMap_login */ = {
 			isa = PBXGroup;
 			children = (
+				043B47C323B676010083ABAC /* Framework */,
 				046EAE44238B126000CBE825 /* Tasks.swift */,
 				44D32B6A2361F9370043776A /* AppDelegate.swift */,
 				046EAE3A2387205D00CBE825 /* LaunchScreen.storyboard */,
@@ -447,6 +466,7 @@
 				045ADF92238F1B7500EC0067 /* ChatPointAnnotaion.swift in Sources */,
 				441D3B7A2380BA1500B54916 /* MapViewController.swift in Sources */,
 				04780897238E51AB008D567B /* MyMessageTableViewCell.swift in Sources */,
+				043B47C623B6768D0083ABAC /* SettingOnMap.swift in Sources */,
 				44D32B87236375990043776A /* NetworkingService.swift in Sources */,
 				44949C86239476F6004B702F /* LoginNetworking.swift in Sources */,
 				046EAE4D238BC57600CBE825 /* FirestoreMessenger.swift in Sources */,
