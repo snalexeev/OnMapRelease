@@ -35,11 +35,11 @@ final class AccountViewController: UIViewController {
 //        loadTest()
         barButton.title = editStr
         isNotEditing(state: true)
-//        Account.shared.accountDelegate = self
-//        if Account.shared.getName() == ""{
-//            Account.shared.accountDelegate = self
-//            Account.shared.loadData()
-//        }
+        Account.shared.accountDelegate = self
+        if Account.shared.getName() == ""{
+            Account.shared.accountDelegate = self
+            Account.shared.loadData()
+        }
         self.textUsernameLabel.text! = Account.shared.getName()
         self.secondNameLabel.text! = Account.shared.getSurname()
         self.phoneLabel.text! = Account.shared.getPhone()

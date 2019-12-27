@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		043B47C223B4E1E80083ABAC /* SettingsOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B47C123B4E1E80083ABAC /* SettingsOnMap.swift */; };
 		045ADF92238F1B7500EC0067 /* ChatPointAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ADF91238F1B7500EC0067 /* ChatPointAnnotaion.swift */; };
 		045ADF94238F8F5C00EC0067 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ADF93238F8F5C00EC0067 /* MessageCell.swift */; };
 		046EAE3B2387205D00CBE825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046EAE3A2387205D00CBE825 /* LaunchScreen.storyboard */; };
@@ -40,7 +39,7 @@
 		44B7C469237C159F00853C92 /* ResetPasswordSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B7C468237C159F00853C92 /* ResetPasswordSB.storyboard */; };
 		44B7C46C237C164000853C92 /* LoginSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B7C46B237C164000853C92 /* LoginSB.storyboard */; };
 		44D32B6B2361F9370043776A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32B6A2361F9370043776A /* AppDelegate.swift */; };
-		44D32B6D2361F9370043776A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32B6C2361F9370043776A /* LoginViewController.swift */; };
+		44D32B6D2361F9370043776A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D32B6C2361F9370043776A /* LoginVC.swift */; };
 		44D32B702361F9370043776A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D32B6E2361F9370043776A /* Main.storyboard */; };
 		44D32B722361F9380043776A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D32B712361F9380043776A /* Assets.xcassets */; };
 		44D32B7D2361FA780043776A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44D32B7C2361FA780043776A /* GoogleService-Info.plist */; };
@@ -54,7 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		043B47C123B4E1E80083ABAC /* SettingsOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOnMap.swift; sourceTree = "<group>"; };
 		045ADF91238F1B7500EC0067 /* ChatPointAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPointAnnotaion.swift; sourceTree = "<group>"; };
 		045ADF93238F8F5C00EC0067 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		046EAE3A2387205D00CBE825 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,7 +86,7 @@
 		44B7C46B237C164000853C92 /* LoginSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSB.storyboard; sourceTree = "<group>"; };
 		44D32B672361F9370043776A /* onMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D32B6A2361F9370043776A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44D32B6C2361F9370043776A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		44D32B6C2361F9370043776A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		44D32B6F2361F9370043776A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44D32B712361F9380043776A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D32B762361F9380043776A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,14 +114,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		043B47C023B4E1930083ABAC /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				043B47C123B4E1E80083ABAC /* SettingsOnMap.swift */,
-			);
-			path = Framework;
-			sourceTree = "<group>";
-		};
 		046EAE47238BC1B700CBE825 /* MessengerOnMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +172,7 @@
 			children = (
 				44B7C46B237C164000853C92 /* LoginSB.storyboard */,
 				44D32B6E2361F9370043776A /* Main.storyboard */,
-				44D32B6C2361F9370043776A /* LoginViewController.swift */,
+				44D32B6C2361F9370043776A /* LoginVC.swift */,
 				44949C85239476F6004B702F /* LoginNetworking.swift */,
 				44B7C46A237C161200853C92 /* Reset */,
 			);
@@ -300,7 +290,6 @@
 				046EAE44238B126000CBE825 /* Tasks.swift */,
 				44D32B6A2361F9370043776A /* AppDelegate.swift */,
 				046EAE3A2387205D00CBE825 /* LaunchScreen.storyboard */,
-				043B47C023B4E1930083ABAC /* Framework */,
 				046EAE55238C260200CBE825 /* Discussion */,
 				046EAE4F238BD0B600CBE825 /* TestingChats */,
 				046EAE47238BC1B700CBE825 /* MessengerOnMap */,
@@ -326,9 +315,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		44D32B662361F9370043776A /* onMap */ = {
+		44D32B662361F9370043776A /* onMap_login */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44D32B792361F9380043776A /* Build configuration list for PBXNativeTarget "onMap" */;
+			buildConfigurationList = 44D32B792361F9380043776A /* Build configuration list for PBXNativeTarget "onMap_login" */;
 			buildPhases = (
 				E2C689D927902B97A29305EA /* [CP] Check Pods Manifest.lock */,
 				44D32B632361F9370043776A /* Sources */,
@@ -340,7 +329,7 @@
 			);
 			dependencies = (
 			);
-			name = onMap;
+			name = onMap_login;
 			productName = onMap_login;
 			productReference = 44D32B672361F9370043776A /* onMap.app */;
 			productType = "com.apple.product-type.application";
@@ -360,7 +349,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 44D32B622361F9370043776A /* Build configuration list for PBXProject "onMap" */;
+			buildConfigurationList = 44D32B622361F9370043776A /* Build configuration list for PBXProject "onMap_login" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -373,7 +362,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				44D32B662361F9370043776A /* onMap */,
+				44D32B662361F9370043776A /* onMap_login */,
 			);
 		};
 /* End PBXProject section */
@@ -467,11 +456,10 @@
 				44FD00DB236E329500D1F84A /* ResetPasswordVC.swift in Sources */,
 				44D32B89236389B00043776A /* User.swift in Sources */,
 				046EAE4B238BC40D00CBE825 /* ChatRoom.swift in Sources */,
-				043B47C223B4E1E80083ABAC /* SettingsOnMap.swift in Sources */,
 				44E8B812236F61FB00DA858F /* PhoneAuthVC.swift in Sources */,
 				046EAE60238C47E400CBE825 /* OtherMessageTableViewCell.swift in Sources */,
 				046EAE51238BD0E600CBE825 /* TestingChatsViewController.swift in Sources */,
-				44D32B6D2361F9370043776A /* LoginViewController.swift in Sources */,
+				44D32B6D2361F9370043776A /* LoginVC.swift in Sources */,
 				44D32B6B2361F9370043776A /* AppDelegate.swift in Sources */,
 				441D3B5F2380B9E000B54916 /* AccountViewController.swift in Sources */,
 				046EAE57238C265F00CBE825 /* DiscussionRoomViewController.swift in Sources */,
@@ -656,7 +644,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		44D32B622361F9370043776A /* Build configuration list for PBXProject "onMap" */ = {
+		44D32B622361F9370043776A /* Build configuration list for PBXProject "onMap_login" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44D32B772361F9380043776A /* Debug */,
@@ -665,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44D32B792361F9380043776A /* Build configuration list for PBXNativeTarget "onMap" */ = {
+		44D32B792361F9380043776A /* Build configuration list for PBXNativeTarget "onMap_login" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44D32B7A2361F9380043776A /* Debug */,

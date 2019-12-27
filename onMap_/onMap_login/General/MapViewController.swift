@@ -33,7 +33,7 @@ final class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Account.shared.loadData()   //загрузка всей информации профиля
+        Account.shared.loadData()   //загрузка всей информации профиля
         setupMap()
         let initialLocation = CLLocation(latitude: 55.766, longitude: 37.684)
         let regionRadius: CLLocationDistance = 1000

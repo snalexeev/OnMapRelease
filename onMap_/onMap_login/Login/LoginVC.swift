@@ -74,10 +74,6 @@ final class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        
         codeField.isHidden = true
         codeField.isEnabled = false
         senfCodeButton.isHidden = true
@@ -162,7 +158,6 @@ final class LoginViewController: UIViewController {
         }
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
-        //true = islogin
         logIn()
     }
     func logIn(){
