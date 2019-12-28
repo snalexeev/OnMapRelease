@@ -10,6 +10,13 @@
 		0405BEC223B76FC400AA2880 /* SettingsOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BEC123B76FC400AA2880 /* SettingsOnMap.swift */; };
 		0405BEC823B7718400AA2880 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BEC723B7718300AA2880 /* LoginViewController.swift */; };
 		0405BECC23B771AA00AA2880 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BECB23B771AA00AA2880 /* LoginViewController.storyboard */; };
+		0405BECE23B774F900AA2880 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BECD23B774F900AA2880 /* AccountViewController.swift */; };
+		0405BED023B7750600AA2880 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BECF23B7750600AA2880 /* AccountViewController.storyboard */; };
+		0405BED223B775DC00AA2880 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405BED123B775DC00AA2880 /* MapKit.framework */; };
+		0405BED423B775F300AA2880 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BED323B775F300AA2880 /* MapViewController.swift */; };
+		0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED523B7760500AA2880 /* MapViewController.storyboard */; };
+		0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BED723B7774D00AA2880 /* SettingsViewController.swift */; };
+		0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED923B7778700AA2880 /* SettingsViewController.storyboard */; };
 		4426C8A423B682C700DE03BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8A323B682C700DE03BE /* AppDelegate.swift */; };
 		4426C8A623B682C700DE03BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8A523B682C700DE03BE /* ViewController.swift */; };
 		4426C8A923B682C700DE03BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8A723B682C700DE03BE /* Main.storyboard */; };
@@ -44,6 +51,13 @@
 		0405BEC123B76FC400AA2880 /* SettingsOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOnMap.swift; sourceTree = "<group>"; };
 		0405BEC723B7718300AA2880 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0405BECB23B771AA00AA2880 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		0405BECD23B774F900AA2880 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		0405BECF23B7750600AA2880 /* AccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
+		0405BED123B775DC00AA2880 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0405BED323B775F300AA2880 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0405BED523B7760500AA2880 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		0405BED723B7774D00AA2880 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0405BED923B7778700AA2880 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE1D38C1F2E2DA5BE15BE53 /* Pods-onMap-onMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapUITests.release.xcconfig"; path = "Target Support Files/Pods-onMap-onMapUITests/Pods-onMap-onMapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2E7DBF1A8C922F1C76E0107F /* Pods-onMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.debug.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0405BED223B775DC00AA2880 /* MapKit.framework in Frameworks */,
 				E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +130,8 @@
 		0405BEC323B7708D00AA2880 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				0405BED523B7760500AA2880 /* MapViewController.storyboard */,
+				0405BED323B775F300AA2880 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -122,6 +139,8 @@
 		0405BEC423B7709200AA2880 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0405BED923B7778700AA2880 /* SettingsViewController.storyboard */,
+				0405BED723B7774D00AA2880 /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -138,6 +157,8 @@
 		0405BEC623B770DB00AA2880 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				0405BECF23B7750600AA2880 /* AccountViewController.storyboard */,
+				0405BECD23B774F900AA2880 /* AccountViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -154,10 +175,10 @@
 		043B47C823B690170083ABAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0405BEC623B770DB00AA2880 /* Account */,
 				0405BEC523B770CC00AA2880 /* Login */,
-				0405BEC423B7709200AA2880 /* Settings */,
+				0405BEC623B770DB00AA2880 /* Account */,
 				0405BEC323B7708D00AA2880 /* Map */,
+				0405BEC423B7709200AA2880 /* Settings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,6 +186,7 @@
 		3DC71A3901D2889BB9C1F1C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0405BED123B775DC00AA2880 /* MapKit.framework */,
 				0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */,
 				BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */,
 				3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */,
@@ -351,11 +373,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
 				4426C8D423B68D0D00DE03BE /* GoogleService-Info.plist in Resources */,
 				4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */,
+				0405BED023B7750600AA2880 /* AccountViewController.storyboard in Resources */,
 				0405BECC23B771AA00AA2880 /* LoginViewController.storyboard in Resources */,
 				4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */,
 				4426C8A923B682C700DE03BE /* Main.storyboard in Resources */,
+				0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +526,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405BEC823B7718400AA2880 /* LoginViewController.swift in Sources */,
+				0405BED423B775F300AA2880 /* MapViewController.swift in Sources */,
+				0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */,
+				0405BECE23B774F900AA2880 /* AccountViewController.swift in Sources */,
 				4426C8A623B682C700DE03BE /* ViewController.swift in Sources */,
 				0405BEC223B76FC400AA2880 /* SettingsOnMap.swift in Sources */,
 				4426C8A423B682C700DE03BE /* AppDelegate.swift in Sources */,
@@ -699,7 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3U55223VND;
+				DEVELOPMENT_TEAM = R9MA39W3RG;
 				INFOPLIST_FILE = onMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

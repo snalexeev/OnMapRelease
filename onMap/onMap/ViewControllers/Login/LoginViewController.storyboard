@@ -20,6 +20,9 @@
                                 <rect key="frame" x="179" y="751" width="56" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Войти"/>
+                                <connections>
+                                    <action selector="didClickLogIn:" destination="KT8-Os-MUI" eventType="touchUpInside" id="g71-B4-7Xd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LoginViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3q-LE-bUu">
                                 <rect key="frame" x="130" y="144" width="154" height="21"/>
