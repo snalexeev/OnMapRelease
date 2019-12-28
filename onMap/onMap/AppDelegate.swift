@@ -9,11 +9,31 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func rootMainTabBar() {
+        
+    }
+    
+    func rootLoginViewController() {
+        let bounds = UIScreen.main.bounds
+        self.window = UIWindow(frame: bounds)
+        let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nc = UINavigationController.init(rootViewController: vc)
+        self.window?.rootViewController = nc
+        self.window?.makeKeyAndVisible()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        // Override point for customization after application launch.
+        
+        let key = SettingOnMap.shared.userIsLogin
+        
+        if key {
+            rootMainTabBar()
+        } else {
+            rootLoginViewController()
+        }
+        
         return true
     }
 
