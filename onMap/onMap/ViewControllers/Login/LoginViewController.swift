@@ -36,10 +36,8 @@ class LoginViewController: UIViewController {
         
         
         
-        navigationController?.dismiss(animated: true, completion: {
-            SettingOnMap.shared.userIsLogin = true
-            self.presentMainTabBar()
-        })
+        SettingOnMap.shared.userIsLogin = true
+        self.presentMainTabBar()
         
     }
 }

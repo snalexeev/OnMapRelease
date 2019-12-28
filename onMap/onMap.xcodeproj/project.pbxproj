@@ -163,6 +163,13 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		0405BEDB23B77CC800AA2880 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
 		043B47C723B690100083ABAC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +182,7 @@
 		043B47C823B690170083ABAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0405BEDB23B77CC800AA2880 /* ChatRoom */,
 				0405BEC523B770CC00AA2880 /* Login */,
 				0405BEC623B770DB00AA2880 /* Account */,
 				0405BEC323B7708D00AA2880 /* Map */,

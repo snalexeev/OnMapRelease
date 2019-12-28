@@ -25,9 +25,8 @@ class AccountViewController: UIViewController {
     }
 
     @IBAction func didClickLogOut(_ sender: Any) {
-        tabBarController?.dismiss(animated: true, completion: {
-            SettingOnMap.shared.userIsLogin = false
-            self.presentLoginViewController()
-        })
+        
+        SettingOnMap.shared.userIsLogin = false
+        self.presentLoginViewController()
     }
 }
