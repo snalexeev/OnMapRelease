@@ -5,7 +5,7 @@
 
 import Foundation
 
-class SettingOnMap {
+final class SettingOnMap {
     private static var singleton: SettingOnMap?
     public static var shared: SettingOnMap {
         if singleton == nil {

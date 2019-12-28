@@ -18,6 +18,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Yb-DFR">
                                 <rect key="frame" x="-20" y="-10" width="454" height="916"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nBC-L6-VlU" appends="YES" id="ryH-c1-s9P"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -30,8 +34,16 @@
                         <viewLayoutGuide key="safeArea" id="phe-gP-E7a"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="5fr-LV-Neb"/>
+                    <connections>
+                        <outlet property="mapView" destination="0rR-Yb-DFR" id="4ht-Zj-VFs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qV-DG-Hfz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="nBC-L6-VlU">
+                    <connections>
+                        <action selector="didLongPressMap:" destination="7T4-WQ-Pjy" id="baq-mW-NMb"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="953.62318840579712" y="77.678571428571431"/>
         </scene>
@@ -41,6 +53,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4LS-te-vma" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fJe-cB-twl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
