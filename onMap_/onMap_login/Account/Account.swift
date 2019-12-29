@@ -27,8 +27,8 @@ class Account{
     var storeRef: StorageReference!
 
     func loadData(){
-        let userID = Auth.auth().currentUser?.uid
-        storeRef = Storage.storage().reference().child("images/profiles/" + String(userID ?? "")+".png")
+        let userID = SettingOnMap.shared.currentuserID
+        storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
             
         storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
           if let error = error {
@@ -38,9 +38,9 @@ class Account{
             self.accountDelegate?.setImage(image: self.image)
           }
         }
-        self.id = userID ?? ""
+        self.id = userID
         ref = Database.database().reference()
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             self.name = value?["name"] as? String ?? ""
             self.surname = value?["surname"] as? String ?? ""
@@ -104,7 +104,7 @@ class Account{
         self.surname = surname
     }
     func deleteAccount(password: String){
-        Auth.auth().signIn(withEmail: Auth.auth().currentUser?.email ?? "", password: password) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error == nil{
                 self.accountDelegateForConfirmation?.dismissConfirmation()
                 let user = Auth.auth().currentUser
@@ -116,6 +116,7 @@ class Account{
                     self.ref.removeValue()
                     self.storeRef = Storage.storage().reference().child("images/profiles/" + String(user?.uid ?? "")+".png")
                     self.accountDelegate?.showError(title: "Успех!", message: "Аккаунт удалён", status: true)
+                    SettingOnMap.shared.currentuserID = ""
                   }
                 }
             }

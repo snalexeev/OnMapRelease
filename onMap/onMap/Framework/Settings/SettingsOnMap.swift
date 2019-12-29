@@ -14,9 +14,9 @@ final class SettingOnMap {
         return singleton!
     }
     private init() { }
-    public var userIsLogin: Bool {
+    public var currentuserID: String {
         get {
-            let loggedIn: Bool = UserDefaults.standard.bool(forKey: "loggedIn")
+            let loggedIn: String = UserDefaults.standard.string(forKey: "loggedIn") ?? ""
             return loggedIn
         }
         set (newValue) {

@@ -9,9 +9,8 @@
 import Foundation
 import Firebase
 protocol LoginDelegate {
-    func showAlert(title: String, message: String)
+    func showAlertWithError(title: String, message: String)
     func loginCompleted()
-    func ifUserExists()
 }
 class LoginNetworking{
     private init() {}
@@ -20,19 +19,14 @@ class LoginNetworking{
     func login(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error == nil{
-                print(Auth.auth().currentUser?.uid)
+                SettingOnMap.shared.currentuserID = Auth.auth().currentUser?.uid ?? ""
                 self.loginDelegate?.loginCompleted()
             }
             else{
-                self.loginDelegate?.showAlert(title: "Ошибка входа", message: error?.localizedDescription ?? "Неверный email или пароль")
+                self.loginDelegate?.showAlertWithError(title: "Ошибка входа", message: error?.localizedDescription ?? "Неверный email или пароль")
             }
             
         }
         
-    }
-    func checkUser(){
-        if Auth.auth().currentUser != nil{
-            loginDelegate?.ifUserExists()
-        }
     }
 }

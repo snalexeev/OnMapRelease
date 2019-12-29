@@ -38,11 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        
-        let key = SettingOnMap.shared.userIsLogin
-        
-        if key {
+        let key = SettingOnMap.shared.currentuserID
+        if key != "" {
             rootMainTabBar()
+            DispatchQueue.main.async {
+                Account.shared.loadData()
+            }
         } else {
             rootLoginViewController()
         }

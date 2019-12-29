@@ -10,6 +10,8 @@ class PickUpPhotoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PhotoNetworking.shared.resultDelegate = self
+       
         image = imageView.image!
        
     }
@@ -46,7 +48,11 @@ class PickUpPhotoController: UIViewController {
     
     @IBAction func loadPhoto(_ sender: Any) {
         PhotoNetworking.shared.uploadPhoto(image: image)
-        dismiss(animated: true, completion: nil)
+    }
+    func showError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -54,4 +60,18 @@ extension PickUpPhotoController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+
+extension PickUpPhotoController: PhotoUploadResultDelegate{
+    func showAlert(title: String, message: String) {
+        showError(title: title, message: message)
+    }
+    
+    func completed() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
 }

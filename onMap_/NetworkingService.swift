@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 import Firebase
-protocol ShowCheckedDelegate{
+protocol PhoneCheckDelegate{
     func checkingReturn(b: Bool)
 }
 protocol ShowAlertDelegate {
@@ -13,12 +13,8 @@ protocol ShowAlertDelegate {
 class NetworkingService{
     private init() {}
     public static let shared = NetworkingService()
-//    private init() {}
-//    static func shared()->NetworkingService{
-//        return NetworkingService()
-//    }
     var showAlertDelegate: ShowAlertDelegate?
-    var showChecked: ShowCheckedDelegate?
+    var showChecked: PhoneCheckDelegate?
     var user: User = User()
     var title: String = ""
     var message: String = ""
@@ -27,8 +23,16 @@ class NetworkingService{
     func signUpUser(name: String, surname: String, email: String, password: String, reppassword: String){
         title = success
         message = success
-        if ( name.isEmpty || surname.isEmpty || email.isEmpty || password.isEmpty || reppassword.isEmpty){title = "Ошибка"; message = "Заполните все поля"}
-        if reppassword != password{title = "Ошибка"; message = "Пароли не совпадают"}
+        if (name.isEmpty || surname.isEmpty || email.isEmpty || password.isEmpty || reppassword.isEmpty){
+            title = "Ошибка"; message = "Заполните все поля"
+            self.showAlertDelegate?.showAlert(title: self.title, message: self.message)
+            return
+        }
+        if reppassword != password{
+            title = "Ошибка"; message = "Пароли не совпадают"
+            self.showAlertDelegate?.showAlert(title: self.title, message: self.message)
+            return
+        }
         user.name = name
         user.surname = surname
         user.email = email
@@ -39,7 +43,6 @@ class NetworkingService{
                 if let result = result{
                     let refToDataBase = Database.database().reference().child("users")
                     refToDataBase.child(result.user.uid).updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname])
-                    
                 }
             }
             else{
@@ -61,7 +64,6 @@ class NetworkingService{
         print(phoneNumber)
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) {  (verificationID, error) in
             if error == nil{
-                print("1")
                 UserDefaults.standard.removeObject(forKey: "authVerificationID")
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
             }
@@ -77,6 +79,7 @@ class NetworkingService{
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if error == nil {
                 self.showChecked?.checkingReturn(b: true)
+                SettingOnMap.shared.currentuserID = Auth.auth().currentUser?.uid ?? ""
                 return
             }
             else{

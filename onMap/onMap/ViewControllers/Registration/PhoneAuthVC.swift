@@ -96,16 +96,7 @@ class PhoneAuthVC: UIViewController {
         scrollView?.scrollIndicatorInsets = contentInsets
     }
     
-    @IBAction func signOut(_ sender: Any) {
-         Auth.auth().currentUser?.delete(completion: nil)
-        do{
-            try
-                Auth.auth().signOut()
-        }
-        catch{
-            print(error)
-        }
-    }
+  
     @objc func keyboardWillBeHidden(notification: Notification){
         //устанавливаем отступ внизу UIScrollView
         let contentInsets = UIEdgeInsets.zero
@@ -119,7 +110,7 @@ class PhoneAuthVC: UIViewController {
   
 
 }
-extension PhoneAuthVC: ShowCheckedDelegate{
+extension PhoneAuthVC: PhoneCheckDelegate{
     func checkingReturn(b: Bool) {
         checked = b
         if !checked{
@@ -127,7 +118,6 @@ extension PhoneAuthVC: ShowCheckedDelegate{
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-        print(b)
     }
     
 }

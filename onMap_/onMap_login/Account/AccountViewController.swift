@@ -2,7 +2,6 @@
 
 
 import UIKit
-import Firebase
 final class AccountViewController: UIViewController {
     
 // @IBOutlet weak var testPhoto: UIImageView!
@@ -32,6 +31,7 @@ final class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        loadTest()
         barButton.title = editStr
         isNotEditing(state: true)
@@ -106,13 +106,25 @@ final class AccountViewController: UIViewController {
     }
     
     @IBAction func deleteAccount(_ sender: Any) {
+        showConfirmation()
+    }
+    func showConfirmation(){
         let storyboard = UIStoryboard(name: "Confirmation", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ConfirmationViewController") as! ConfirmationViewController
         present(vc, animated: true)
-        
+    }
+    func presentLoginViewController() {
+        let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nc = UINavigationController.init(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        present(nc, animated: true)
     }
     func dismissToLogin() {
         dismiss(animated: true, completion: nil)
+    }
+    @IBAction func LogOut(_ sender: Any) {
+        SettingOnMap.shared.currentuserID = ""
+        self.presentLoginViewController()
     }
 
 }

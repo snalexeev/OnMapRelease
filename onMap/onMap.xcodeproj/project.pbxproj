@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0405BEC223B76FC400AA2880 /* SettingsOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BEC123B76FC400AA2880 /* SettingsOnMap.swift */; };
-		0405BEC823B7718400AA2880 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BEC723B7718300AA2880 /* LoginViewController.swift */; };
-		0405BECC23B771AA00AA2880 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BECB23B771AA00AA2880 /* LoginViewController.storyboard */; };
-		0405BECE23B774F900AA2880 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BECD23B774F900AA2880 /* AccountViewController.swift */; };
 		0405BED023B7750600AA2880 /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BECF23B7750600AA2880 /* AccountViewController.storyboard */; };
 		0405BED223B775DC00AA2880 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405BED123B775DC00AA2880 /* MapKit.framework */; };
 		0405BED423B775F300AA2880 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BED323B775F300AA2880 /* MapViewController.swift */; };
@@ -31,6 +28,24 @@
 		4426C8B923B682C900DE03BE /* onMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8B823B682C900DE03BE /* onMapTests.swift */; };
 		4426C8C423B682C900DE03BE /* onMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8C323B682C900DE03BE /* onMapUITests.swift */; };
 		4426C8D423B68D0D00DE03BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8D323B68D0D00DE03BE /* GoogleService-Info.plist */; };
+		447FF76D23B7A90A0004091B /* PhotoNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF76B23B7A90A0004091B /* PhotoNetworking.swift */; };
+		447FF76E23B7A90A0004091B /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF76C23B7A90A0004091B /* NetworkingService.swift */; };
+		447FF78423B7A9EC0004091B /* RegistrationSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447FF78223B7A9EC0004091B /* RegistrationSB.storyboard */; };
+		447FF78523B7A9EC0004091B /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF78323B7A9EC0004091B /* RegistrationVC.swift */; };
+		447FF78823B7AA070004091B /* PhotoSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447FF78623B7AA060004091B /* PhotoSB.storyboard */; };
+		447FF78923B7AA070004091B /* PickUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF78723B7AA070004091B /* PickUpPhotoController.swift */; };
+		447FF78C23B7AA140004091B /* PhoneAuthSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447FF78A23B7AA140004091B /* PhoneAuthSB.storyboard */; };
+		447FF78D23B7AA140004091B /* PhoneAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF78B23B7AA140004091B /* PhoneAuthVC.swift */; };
+		447FF78F23B7AA450004091B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF78E23B7AA450004091B /* User.swift */; };
+		447FF79223B7AA6C0004091B /* ResetPasswordSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447FF79023B7AA6B0004091B /* ResetPasswordSB.storyboard */; };
+		447FF79323B7AA6C0004091B /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF79123B7AA6C0004091B /* ResetPasswordVC.swift */; };
+		447FF79723B7AAAB0004091B /* LoginNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF79623B7AAAB0004091B /* LoginNetworking.swift */; };
+		447FF79923B7AB6B0004091B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447FF79823B7AB6B0004091B /* LoginViewController.storyboard */; };
+		447FF79E23B7AB960004091B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF79D23B7AB950004091B /* Account.swift */; };
+		447FF7A123B7ABB20004091B /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF79F23B7ABB20004091B /* ConfirmationViewController.swift */; };
+		447FF7A223B7ABB20004091B /* Confirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447FF7A023B7ABB20004091B /* Confirmation.storyboard */; };
+		447FF7A423B7CDBB0004091B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF7A323B7CDBB0004091B /* LoginViewController.swift */; };
+		447FF7A723B7CFCF0004091B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FF7A523B7CFCE0004091B /* AccountViewController.swift */; };
 		67DC022DFC9C4F8D64C44B42 /* Pods_onMap_onMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */; };
 		B07BA8863C9F7AE0908CC3CD /* Pods_onMap_onMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */; };
 		E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */; };
@@ -55,9 +70,6 @@
 
 /* Begin PBXFileReference section */
 		0405BEC123B76FC400AA2880 /* SettingsOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOnMap.swift; sourceTree = "<group>"; };
-		0405BEC723B7718300AA2880 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0405BECB23B771AA00AA2880 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
-		0405BECD23B774F900AA2880 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		0405BECF23B7750600AA2880 /* AccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
 		0405BED123B775DC00AA2880 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0405BED323B775F300AA2880 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +100,24 @@
 		4426C8C323B682C900DE03BE /* onMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onMapUITests.swift; sourceTree = "<group>"; };
 		4426C8C523B682C900DE03BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4426C8D323B68D0D00DE03BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		447FF76B23B7A90A0004091B /* PhotoNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoNetworking.swift; path = ../../../../onMap_/PhotoNetworking.swift; sourceTree = "<group>"; };
+		447FF76C23B7A90A0004091B /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingService.swift; path = ../../../../onMap_/NetworkingService.swift; sourceTree = "<group>"; };
+		447FF78223B7A9EC0004091B /* RegistrationSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationSB.storyboard; sourceTree = "<group>"; };
+		447FF78323B7A9EC0004091B /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		447FF78623B7AA060004091B /* PhotoSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoSB.storyboard; sourceTree = "<group>"; };
+		447FF78723B7AA070004091B /* PickUpPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpPhotoController.swift; sourceTree = "<group>"; };
+		447FF78A23B7AA140004091B /* PhoneAuthSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhoneAuthSB.storyboard; sourceTree = "<group>"; };
+		447FF78B23B7AA140004091B /* PhoneAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthVC.swift; sourceTree = "<group>"; };
+		447FF78E23B7AA450004091B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../onMap_/onMap_login/Registration/Models/User.swift; sourceTree = "<group>"; };
+		447FF79023B7AA6B0004091B /* ResetPasswordSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordSB.storyboard; sourceTree = "<group>"; };
+		447FF79123B7AA6C0004091B /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		447FF79623B7AAAB0004091B /* LoginNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginNetworking.swift; path = ../../../../onMap_/onMap_login/Login/LoginNetworking.swift; sourceTree = "<group>"; };
+		447FF79823B7AB6B0004091B /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginViewController.storyboard; path = ../../../../onMap_/onMap_login/Login/LoginViewController.storyboard; sourceTree = "<group>"; };
+		447FF79D23B7AB950004091B /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = ../../../../onMap_/onMap_login/Account/Account.swift; sourceTree = "<group>"; };
+		447FF79F23B7ABB20004091B /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmationViewController.swift; path = ../../../../onMap_/onMap_login/Account/ConfirmationViewController.swift; sourceTree = "<group>"; };
+		447FF7A023B7ABB20004091B /* Confirmation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Confirmation.storyboard; path = ../../../../onMap_/onMap_login/Account/Confirmation.storyboard; sourceTree = "<group>"; };
+		447FF7A323B7CDBB0004091B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		447FF7A523B7CFCE0004091B /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountViewController.swift; path = ../../../../onMap_/onMap_login/Account/AccountViewController.swift; sourceTree = "<group>"; };
 		5422A8C7CA791931FAA4EC0B /* Pods-onMap-onMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapTests.debug.xcconfig"; path = "Target Support Files/Pods-onMap-onMapTests/Pods-onMap-onMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE04F5416D3FCDA12405011 /* Pods-onMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.release.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.release.xcconfig"; sourceTree = "<group>"; };
 		BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +196,9 @@
 		0405BEC523B770CC00AA2880 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0405BECB23B771AA00AA2880 /* LoginViewController.storyboard */,
-				0405BEC723B7718300AA2880 /* LoginViewController.swift */,
+				447FF79823B7AB6B0004091B /* LoginViewController.storyboard */,
+				447FF7A323B7CDBB0004091B /* LoginViewController.swift */,
+				447FF79423B7AA720004091B /* Reset */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -175,8 +206,10 @@
 		0405BEC623B770DB00AA2880 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				447FF7A523B7CFCE0004091B /* AccountViewController.swift */,
+				447FF7A023B7ABB20004091B /* Confirmation.storyboard */,
+				447FF79F23B7ABB20004091B /* ConfirmationViewController.swift */,
 				0405BECF23B7750600AA2880 /* AccountViewController.storyboard */,
-				0405BECD23B774F900AA2880 /* AccountViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -191,6 +224,9 @@
 		043B47C723B690100083ABAC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				447FF79C23B7AB8B0004091B /* Account */,
+				447FF79523B7AA9E0004091B /* Login */,
+				447FF76A23B7A8DD0004091B /* Registration */,
 				0405BEC023B76FAB00AA2880 /* Messenger */,
 				0405BEBF23B76F9C00AA2880 /* Settings */,
 			);
@@ -200,6 +236,7 @@
 		043B47C823B690170083ABAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				447FF76F23B7A93D0004091B /* Registration */,
 				0405BEDB23B77CC800AA2880 /* ChatRoom */,
 				0405BEC523B770CC00AA2880 /* Login */,
 				0405BEC623B770DB00AA2880 /* Account */,
@@ -274,6 +311,54 @@
 				4426C8C523B682C900DE03BE /* Info.plist */,
 			);
 			path = onMapUITests;
+			sourceTree = "<group>";
+		};
+		447FF76A23B7A8DD0004091B /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				447FF78E23B7AA450004091B /* User.swift */,
+				447FF76C23B7A90A0004091B /* NetworkingService.swift */,
+				447FF76B23B7A90A0004091B /* PhotoNetworking.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		447FF76F23B7A93D0004091B /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				447FF78A23B7AA140004091B /* PhoneAuthSB.storyboard */,
+				447FF78B23B7AA140004091B /* PhoneAuthVC.swift */,
+				447FF78623B7AA060004091B /* PhotoSB.storyboard */,
+				447FF78723B7AA070004091B /* PickUpPhotoController.swift */,
+				447FF78223B7A9EC0004091B /* RegistrationSB.storyboard */,
+				447FF78323B7A9EC0004091B /* RegistrationVC.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		447FF79423B7AA720004091B /* Reset */ = {
+			isa = PBXGroup;
+			children = (
+				447FF79023B7AA6B0004091B /* ResetPasswordSB.storyboard */,
+				447FF79123B7AA6C0004091B /* ResetPasswordVC.swift */,
+			);
+			path = Reset;
+			sourceTree = "<group>";
+		};
+		447FF79523B7AA9E0004091B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				447FF79623B7AAAB0004091B /* LoginNetworking.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		447FF79C23B7AB8B0004091B /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				447FF79D23B7AB950004091B /* Account.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		7E66EECBC0C997329D14BCCA /* Pods */ = {
@@ -399,11 +484,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447FF78823B7AA070004091B /* PhotoSB.storyboard in Resources */,
+				447FF78423B7A9EC0004091B /* RegistrationSB.storyboard in Resources */,
 				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
 				4426C8D423B68D0D00DE03BE /* GoogleService-Info.plist in Resources */,
 				4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */,
+				447FF78C23B7AA140004091B /* PhoneAuthSB.storyboard in Resources */,
+				447FF79923B7AB6B0004091B /* LoginViewController.storyboard in Resources */,
 				0405BED023B7750600AA2880 /* AccountViewController.storyboard in Resources */,
-				0405BECC23B771AA00AA2880 /* LoginViewController.storyboard in Resources */,
+				447FF7A223B7ABB20004091B /* Confirmation.storyboard in Resources */,
+				447FF79223B7AA6C0004091B /* ResetPasswordSB.storyboard in Resources */,
 				4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */,
 				4426C8A923B682C700DE03BE /* Main.storyboard in Resources */,
 				0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */,
@@ -551,19 +641,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447FF76E23B7A90A0004091B /* NetworkingService.swift in Sources */,
+				447FF76D23B7A90A0004091B /* PhotoNetworking.swift in Sources */,
+				447FF7A723B7CFCF0004091B /* AccountViewController.swift in Sources */,
 				0418FDA023B79490004F6200 /* MapModel.swift in Sources */,
+				447FF78523B7A9EC0004091B /* RegistrationVC.swift in Sources */,
 				0418FDAA23B79853004F6200 /* PinChat.swift in Sources */,
-				0405BEC823B7718400AA2880 /* LoginViewController.swift in Sources */,
+				447FF7A123B7ABB20004091B /* ConfirmationViewController.swift in Sources */,
 				0405BED423B775F300AA2880 /* MapViewController.swift in Sources */,
+				447FF79E23B7AB960004091B /* Account.swift in Sources */,
 				0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */,
 				0418FDA223B796D9004F6200 /* ChatInfo.swift in Sources */,
-				0405BECE23B774F900AA2880 /* AccountViewController.swift in Sources */,
+				447FF7A423B7CDBB0004091B /* LoginViewController.swift in Sources */,
 				4426C8A623B682C700DE03BE /* ViewController.swift in Sources */,
+				447FF79323B7AA6C0004091B /* ResetPasswordVC.swift in Sources */,
 				0405BEC223B76FC400AA2880 /* SettingsOnMap.swift in Sources */,
 				0418FDA423B796F4004F6200 /* ChatRoom.swift in Sources */,
+				447FF78D23B7AA140004091B /* PhoneAuthVC.swift in Sources */,
 				0418FDA623B79710004F6200 /* FirestoreMessenger.swift in Sources */,
 				4426C8A423B682C700DE03BE /* AppDelegate.swift in Sources */,
+				447FF79723B7AAAB0004091B /* LoginNetworking.swift in Sources */,
+				447FF78923B7AA070004091B /* PickUpPhotoController.swift in Sources */,
 				0418FDA823B79724004F6200 /* MessengerOnMap.swift in Sources */,
+				447FF78F23B7AA450004091B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

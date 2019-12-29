@@ -33,7 +33,6 @@ final class MapViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         checkLocationAuthorizationStatus()
-        //Account.shared.loadData()
         
         setupMap()
         let initialLocation = CLLocation(latitude: 55.766, longitude: 37.684)
