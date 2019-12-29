@@ -237,10 +237,10 @@
 			isa = PBXGroup;
 			children = (
 				447FF76F23B7A93D0004091B /* Registration */,
-				0405BEDB23B77CC800AA2880 /* ChatRoom */,
 				0405BEC523B770CC00AA2880 /* Login */,
 				0405BEC623B770DB00AA2880 /* Account */,
 				0405BEC323B7708D00AA2880 /* Map */,
+				0405BEDB23B77CC800AA2880 /* ChatRoom */,
 				0405BEC423B7709200AA2880 /* Settings */,
 			);
 			path = ViewControllers;
