@@ -126,4 +126,56 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+       let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        annotationView?.image = #imageLiteral(resourceName: "saucer")
+        return annotationView
+    }
+    
+    func displayAlert(message: String, action: String) {
+        let composeAlert = UIAlertController(title: "Ошибочка!", message: message, preferredStyle: .alert)
+        composeAlert.addAction(UIAlertAction(title: action, style: .cancel, handler: nil))
+        self.present(composeAlert, animated: true, completion: nil)
+    }
+    
+    func presentDuscussionViewController(name: String?) {
+        guard let name = name else {
+            return
+        }
+        let storyboard = UIStoryboard.init(name: "ChatRoomViewController", bundle: nil)
+        let newViewController = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
+        newViewController.theMessenger = theMessenger
+        newViewController.nameOfDiscussion = name
+        //theMessenger.startDiscussRoom(name: name)
+        newViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(newViewController, animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // нижнее выплыващие окно с информации вызвать, а на ней кнопку
+        
+        if let name = view.annotation?.title {
+            if theMessenger.chatIsExist(name: name!) {
+                
+                presentDuscussionViewController(name: name)
+            } else {
+                displayAlert(message: "Упс, в чат войти не удалось", action: "cancel")
+                if let pin = view.annotation {
+                    mapView.removeAnnotation(pin)
+                    }
+                }
+        }
+        
+        view.isSelected = false
+        return
+    }
 }

@@ -7,5 +7,5 @@
 import Foundation
 
 final class MapModel {
-    
+    private var chatRoomArray: [ChatRoom] = [ChatRoom]()
 }
