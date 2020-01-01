@@ -106,13 +106,15 @@ final class ChatRoomViewController: UIViewController {
     }
     
     func sendMessage() {
-        if textField.text == nil && textField?.text == "" {
+        if textField.text == nil || textField?.text == "" {
             return
+        } else {
+            theMessenger?.sendMessage(owner: Account.shared.getID(),
+                                      message: textField.text!)
+            reloadTableView()
+            textField.text = ""
         }
-        theMessenger?.sendMessage(owner: Account.shared.getID(),
-                                  message: textField.text!)
-        reloadTableView()
-        textField.text = ""
+        
     }
     
 

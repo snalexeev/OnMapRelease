@@ -62,7 +62,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wqD-o6-1A3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="беседа" id="mL0-l4-c9w"/>
+                    <navigationItem key="navigationItem" title="беседа" id="mL0-l4-c9w">
+                        <barButtonItem key="rightBarButtonItem" image="command" catalog="system" id="1Fo-gT-ofw"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomTextFieldConstraint" destination="dqh-cu-czi" id="BYx-my-Noc"/>
                         <outlet property="tableView" destination="98W-Vg-OEd" id="NYq-aL-wdD"/>
@@ -96,6 +98,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="command" catalog="system" width="64" height="56"/>
         <image name="paperclip.circle" catalog="system" width="64" height="60"/>
         <image name="paperplane" catalog="system" width="64" height="60"/>
     </resources>

@@ -29,7 +29,6 @@
 		048C6F3723BB95980028A908 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */; };
 		048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */; };
 		4426C8A423B682C700DE03BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8A323B682C700DE03BE /* AppDelegate.swift */; };
-		4426C8A623B682C700DE03BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8A523B682C700DE03BE /* ViewController.swift */; };
 		4426C8A923B682C700DE03BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8A723B682C700DE03BE /* Main.storyboard */; };
 		4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8AA23B682C900DE03BE /* Assets.xcassets */; };
 		4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8AC23B682C900DE03BE /* LaunchScreen.storyboard */; };
@@ -104,7 +103,6 @@
 		3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4426C8A023B682C700DE03BE /* onMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4426C8A323B682C700DE03BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4426C8A523B682C700DE03BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4426C8A823B682C700DE03BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4426C8AA23B682C900DE03BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4426C8AD23B682C900DE03BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -315,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				4426C8A323B682C700DE03BE /* AppDelegate.swift */,
-				4426C8A523B682C700DE03BE /* ViewController.swift */,
 				4426C8A723B682C700DE03BE /* Main.storyboard */,
 				4426C8AA23B682C900DE03BE /* Assets.xcassets */,
 				4426C8AC23B682C900DE03BE /* LaunchScreen.storyboard */,
@@ -691,7 +688,6 @@
 				048C6F3023BB8C9B0028A908 /* MessageCell.swift in Sources */,
 				048C6F2C23BB8C460028A908 /* ChatRoomViewController.swift in Sources */,
 				447FF7A423B7CDBB0004091B /* LoginViewController.swift in Sources */,
-				4426C8A623B682C700DE03BE /* ViewController.swift in Sources */,
 				048C6F3723BB95980028A908 /* MyMessageTableViewCell.swift in Sources */,
 				447FF79323B7AA6C0004091B /* ResetPasswordVC.swift in Sources */,
 				0405BEC223B76FC400AA2880 /* SettingsOnMap.swift in Sources */,
