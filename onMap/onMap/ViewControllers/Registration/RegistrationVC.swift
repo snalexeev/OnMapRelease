@@ -81,7 +81,7 @@ class AuthViewController: UIViewController {
         let uspas = userpassword.text!
         let reppas = userrepeatspassword.text!
         NetworkingService.shared.showAlertDelegate = self
-        NetworkingService.shared.signUpUser(name: usname, surname: ussurname, email: usem, password: uspas, reppassword: reppas)
+        //NetworkingService.shared.signUpUser(name: usname, surname: ussurname, email: usem, password: uspas, reppassword: reppas)
         
     }
     

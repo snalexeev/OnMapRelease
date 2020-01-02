@@ -11,7 +11,7 @@ final class LoginViewController: UIViewController {
     var isFlipped = true
     var checked: Bool = false
     var sendCodeRet: Bool = false
-    private let logoImage = UIImageView()
+    //private let logoImage = UIImageView()
     private let logoText = UILabel()
     private var customViews: Array<Custom> = []
     private var gradient = Gradient()
@@ -45,7 +45,7 @@ final class LoginViewController: UIViewController {
     private var nextEmailButton = UIButton()
     private var backEmailButton = UIButton()
     
-    var vc: PhoneAuthVC = PhoneAuthVC()
+    var vc: PhoneAuthViewContoller = PhoneAuthViewContoller()
     
 
     override func viewDidLoad() {
@@ -53,7 +53,6 @@ final class LoginViewController: UIViewController {
        
         LoginNetworking.shared.loginDelegate = self
         NetworkingService.shared.showChecked = self
-        
         activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.frame = CGRect(x: view.bounds.width/2-view.bounds.width/6, y: view.bounds.height/2-view.bounds.width/6, width: view.bounds.width/3, height: view.bounds.width/3)
         activityIndicator.color = UIColor.gray
@@ -79,6 +78,7 @@ final class LoginViewController: UIViewController {
         //customViews[0].animateUp(delta: view.bounds.height/3, delay: 0.5, duration: 0.2)
         
     }
+   
     //заполняет view кастомными
     func setUpCustomView(index: Int, delta: CGFloat){
         let customView = Custom()
@@ -376,16 +376,39 @@ final class LoginViewController: UIViewController {
   
 
     func showRegistration(){
-        let storyboard = UIStoryboard(name: "PhoneAuthSB", bundle: nil)
-        vc = storyboard.instantiateViewController(withIdentifier: "PhoneAuthVC") as! PhoneAuthVC
-        let nc = UINavigationController.init(rootViewController: vc)
-        nc.modalPresentationStyle = .fullScreen
-        present(nc, animated: true)
+        customViews[0].animateDown(delta: 7*view.bounds.width/8, delay: 0.1, duration: 0.3)
+        logoText.alpha = 1
+        
+        let scaleDuration: TimeInterval = 0.8
+        let textAnimationDuration: TimeInterval = 0.5
+        let delay: TimeInterval = 0.5
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            UIView.animate(withDuration: scaleDuration, animations: {
+                self.logoText.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
+            }, completion: { (_) in
+                
+                UIView.animate(withDuration: textAnimationDuration, animations: {
+                    let frame = self.logoText.frame.offsetBy(dx: 0, dy: self.view.bounds.height/6)
+                    self.logoText.frame = frame
+                    self.logoText.alpha = 0
+                }) { (true) in
+                    let storyboard = UIStoryboard(name: "PhoneAuthSB", bundle: nil)
+                    self.vc = storyboard.instantiateViewController(withIdentifier: "PhoneAuthViewContoller") as! PhoneAuthViewContoller
+                    //let nc = UINavigationController.init(rootViewController: vc)
+                    self.vc.modalPresentationStyle = .fullScreen
+                    self.present(self.vc, animated: false)
+                }
+                
+            })
+            
+        
+        }
+        
     }
 
 
     @objc func logIn(){
-        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         if (!email.isEmpty && !password.isEmpty){

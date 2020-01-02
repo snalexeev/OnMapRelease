@@ -21,40 +21,41 @@ class NetworkingService{
     var message: String = ""
     let success: String = "Success"
     
-    func signUpUser(name: String, surname: String, email: String, password: String, reppassword: String){
+    func addInformation(name: String, surname: String){
         title = success
         message = success
-        if (name.isEmpty || surname.isEmpty || email.isEmpty || password.isEmpty || reppassword.isEmpty){
+        if (name.isEmpty || surname.isEmpty){
             title = "Ошибка"; message = "Заполните все поля"
-            self.showAlertDelegate?.showAlert(title: self.title, message: self.message)
-            return
-        }
-        if reppassword != password{
-            title = "Ошибка"; message = "Пароли не совпадают"
             self.showAlertDelegate?.showAlert(title: self.title, message: self.message)
             return
         }
         user.name = name
         user.surname = surname
+        let refToDataBase = Database.database().reference().child("users")
+        refToDataBase.child(Auth.auth().currentUser?.uid ?? "").updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname])
+        
+    }
+    
+    func linkEmail(email: String, password: String, reppassword: String){
+        title = success
+        message = success
+        if reppassword != password{
+            title = "Ошибка"; message = "Пароли не совпадают"
+            self.showAlertDelegate?.showAlert(title: self.title, message: self.message)
+            return
+        }
         user.email = email
         user.password = password
         let credential = EmailAuthProvider.credential(withEmail: user.email, password: user.password)
         Auth.auth().currentUser?.link(with: credential, completion: { (result, error) in
             if error == nil{
                 if let result = result{
-                    let refToDataBase = Database.database().reference().child("users")
-                    refToDataBase.child(result.user.uid).updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname])
+                   self.showAlertDelegate?.showNext()
                 }
             }
             else{
                 self.message = String(error!.localizedDescription)
                 self.title = "Ошибка"
-            }
-            
-            if self.message == self.success{
-                self.showAlertDelegate?.showNext()
-            }
-            else{
                 self.showAlertDelegate?.showAlert(title: self.title, message: self.message)
             }
         })
@@ -62,7 +63,6 @@ class NetworkingService{
     }
     func sendCode(text: String){
         let phoneNumber  = text
-        print(phoneNumber)
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) {  (verificationID, error) in
             if error == nil{
                 UserDefaults.standard.removeObject(forKey: "authVerificationID")

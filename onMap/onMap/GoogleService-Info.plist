@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>388524501025-kljlbrpldc58jg8jdhs2j2q8i05g7kl2.apps.googleusercontent.com</string>
+	<string>468348866783-ebicn5alj6hk0q8i4bguv0dgg0su9nlf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.388524501025-kljlbrpldc58jg8jdhs2j2q8i05g7kl2</string>
+	<string>com.googleusercontent.apps.468348866783-ebicn5alj6hk0q8i4bguv0dgg0su9nlf</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA8gCROZknlAQCPA91M_b12v2T_DvFBdQU</string>
+	<string>AIzaSyAPM0ITj7W_Ei6lk3P2R2zJzuo-i1yC-Qs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>388524501025</string>
+	<string>468348866783</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>onMap.onMap</string>
+	<string>onMapTeam.onMapRelease</string>
 	<key>PROJECT_ID</key>
-	<string>onmap-6988a</string>
+	<string>onmap-27985</string>
 	<key>STORAGE_BUCKET</key>
-	<string>onmap-6988a.appspot.com</string>
+	<string>onmap-27985.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:388524501025:ios:7cc0797c26732ef646db60</string>
+	<string>1:468348866783:ios:8ae26e91059c916c84196a</string>
 	<key>DATABASE_URL</key>
-	<string>https://onmap-6988a.firebaseio.com</string>
+	<string>https://onmap-27985.firebaseio.com</string>
 </dict>
 </plist>

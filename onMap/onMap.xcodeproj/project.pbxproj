@@ -56,7 +56,8 @@
 		4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8AC23B682C900DE03BE /* LaunchScreen.storyboard */; };
 		4426C8B923B682C900DE03BE /* onMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8B823B682C900DE03BE /* onMapTests.swift */; };
 		4426C8C423B682C900DE03BE /* onMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8C323B682C900DE03BE /* onMapUITests.swift */; };
-		4426C8D423B68D0D00DE03BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8D323B68D0D00DE03BE /* GoogleService-Info.plist */; };
+		448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */; };
+		448C9EA023BE80CA00469E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448C9E9F23BE80CA00469E94 /* GoogleService-Info.plist */; };
 		67DC022DFC9C4F8D64C44B42 /* Pods_onMap_onMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */; };
 		B07BA8863C9F7AE0908CC3CD /* Pods_onMap_onMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */; };
 		E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */; };
@@ -139,7 +140,8 @@
 		4426C8BF23B682C900DE03BE /* onMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = onMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4426C8C323B682C900DE03BE /* onMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onMapUITests.swift; sourceTree = "<group>"; };
 		4426C8C523B682C900DE03BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4426C8D323B68D0D00DE03BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewContoller.swift; sourceTree = "<group>"; };
+		448C9E9F23BE80CA00469E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5422A8C7CA791931FAA4EC0B /* Pods-onMap-onMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapTests.debug.xcconfig"; path = "Target Support Files/Pods-onMap-onMapTests/Pods-onMap-onMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE04F5416D3FCDA12405011 /* Pods-onMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.release.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.release.xcconfig"; sourceTree = "<group>"; };
 		BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -344,10 +346,10 @@
 				4426C8A323B682C700DE03BE /* AppDelegate.swift */,
 				4426C8A723B682C700DE03BE /* Main.storyboard */,
 				4426C8AA23B682C900DE03BE /* Assets.xcassets */,
+				448C9E9F23BE80CA00469E94 /* GoogleService-Info.plist */,
 				4426C8AC23B682C900DE03BE /* LaunchScreen.storyboard */,
 				043B47C723B690100083ABAC /* Framework */,
 				043B47C823B690170083ABAC /* ViewControllers */,
-				4426C8D323B68D0D00DE03BE /* GoogleService-Info.plist */,
 				441F97E123BD763C009858EA /* 16862.otf */,
 				4426C8AF23B682C900DE03BE /* Info.plist */,
 			);
@@ -381,6 +383,7 @@
 				441F97D523BD75A6009858EA /* PickUpPhotoController.swift */,
 				441F97DA23BD75BC009858EA /* RegistrationSB.storyboard */,
 				441F97D723BD75AF009858EA /* RegistrationVC.swift */,
+				448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -529,7 +532,6 @@
 				048C6F3423BB95830028A908 /* OtherMessageTableViewCell.xib in Resources */,
 				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
 				441F97D023BD74C3009858EA /* AccountViewController.storyboard in Resources */,
-				4426C8D423B68D0D00DE03BE /* GoogleService-Info.plist in Resources */,
 				441F97C923BD74A7009858EA /* ResetPasswordSB.storyboard in Resources */,
 				4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */,
 				441F97DE23BD75BC009858EA /* PhotoSB.storyboard in Resources */,
@@ -538,6 +540,7 @@
 				4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */,
 				441F97DF23BD75BC009858EA /* PhoneAuthSB.storyboard in Resources */,
 				441F97C523BD7484009858EA /* LoginViewController.storyboard in Resources */,
+				448C9EA023BE80CA00469E94 /* GoogleService-Info.plist in Resources */,
 				4426C8A923B682C700DE03BE /* Main.storyboard in Resources */,
 				441F97E223BD763C009858EA /* 16862.otf in Resources */,
 				0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */,
@@ -699,6 +702,7 @@
 				0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */,
 				441F97B523BD7416009858EA /* Account.swift in Sources */,
 				0418FDA223B796D9004F6200 /* ChatInfo.swift in Sources */,
+				448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */,
 				441F97DD23BD75BC009858EA /* RegistrationVC.swift in Sources */,
 				441F97BD23BD745C009858EA /* User.swift in Sources */,
 				441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */,
@@ -892,14 +896,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3U55223VND;
+				DEVELOPMENT_TEAM = R9MA39W3RG;
 				INFOPLIST_FILE = onMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = onMap.onMap;
+				PRODUCT_BUNDLE_IDENTIFIER = onMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -919,7 +923,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = onMap.onMap;
+				PRODUCT_BUNDLE_IDENTIFIER = onMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

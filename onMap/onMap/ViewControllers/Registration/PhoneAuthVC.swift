@@ -3,7 +3,7 @@
 
 import UIKit
 import Firebase
-class PhoneAuthVC: UIViewController {
+class PhoneAuthVC1: UIViewController {
     var vc: AuthViewController = AuthViewController()
     var checked: Bool = false{
         willSet{
@@ -110,7 +110,7 @@ class PhoneAuthVC: UIViewController {
   
 
 }
-extension PhoneAuthVC: PhoneCheckDelegate{
+extension PhoneAuthVC1: PhoneCheckDelegate{
     func sendCodeReturn(b: Bool) {
         
     }

@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>16862.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -27,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.388524501025-kljlbrpldc58jg8jdhs2j2q8i05g7kl2</string>
+				<string>com.googleusercontent.apps.468348866783-ebicn5alj6hk0q8i4bguv0dgg0su9nlf</string>
 			</array>
 		</dict>
 	</array>
@@ -37,6 +33,12 @@
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>onMap needs your location</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>16862.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -58,7 +60,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>onMap needs your location</string>
 </dict>
 </plist>
