@@ -111,6 +111,10 @@ class PhoneAuthVC: UIViewController {
 
 }
 extension PhoneAuthVC: PhoneCheckDelegate{
+    func sendCodeReturn(b: Bool) {
+        
+    }
+    
     func checkingReturn(b: Bool) {
         checked = b
         if !checked{

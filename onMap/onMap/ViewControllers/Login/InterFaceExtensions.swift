@@ -55,7 +55,7 @@ extension UITextField{
         self.font = UIFont(name:"TimesNewRoman", size: textSize)
         self.layer.cornerRadius = UIScreen.main.bounds.width/25
         self.textAlignment  = .center
-
+        self.layer.borderWidth = 0
     }
     
     func setUpAnyTextField(width: CGFloat, height: CGFloat, textSize: CGFloat, colorText: UIColor, colorBack: UIColor, y: CGFloat, placeholder: String, strokeColor: UIColor){

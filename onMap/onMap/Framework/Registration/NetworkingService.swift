@@ -5,6 +5,7 @@ import UIKit
 import Firebase
 protocol PhoneCheckDelegate{
     func checkingReturn(b: Bool)
+    func sendCodeReturn(b: Bool)
 }
 protocol ShowAlertDelegate {
     func showAlert(title: String, message: String)
@@ -66,15 +67,16 @@ class NetworkingService{
             if error == nil{
                 UserDefaults.standard.removeObject(forKey: "authVerificationID")
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                 self.showChecked?.sendCodeReturn(b: true)
+                
             }
             else{
-                print(error?.localizedDescription)
+                self.showChecked?.sendCodeReturn(b: false)
             }
         }
     }
     func check(codeForCheck: String){
         let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") ?? "0"
-        //UserDefaults.standard.set(codeForCheck, forKey: "authVerificationCode")
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: codeForCheck)
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if error == nil {

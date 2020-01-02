@@ -8,11 +8,14 @@
 import UIKit
 final class LoginViewController: UIViewController {
     //var vc: AuthViewController = AuthViewController()
+    var isFlipped = true
     var checked: Bool = false
+    var sendCodeRet: Bool = false
     private let logoImage = UIImageView()
     private let logoText = UILabel()
     private var customViews: Array<Custom> = []
     private var gradient = Gradient()
+    private var activityIndicator = UIActivityIndicatorView()
     
     
     private var tipOnMainViewLabel = UILabel()
@@ -49,6 +52,12 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
        
         LoginNetworking.shared.loginDelegate = self
+        NetworkingService.shared.showChecked = self
+        
+        activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        activityIndicator.frame = CGRect(x: view.bounds.width/2-view.bounds.width/6, y: view.bounds.height/2-view.bounds.width/6, width: view.bounds.width/3, height: view.bounds.width/3)
+        activityIndicator.color = UIColor.gray
+        
         view.addSubview(gradient)
         gradient.frame = view.frame
         //setting up start point of logo
@@ -154,6 +163,7 @@ final class LoginViewController: UIViewController {
     @objc
     private func openEmailView(){
         wayOfSignIn = false
+        setupEmailLoginView()
         view.bringSubviewToFront(customViews[2])
         customViews[2].animateUp(delta: view.bounds.height/1.4, delay: 0, duration: 0.22)
         closeMainCustomView()
@@ -166,8 +176,6 @@ final class LoginViewController: UIViewController {
         customViews[2].addSubview(passwordTextField)
         customViews[2].addSubview(nextEmailButton)
         customViews[2].addSubview(resetButton)
-        startBorder = 1
-        endBorder = 40
         emailTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         passwordTextField.addTarget(self, action:
@@ -178,7 +186,6 @@ final class LoginViewController: UIViewController {
         nextEmailButton.addTarget(self, action:  #selector(logIn), for: .touchUpInside)
         
     }
-    
     @objc func disappearFirstEmail(){
         setupResetView()
         passwordTextField.removeFromSuperview()
@@ -196,11 +203,14 @@ final class LoginViewController: UIViewController {
     }
     
     func setupEmailLoginView(){
+        startBorder = 1
+        endBorder = 40
         tip1OnEmailLoginView.setUpLabel(text: "Please, enter your", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnEmailLoginView.setUpLabel(text: "Email and password", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9/14*self.view.bounds.height)
         
         emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "custom@mail.ru", strokeColor: Const.gray)
         
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
         nextEmailButton.setUpButton(text: "next", colorText: Const.themeColor, colorBack: Const.green, textSize: customViews[1].bounds.width/17, y: 11.9/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20)
@@ -220,6 +230,7 @@ final class LoginViewController: UIViewController {
     @objc
     private func openPhoneView(){
         wayOfSignIn = true
+        disappearSecondPhone()
         view.bringSubviewToFront(customViews[1])
         customViews[1].animateUp(delta: view.bounds.height/1.4, delay: 0, duration: 0.2)
         closeMainCustomView()
@@ -233,7 +244,7 @@ final class LoginViewController: UIViewController {
         phoneCustomViewTextField.addTarget(self, action: #selector(editingChangedPhone(_:)), for: .editingChanged)
         phoneCustomViewTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         
-        nextPhoneCustomViewButton.addTarget(self, action: #selector(disappearFirstPhone), for: .touchUpInside)
+        nextPhoneCustomViewButton.addTarget(self, action: #selector(decideToOpenSecondPhone), for: .touchUpInside)
     }
     
     //заполняет характеристики первого окна для логина по телефону
@@ -252,10 +263,23 @@ final class LoginViewController: UIViewController {
         nextPhoneCustomViewButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 5*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
         backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
     }
+    @objc func decideToOpenSecondPhone(){
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            self.sendCodeNet(phone: self.phoneCustomViewTextField.getRealPhone(phone: self.phoneCustomViewTextField.text ?? ""))
+        }
+    }
+    @objc func decideToOpenApp(){
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            self.checkCode()
+        }
+    }
     
     //действия с интерфейсом при возвращении со второго окна на первое
     @objc func disappearFirstPhone(){
-        sendCodeNet(phone: phoneCustomViewTextField.getRealPhone(phone: phoneCustomViewTextField.text ?? ""))
         setupSecondPhoneView()
         customViews[1].addSubview(tip2OnPhoneCustomView)
         startBorder = 6
@@ -265,8 +289,8 @@ final class LoginViewController: UIViewController {
         
         backPhoneCustomViewButton.addTarget(self, action: #selector(disappearSecondPhone), for: .touchUpInside)
         customViews[1].addSubview(backPhoneCustomViewButton)
-        nextPhoneCustomViewButton.removeTarget(self, action: #selector(disappearFirstPhone), for: .touchUpInside)
-        nextPhoneCustomViewButton.addTarget(self, action: #selector(checkCode), for: .touchUpInside)
+        nextPhoneCustomViewButton.removeTarget(self, action: #selector(decideToOpenSecondPhone), for: .touchUpInside)
+        nextPhoneCustomViewButton.addTarget(self, action: #selector(decideToOpenApp), for: .touchUpInside)
         
     }
     //действия с интерфейсом при переходе с первого окна на второе
@@ -277,8 +301,8 @@ final class LoginViewController: UIViewController {
         phoneCustomViewTextField.addTarget(self, action: #selector(editingChangedPhone(_:)), for: .editingChanged)
         backPhoneCustomViewButton.removeTarget(self, action: #selector(disappearSecondPhone), for: .touchUpInside)
         backPhoneCustomViewButton.removeFromSuperview()
-        nextPhoneCustomViewButton.removeTarget(self, action: #selector(checkCode), for: .touchUpInside)
-        nextPhoneCustomViewButton.addTarget(self, action: #selector(disappearFirstPhone), for: .touchUpInside)
+        nextPhoneCustomViewButton.removeTarget(self, action: #selector(decideToOpenApp), for: .touchUpInside)
+        nextPhoneCustomViewButton.addTarget(self, action: #selector(decideToOpenSecondPhone), for: .touchUpInside)
 
     }
     
@@ -343,7 +367,13 @@ final class LoginViewController: UIViewController {
         
         tb.modalPresentationStyle = .fullScreen
         present(tb, animated: false)
+//        isFlipped = !isFlipped
+//        let fromview = isFlipped ? tb : self
+//        let toview = isFlipped ? self : tb
+//        self.transition(from: self, to: tb, duration: 0.4, options: [UIView.AnimationOptions.curveEaseOut, UIView.AnimationOptions.transitionFlipFromLeft,UIView.AnimationOptions.showHideTransitionViews], animations: nil, completion: nil)
+
     }
+  
 
     func showRegistration(){
         let storyboard = UIStoryboard(name: "PhoneAuthSB", bundle: nil)
@@ -355,19 +385,20 @@ final class LoginViewController: UIViewController {
 
 
     @objc func logIn(){
+        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        if wayOfSignIn == false{
-            if (!email.isEmpty && !password.isEmpty){
+        if (!email.isEmpty && !password.isEmpty){
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            DispatchQueue.main.async {
                 LoginNetworking.shared.login(email: email, password:password)
             }
-            else{
-                showAlert(title: "Ошибка", message: "Заполните все поля")
-            }
         }
-//        else{
-//            sendCodeNet(phone: phone)
-//        }
+        else{
+            showAlert(title: "Ошибка", message: "Заполните все поля")
+        }
+
     }
     
     
@@ -378,10 +409,12 @@ final class LoginViewController: UIViewController {
         }
         else{
             showAlert(title: "Ошибка", message: "Введите номер телефона")
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            //disappearFirstPhone()
         }
     }
-   
- @objc func checkCode(){
+    @objc func checkCode(){
         let code = phoneCustomViewTextField.text
         if code != nil{
             NetworkingService.shared.showChecked = self
@@ -402,6 +435,13 @@ final class LoginViewController: UIViewController {
         self.showMainTabBar()
         DispatchQueue.main.async {
             Account.shared.loadData()
+            if !self.wayOfSignIn{
+                self.setupEmailLoginView()
+            }
+            else{
+                self.disappearSecondPhone()
+            }
+            
             self.openMainCustomView()
         }
     }
@@ -412,20 +452,43 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: LoginDelegate{
     func showAlertWithError(title: String, message: String) {
         showAlert(title: title, message: message)
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     func loginCompleted() {
         self.loginSucceeded()
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
 }
 
 extension LoginViewController: PhoneCheckDelegate{
+    func sendCodeReturn(b: Bool) {
+        sendCodeRet = b
+        if !b{
+            showAlert(title: "Неверный номер телефона", message: "Попробуйте ввести ещё раз")
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+        }
+        else{
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            disappearFirstPhone()
+
+        }
+    }
+    
     func checkingReturn(b: Bool) {
         checked = b
         if !checked{
             showAlert(title: "Неверный код", message: "Попробуйте ввести ещё раз")
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
         }
         else{
             loginSucceeded()
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
         }
         
     }
@@ -465,8 +528,8 @@ extension LoginViewController: PhoneCheckDelegate{
         // Pass the selected object to the new view controller.
     }
     */
-
-
+//
+//
 //    func presentMapVC(){
 //        let theUsername = "testUser"
 //        let storyboard = UIStoryboard.init(name: "MapViewController", bundle: nil)
@@ -476,7 +539,7 @@ extension LoginViewController: PhoneCheckDelegate{
 //        let navC = UINavigationController.init(rootViewController: newViewController)
 //        navC.modalPresentationStyle = .fullScreen
 //        present(navC, animated: true, completion: nil)
-
+//
 //        self.beginAppearanceTransition(false, animated: true)
 //        navC.beginAppearanceTransition(true, animated: true)
 //        UIView.transition(from: self.view, to: navC.view, duration: 0.5, options: [.transitionCrossDissolve]) { (_) in
@@ -485,11 +548,4 @@ extension LoginViewController: PhoneCheckDelegate{
 //        self.endAppearanceTransition()
 //        navC.endAppearanceTransition()
 //    }
-//    var isFlipped = true
-//    func flip(){
-//        isFlipped = !isFlipped
-//        let fromview = isFlipped ? second : scrollView
-//        let toview = isFlipped ? scrollView : second
-//        UIView.transition(from: fromview!, to: toview!, duration: 0.4, options: [UIView.AnimationOptions.curveEaseOut, UIView.AnimationOptions.transitionFlipFromLeft,UIView.AnimationOptions.showHideTransitionViews])
 //
-//    }
