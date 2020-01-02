@@ -115,23 +115,21 @@ final class AccountViewController: UIViewController {
     }
     func presentLoginViewController() {
         let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        let nc = UINavigationController.init(rootViewController: vc)
-        nc.modalPresentationStyle = .fullScreen
-        present(nc, animated: true)
+        //let nc = UINavigationController.init(rootViewController: vc)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
     }
-    func dismissToLogin() {
-        dismiss(animated: true, completion: nil)
-    }
+   
     @IBAction func LogOut(_ sender: Any) {
         SettingOnMap.shared.currentuserID = ""
-        dismissToLogin()
+        presentLoginViewController()
     }
 
 }
 extension AccountViewController: AccountDelegate{
     func showError(title: String, message: String, status: Bool) {
         if status{
-           dismissToLogin()
+           presentLoginViewController()
         }
         else{
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
