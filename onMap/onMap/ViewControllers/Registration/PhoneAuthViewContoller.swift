@@ -135,20 +135,21 @@ class PhoneAuthViewContoller: UIViewController {
         setupResetView()
         //customViews[2].addSubview(backEmailButton)
         nextEmailButton.removeTarget(self, action:  #selector(linkWithCredential), for: .touchUpInside)
+        nextEmailButton.addTarget(self, action: #selector(addUserInfo), for: .touchUpInside)
         
     }
 
-    
+
     func setupEmailLoginView(){
         startBorder = 1
         endBorder = 40
         tip1OnEmailLoginView.setUpLabel(text: "Please, enter your", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnEmailLoginView.setUpLabel(text: "Email and password", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9/14*self.view.bounds.height)
         
-        emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "first name", strokeColor: Const.gray)
+        emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "custom@mail.ru", strokeColor: Const.gray)
         
         passwordTextField.isSecureTextEntry = false
-        passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "second name", strokeColor: Const.gray)
+        passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
        repeatedPasswordTextField.isSecureTextEntry = false
        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
@@ -158,6 +159,14 @@ class PhoneAuthViewContoller: UIViewController {
     func setupResetView(){
         tip1OnEmailLoginView.setUpLabel(text: "Give us additional", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnEmailLoginView.setUpLabel(text: "info about yourself", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9/14*self.view.bounds.height)
+        
+        emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "first name", strokeColor: Const.gray)
+        
+        passwordTextField.isSecureTextEntry = false
+        passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "second name", strokeColor: Const.gray)
+        
+        repeatedPasswordTextField.isSecureTextEntry = false
+        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         nextEmailButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 4.6*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
         //backEmailButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: 1.4*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
         
@@ -329,13 +338,24 @@ class PhoneAuthViewContoller: UIViewController {
         }
         
     }
+    @objc func addUserInfo(){
+        if (emailTextField.text == nil || passwordTextField.text == nil || repeatedPasswordTextField.text == nil){
+            showAlert(title: "Ошибка", message: "Заполните все поля")
+            
+        }
+        else{
+            DispatchQueue.main.async {
+                NetworkingService.shared.addInformation(name: self.emailTextField.text!, surname: self.passwordTextField.text!)
+            }
+            
+        }
+    }
 }
   
 
 
 extension PhoneAuthViewContoller: PhoneCheckDelegate{
     func sendCodeReturn(b: Bool) {
-        print("here")
         if !b{
             showAlert(title: "Неверный номер телефона", message: "Попробуйте ввести ещё раз")
             activityIndicator.stopAnimating()
@@ -366,7 +386,6 @@ extension PhoneAuthViewContoller: PhoneCheckDelegate{
 }
 extension PhoneAuthViewContoller: ShowAlertDelegate{
     func showNext() {
-       var k = 5
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
     }
