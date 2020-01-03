@@ -45,23 +45,25 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoJ-sP-E7y">
                                 <rect key="frame" x="0.0" y="44" width="375" height="100"/>
-                                <color key="backgroundColor" red="0.203778160564907" green="0.29703167798786917" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-Gr-qPC">
+                                        <rect key="frame" x="289" y="8" width="86" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="trash.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="didClickDeleteButton:" destination="uky-Ju-zmp" eventType="touchUpInside" id="ce9-aw-mzH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="CzY-sm-sGI"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-Gr-qPC">
-                                <rect key="frame" x="144.5" y="114" width="86" height="30"/>
-                                <state key="normal" title="Удалить чат">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DoJ-sP-E7y" firstAttribute="trailing" secondItem="wqD-o6-1A3" secondAttribute="trailing" id="2b7-cI-zxh"/>
                             <constraint firstItem="GcT-yF-dWD" firstAttribute="top" secondItem="98W-Vg-OEd" secondAttribute="bottom" constant="5" id="45h-d1-dB4"/>
-                            <constraint firstItem="wqD-o6-1A3" firstAttribute="trailing" secondItem="TVr-Gr-qPC" secondAttribute="trailing" constant="144.5" id="4o5-tL-vFC"/>
                             <constraint firstItem="DoJ-sP-E7y" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" id="6Nc-bk-xrq"/>
                             <constraint firstItem="98W-Vg-OEd" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" id="6vh-4E-a2S"/>
                             <constraint firstItem="wqD-o6-1A3" firstAttribute="trailing" secondItem="98W-Vg-OEd" secondAttribute="trailing" id="7ed-hf-8i7"/>
@@ -70,10 +72,8 @@
                             <constraint firstItem="7gW-kc-lyd" firstAttribute="leading" secondItem="GcT-yF-dWD" secondAttribute="trailing" constant="5" id="FOE-0G-g0e"/>
                             <constraint firstItem="wqD-o6-1A3" firstAttribute="trailing" secondItem="7gW-kc-lyd" secondAttribute="trailing" constant="5" id="I2d-uO-FrN"/>
                             <constraint firstItem="7gW-kc-lyd" firstAttribute="centerY" secondItem="GcT-yF-dWD" secondAttribute="centerY" id="IfT-HY-4mO"/>
-                            <constraint firstItem="TVr-Gr-qPC" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" constant="144.5" id="J25-Se-oyI"/>
                             <constraint firstItem="w43-uu-JIr" firstAttribute="centerY" secondItem="GcT-yF-dWD" secondAttribute="centerY" id="cRe-U4-XRM"/>
                             <constraint firstItem="wqD-o6-1A3" firstAttribute="bottom" secondItem="GcT-yF-dWD" secondAttribute="bottom" constant="10" id="dqh-cu-czi"/>
-                            <constraint firstItem="98W-Vg-OEd" firstAttribute="top" secondItem="TVr-Gr-qPC" secondAttribute="bottom" id="sLq-yW-1Vd"/>
                             <constraint firstItem="DoJ-sP-E7y" firstAttribute="top" secondItem="wqD-o6-1A3" secondAttribute="top" id="spg-7r-8FF"/>
                             <constraint firstItem="GcT-yF-dWD" firstAttribute="leading" secondItem="w43-uu-JIr" secondAttribute="trailing" constant="5" id="tki-JG-g6d"/>
                             <constraint firstItem="w43-uu-JIr" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" constant="5" id="tpt-c1-aun"/>
@@ -126,5 +126,6 @@
         <image name="command" catalog="system" width="64" height="56"/>
         <image name="paperclip.circle" catalog="system" width="64" height="60"/>
         <image name="paperplane" catalog="system" width="64" height="60"/>
+        <image name="trash.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>

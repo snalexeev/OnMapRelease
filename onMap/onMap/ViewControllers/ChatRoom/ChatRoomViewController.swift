@@ -22,11 +22,11 @@ final class ChatRoomViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         
-        
+        self.didClickCommand((Any).self)
         
         settingsView.layer.cornerRadius = 15
         settingsView.layer.borderWidth = 1
-        settingsView.layer.borderColor = settingsView.backgroundColor?.cgColor
+        settingsView.layer.borderColor = UIColor.darkGray.cgColor
         
         theMessenger?.startDiscussRoom(name: nameOfDiscussion!)
         
@@ -177,6 +177,16 @@ final class ChatRoomViewController: UIViewController {
     
     @IBAction func didClickSendButton(_ sender: Any) {
         sendMessage()
+    }
+    @IBAction func didClickDeleteButton(_ sender: Any) {
+        if let name = nameOfDiscussion {
+            theMessenger?.deleteChat(name: name)
+            //удалить из массива пинов и обновить карту
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            //алерт кинуть
+            return
+        }
     }
 }
 
