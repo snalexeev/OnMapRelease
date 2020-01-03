@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,21 +40,41 @@
                                 <state key="normal" image="paperclip.circle" catalog="system"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98W-Vg-OEd">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoJ-sP-E7y">
+                                <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                                <color key="backgroundColor" red="0.203778160564907" green="0.29703167798786917" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CzY-sm-sGI"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-Gr-qPC">
+                                <rect key="frame" x="144.5" y="114" width="86" height="30"/>
+                                <state key="normal" title="Удалить чат">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="DoJ-sP-E7y" firstAttribute="trailing" secondItem="wqD-o6-1A3" secondAttribute="trailing" id="2b7-cI-zxh"/>
                             <constraint firstItem="GcT-yF-dWD" firstAttribute="top" secondItem="98W-Vg-OEd" secondAttribute="bottom" constant="5" id="45h-d1-dB4"/>
+                            <constraint firstItem="wqD-o6-1A3" firstAttribute="trailing" secondItem="TVr-Gr-qPC" secondAttribute="trailing" constant="144.5" id="4o5-tL-vFC"/>
+                            <constraint firstItem="DoJ-sP-E7y" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" id="6Nc-bk-xrq"/>
                             <constraint firstItem="98W-Vg-OEd" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" id="6vh-4E-a2S"/>
                             <constraint firstItem="wqD-o6-1A3" firstAttribute="trailing" secondItem="98W-Vg-OEd" secondAttribute="trailing" id="7ed-hf-8i7"/>
-                            <constraint firstItem="98W-Vg-OEd" firstAttribute="top" secondItem="wqD-o6-1A3" secondAttribute="top" id="AXu-kJ-GlJ"/>
+                            <constraint firstItem="DoJ-sP-E7y" firstAttribute="centerX" secondItem="wqD-o6-1A3" secondAttribute="centerX" id="9gI-UJ-cyu"/>
+                            <constraint firstItem="98W-Vg-OEd" firstAttribute="top" secondItem="DoJ-sP-E7y" secondAttribute="bottom" id="B5m-X9-2It"/>
                             <constraint firstItem="7gW-kc-lyd" firstAttribute="leading" secondItem="GcT-yF-dWD" secondAttribute="trailing" constant="5" id="FOE-0G-g0e"/>
                             <constraint firstItem="wqD-o6-1A3" firstAttribute="trailing" secondItem="7gW-kc-lyd" secondAttribute="trailing" constant="5" id="I2d-uO-FrN"/>
                             <constraint firstItem="7gW-kc-lyd" firstAttribute="centerY" secondItem="GcT-yF-dWD" secondAttribute="centerY" id="IfT-HY-4mO"/>
+                            <constraint firstItem="TVr-Gr-qPC" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" constant="144.5" id="J25-Se-oyI"/>
                             <constraint firstItem="w43-uu-JIr" firstAttribute="centerY" secondItem="GcT-yF-dWD" secondAttribute="centerY" id="cRe-U4-XRM"/>
                             <constraint firstItem="wqD-o6-1A3" firstAttribute="bottom" secondItem="GcT-yF-dWD" secondAttribute="bottom" constant="10" id="dqh-cu-czi"/>
+                            <constraint firstItem="98W-Vg-OEd" firstAttribute="top" secondItem="TVr-Gr-qPC" secondAttribute="bottom" id="sLq-yW-1Vd"/>
+                            <constraint firstItem="DoJ-sP-E7y" firstAttribute="top" secondItem="wqD-o6-1A3" secondAttribute="top" id="spg-7r-8FF"/>
                             <constraint firstItem="GcT-yF-dWD" firstAttribute="leading" secondItem="w43-uu-JIr" secondAttribute="trailing" constant="5" id="tki-JG-g6d"/>
                             <constraint firstItem="w43-uu-JIr" firstAttribute="leading" secondItem="wqD-o6-1A3" secondAttribute="leading" constant="5" id="tpt-c1-aun"/>
                             <constraint firstItem="GcT-yF-dWD" firstAttribute="centerX" secondItem="wqD-o6-1A3" secondAttribute="centerX" id="u7y-Rr-Xwk"/>
@@ -63,12 +82,18 @@
                         <viewLayoutGuide key="safeArea" id="wqD-o6-1A3"/>
                     </view>
                     <navigationItem key="navigationItem" title="беседа" id="mL0-l4-c9w">
-                        <barButtonItem key="rightBarButtonItem" image="command" catalog="system" id="1Fo-gT-ofw"/>
+                        <barButtonItem key="rightBarButtonItem" image="command" catalog="system" id="1Fo-gT-ofw">
+                            <connections>
+                                <action selector="didClickCommand:" destination="uky-Ju-zmp" id="31M-DO-Dhe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextFieldConstraint" destination="dqh-cu-czi" id="BYx-my-Noc"/>
+                        <outlet property="settingsView" destination="DoJ-sP-E7y" id="VFr-Pa-7Z3"/>
                         <outlet property="tableView" destination="98W-Vg-OEd" id="NYq-aL-wdD"/>
                         <outlet property="textField" destination="GcT-yF-dWD" id="6MV-qQ-Tzb"/>
+                        <outlet property="topTableConstraint" destination="B5m-X9-2It" id="1LT-2j-sMM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROv-fH-IKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

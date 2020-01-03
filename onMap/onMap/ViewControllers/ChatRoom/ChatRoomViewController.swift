@@ -21,6 +21,13 @@ final class ChatRoomViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+        
+        
+        
+        settingsView.layer.cornerRadius = 15
+        settingsView.layer.borderWidth = 1
+        settingsView.layer.borderColor = settingsView.backgroundColor?.cgColor
+        
         theMessenger?.startDiscussRoom(name: nameOfDiscussion!)
         
         setupTableView()
@@ -140,7 +147,34 @@ final class ChatRoomViewController: UIViewController {
     
     
 
-        
+    @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var topTableConstraint: NSLayoutConstraint!
+    var key2 = true
+    @IBAction func didClickCommand(_ sender: Any) {
+        if key2 {
+            for _ in 0..<100 {
+                UIView.animate(withDuration: 1, animations: { () -> Void in
+                    //self.settingsView.center.y -= 100
+                    self.topTableConstraint.constant -= 1
+                    
+                })
+            }
+            self.settingsView.isHidden = true
+//            UIView.animate(withDuration: 0.1, animations: { () -> Void in
+//                //self.settingsView.center.y -= 100
+//                self.topTableConstraint.constant -= 100
+//                self.settingsView.isHidden = true
+//            })
+        } else {
+            UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                //self.settingsView.center.y += 100
+                self.topTableConstraint.constant += 100
+                self.settingsView.isHidden = false
+            })
+        }
+        key2 = !key2
+    }
+    
     @IBAction func didClickSendButton(_ sender: Any) {
         sendMessage()
     }
