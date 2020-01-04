@@ -117,7 +117,12 @@ final class AccountViewController: UIViewController {
         let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         //let nc = UINavigationController.init(rootViewController: vc)
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false)
+        if Const.didAppearLogin{
+            dismiss(animated: false, completion: nil)
+        }
+        else{
+            present(vc, animated: false)
+        }
     }
    
     @IBAction func LogOut(_ sender: Any) {

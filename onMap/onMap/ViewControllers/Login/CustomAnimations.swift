@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 final class Custom: UIView {
-    override func draw(_ rect: CGRect) {backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+    private var y: CGFloat = 0
+    override func draw(_ rect: CGRect) {
+        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         let width = bounds.width/1.2
         let height = bounds.height/2.2
+        y = bounds.height - height
         let pathRect = CGRect(x: bounds.width / 2 - width/2, y: bounds.height - height, width: width, height: height)
         let path = UIBezierPath(roundedRect: pathRect, cornerRadius: width/8)
         Const.themeColor.setFill()
@@ -21,13 +24,24 @@ final class Custom: UIView {
         //path.stroke()
         
     }
+    func moveDown(delta: CGFloat){
+        DispatchQueue.main.async() {
+            self.center.y += delta
+        }
+        self.updateConstraints()
+    }
+    func moveUp(delta:CGFloat){
+       DispatchQueue.main.async() {
+            self.center.y -= delta
+        }
+        self.updateConstraints()
+    }
     func animateUp(delta: CGFloat, delay: TimeInterval, duration: TimeInterval){
         let textAnimationDuration: TimeInterval = duration
         let delay = delay
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
            UIView.animate(withDuration: textAnimationDuration) {
             self.center.y -= delta
-            self.alpha = 1
             }
         }
     }
@@ -35,9 +49,10 @@ final class Custom: UIView {
         let textAnimationDuration: TimeInterval = duration
         let delay = delay
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-           UIView.animate(withDuration: textAnimationDuration) {
-            self.center.y += delta
-            self.alpha = 1
+            UIView.animate(withDuration: textAnimationDuration) {
+                //print(self.center.y)
+                //print(self)
+                self.center.y += delta
             }
         }
         self.updateConstraints()

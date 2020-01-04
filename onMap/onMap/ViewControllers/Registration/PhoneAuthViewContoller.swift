@@ -26,7 +26,6 @@ class PhoneAuthViewContoller: UIViewController {
     private var backPhoneCustomViewButton = UIButton()
     private var startBorder: Int = 0
     private var endBorder: Int = 0
-    let closeEditing = UIButton()
     
     
     private var openEmailLoginView = UIButton()
@@ -80,6 +79,18 @@ class PhoneAuthViewContoller: UIViewController {
     }
    
  
+    func isEnabledEverything(b: Bool){
+        openPhoneLoginView.isEnabled = b
+        openEmailLoginView.isEnabled = b
+        nextPhoneCustomViewButton.isEnabled = b
+        backPhoneCustomViewButton.isEnabled = b
+        nextEmailButton.isEnabled = b
+        backEmailButton.isEnabled = b
+        emailTextField.isEnabled = b
+        passwordTextField.isEnabled = b
+        phoneCustomViewTextField.isEnabled = b
+        repeatedPasswordTextField.isEnabled = b
+    }
      //заполняет view кастомными
      func setUpCustomView(index: Int){
          let customView = Custom()
@@ -120,15 +131,15 @@ class PhoneAuthViewContoller: UIViewController {
         customViews[2].addSubview(passwordTextField)
         customViews[2].addSubview(nextEmailButton)
         emailTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
-        emailTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
+        //emailTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         passwordTextField.addTarget(self, action:
             #selector(editingChanged(_:)), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
+        //passwordTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         //backEmailButton.addTarget(self, action:  #selector(disappearReset), for: .touchUpInside)
         nextEmailButton.addTarget(self, action:  #selector(linkWithCredential), for: .touchUpInside)
         repeatedPasswordTextField.addTarget(self, action:
             #selector(editingChanged(_:)), for: .editingChanged)
-        repeatedPasswordTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
+        //repeatedPasswordTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         
     }
     @objc func disappearFirstEmail(){
@@ -166,8 +177,8 @@ class PhoneAuthViewContoller: UIViewController {
         passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "second name", strokeColor: Const.gray)
         
         repeatedPasswordTextField.isSecureTextEntry = false
-        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
-        nextEmailButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 4.6*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
+        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "nickname", strokeColor: Const.gray)
+        nextEmailButton.setUpButton(text: "next", colorText: Const.themeColor, colorBack: Const.green, textSize: customViews[1].bounds.width/17, y: 12.9/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20)
         //backEmailButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: 1.4*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
         
     }
@@ -188,7 +199,7 @@ class PhoneAuthViewContoller: UIViewController {
         customViews[1].addSubview(tip1OnPhoneCustomView)
         customViews[1].addSubview(nextPhoneCustomViewButton)
         phoneCustomViewTextField.addTarget(self, action: #selector(editingChangedPhone(_:)), for: .editingChanged)
-        phoneCustomViewTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
+        //phoneCustomViewTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         
         nextPhoneCustomViewButton.addTarget(self, action: #selector(decideToOpenSecondPhone), for: .touchUpInside)
     }
@@ -210,15 +221,11 @@ class PhoneAuthViewContoller: UIViewController {
         backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
     }
     @objc func decideToOpenSecondPhone(){
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
         DispatchQueue.main.async {
             self.sendCodeNet(phone: self.phoneCustomViewTextField.getRealPhone(phone: self.phoneCustomViewTextField.text ?? ""))
         }
     }
     @objc func decideToOpenApp(){
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
         DispatchQueue.main.async {
             self.checkCode()
         }
@@ -253,17 +260,17 @@ class PhoneAuthViewContoller: UIViewController {
     }
     
     //обработка закрытия клавиатуры
-    @objc func editingDidBegin(_ textField: UITextField) {
-        closeEditing.setUpButton(text: "", colorText: UIColor(red: 0, green: 0, blue: 0, alpha: 0), colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-        closeEditing.addTarget(self, action: #selector(closeEditingAction(_:)), for: .touchUpInside)
-        //view.bringSubviewToFront(closeEditing)
-        view.addSubview(closeEditing)
-    }
-    @objc func closeEditingAction(_ textField: UITextField){
-        closeEditing.removeFromSuperview()
-        view.endEditing(true)
-    }
-    
+//    @objc func editingDidBegin(_ textField: UITextField) {
+//        closeEditing.setUpButton(text: "", colorText: UIColor(red: 0, green: 0, blue: 0, alpha: 0), colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+//        closeEditing.addTarget(self, action: #selector(closeEditingAction(_:)), for: .touchUpInside)
+//        //view.bringSubviewToFront(closeEditing)
+//        view.addSubview(closeEditing)
+//    }
+//    @objc func closeEditingAction(_ textField: UITextField){
+//        closeEditing.removeFromSuperview()
+//        //view.endEditing(true)
+//    }
+//
     //обработка редактирования textField для кода
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count ?? 0 >= startBorder && textField.text?.count ?? 0 <= endBorder{
@@ -273,6 +280,9 @@ class PhoneAuthViewContoller: UIViewController {
         else{
             textField.layer.borderWidth = 0
         }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     //обработка редактирования textField для телефона
@@ -294,6 +304,9 @@ class PhoneAuthViewContoller: UIViewController {
     func sendCodeNet(phone: String){
         print(phone)
         if phone != ""{
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            isEnabledEverything(b: false)
             NetworkingService.shared.sendCode(text: phone)
         }
         else{
@@ -306,6 +319,9 @@ class PhoneAuthViewContoller: UIViewController {
     @objc func checkCode(){
         let code = phoneCustomViewTextField.text
         if code != nil{
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            isEnabledEverything(b: false)
             NetworkingService.shared.showChecked = self
             NetworkingService.shared.check(codeForCheck: code ?? "")
         }
@@ -321,7 +337,6 @@ class PhoneAuthViewContoller: UIViewController {
     }
     
     
-    //все переходы
  
     @objc func linkWithCredential(){
         if (emailTextField.text == nil || passwordTextField.text == nil || repeatedPasswordTextField.text == nil){
@@ -331,6 +346,7 @@ class PhoneAuthViewContoller: UIViewController {
         else{
             view.addSubview(activityIndicator)
             activityIndicator.startAnimating()
+            isEnabledEverything(b: false)
             DispatchQueue.main.async {
                 NetworkingService.shared.linkEmail(email: self.emailTextField.text!, password: self.passwordTextField.text!, reppassword: self.repeatedPasswordTextField.text!)
             }
@@ -347,8 +363,16 @@ class PhoneAuthViewContoller: UIViewController {
             DispatchQueue.main.async {
                 NetworkingService.shared.addInformation(name: self.emailTextField.text!, surname: self.passwordTextField.text!)
             }
+            showPickerPhoto()
             
         }
+        
+    }
+    func showPickerPhoto(){
+        dismiss(animated: false, completion: nil)
+//        let storyboard = UIStoryboard(name: "PhotoSB", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "PickUpPhotoController") as! PickUpPhotoController
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
   
@@ -360,11 +384,13 @@ extension PhoneAuthViewContoller: PhoneCheckDelegate{
             showAlert(title: "Неверный номер телефона", message: "Попробуйте ввести ещё раз")
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
+            isEnabledEverything(b: true)
         }
         else{
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
             disappearFirstPhone()
+            isEnabledEverything(b: true)
 
         }
     }
@@ -374,25 +400,35 @@ extension PhoneAuthViewContoller: PhoneCheckDelegate{
             showAlert(title: "Неверный код", message: "Попробуйте ввести ещё раз")
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
+            isEnabledEverything(b: true)
         }
         else{
             self.openEmailView()
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
+            isEnabledEverything(b: true)
         }
         
     }
     
 }
 extension PhoneAuthViewContoller: ShowAlertDelegate{
-    func showNext() {
+    func showNext(from: Int) {
+        if from == 1{
+            disappearFirstEmail()
+        }
+        if from == 2{
+            
+        }
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
+        isEnabledEverything(b: true)
     }
     func showAlert(title: String, message: String){
         self.showAlertOnVC(title: title, message: message)
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
+        isEnabledEverything(b: true)
     }
     
     

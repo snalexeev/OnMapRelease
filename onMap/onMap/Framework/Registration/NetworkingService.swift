@@ -9,7 +9,7 @@ protocol PhoneCheckDelegate{
 }
 protocol ShowAlertDelegate {
     func showAlert(title: String, message: String)
-    func showNext()
+    func showNext(from: Int)
 }
 class NetworkingService{
     private init() {}
@@ -50,7 +50,7 @@ class NetworkingService{
         Auth.auth().currentUser?.link(with: credential, completion: { (result, error) in
             if error == nil{
                 if let result = result{
-                   self.showAlertDelegate?.showNext()
+                    self.showAlertDelegate?.showNext(from: 1)
                 }
             }
             else{

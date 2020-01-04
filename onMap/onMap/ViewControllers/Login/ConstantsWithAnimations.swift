@@ -21,4 +21,5 @@ final class Const{
     
     static let logoName = "logoOnMap1"
     static let fontName = "LazyTypebeta"
+    static var didAppearLogin = false
 }

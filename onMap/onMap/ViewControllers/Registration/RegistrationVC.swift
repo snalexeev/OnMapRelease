@@ -123,7 +123,7 @@ extension AuthViewController: UITextFieldDelegate{
     
 }
 extension AuthViewController: ShowAlertDelegate{
-    func showNext() {
+    func showNext(from: Int) {
         let storyboard = UIStoryboard(name: "PhotoSB", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PickUpPhotoController") as! PickUpPhotoController
         navigationController?.pushViewController(vc, animated: true)

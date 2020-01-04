@@ -12,6 +12,7 @@ target 'onMap' do
   pod 'Firebase/Analytics'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  #pod 'FirebaseUI'
   # Pods for onMap
 
   target 'onMapTests' do

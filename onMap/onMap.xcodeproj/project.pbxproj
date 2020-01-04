@@ -58,6 +58,7 @@
 		4426C8C423B682C900DE03BE /* onMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8C323B682C900DE03BE /* onMapUITests.swift */; };
 		448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */; };
 		448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448C9EA123BE882F00469E94 /* GoogleService-Info.plist */; };
+		448C9EA423C0D8CA00469E94 /* Recapcha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9EA323C0D8CA00469E94 /* Recapcha.swift */; };
 		67DC022DFC9C4F8D64C44B42 /* Pods_onMap_onMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */; };
 		B07BA8863C9F7AE0908CC3CD /* Pods_onMap_onMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */; };
 		E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */; };
@@ -142,6 +143,7 @@
 		4426C8C523B682C900DE03BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewContoller.swift; sourceTree = "<group>"; };
 		448C9EA123BE882F00469E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		448C9EA323C0D8CA00469E94 /* Recapcha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recapcha.swift; sourceTree = "<group>"; };
 		5422A8C7CA791931FAA4EC0B /* Pods-onMap-onMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapTests.debug.xcconfig"; path = "Target Support Files/Pods-onMap-onMapTests/Pods-onMap-onMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE04F5416D3FCDA12405011 /* Pods-onMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.release.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.release.xcconfig"; sourceTree = "<group>"; };
 		BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +228,7 @@
 				441F97C023BD7484009858EA /* CustomAnimations.swift */,
 				441F97CA23BD74AF009858EA /* ConstantsWithAnimations.swift */,
 				447FF79423B7AA720004091B /* Reset */,
+				448C9EA323C0D8CA00469E94 /* Recapcha.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448C9EA423C0D8CA00469E94 /* Recapcha.swift in Sources */,
 				441F97DB23BD75BC009858EA /* PickUpPhotoController.swift in Sources */,
 				0418FDA023B79490004F6200 /* MapModel.swift in Sources */,
 				0418FDAA23B79853004F6200 /* PinChat.swift in Sources */,
