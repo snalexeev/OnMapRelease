@@ -70,8 +70,6 @@ final class Gradient: UIView {
         startColor = Const.mainBlueColor
         endColor = Const.secondBlueColor
 
-        
-
         let colors = [startColor.cgColor, endColor.cgColor]
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colorLocations: [CGFloat] = [0, 1]

@@ -29,4 +29,11 @@ class LoginNetworking{
         }
         
     }
+    func resetPassword(email: String){
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if error == nil{
+                //
+            }
+        }
+    }
 }

@@ -8,6 +8,8 @@
 import UIKit
 final class LoginViewController: UIViewController {
     //var vc: AuthViewController = AuthViewController()
+    var keybordIsOpen: Bool = false
+    var keyboard: CGFloat = 0
     var isFlipped = true
     var checked: Bool = false
     var sendCodeRet: Bool = false
@@ -52,6 +54,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         LoginNetworking.shared.loginDelegate = self
         NetworkingService.shared.showChecked = self
+        setupKeyboardNotifications()
         activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.frame = CGRect(x: view.bounds.width/2-view.bounds.width/6, y: view.bounds.height/2-view.bounds.width/6, width: view.bounds.width/3, height: view.bounds.width/3)
         activityIndicator.color = UIColor.gray
@@ -84,6 +87,9 @@ final class LoginViewController: UIViewController {
                     self.logoText.alpha = 1
                 }
             }
+        }
+        if SettingOnMap.shared.currentuserID != ""{
+            loginSucceededAfterRegistration()
         }
         
  
@@ -179,6 +185,13 @@ final class LoginViewController: UIViewController {
         openRegistrationButton.addTarget(self, action: #selector(openRegistration), for: .touchUpInside)
         doActionsToCloseLogin()
         
+    }
+    private func resetMainCustomView(){
+        view.bringSubviewToFront(customViews[0])
+        openMainCustomViewButton.removeTarget(self, action: #selector(openMainCustomView), for: .touchUpInside)
+        openPhoneLoginView.addTarget(self, action: #selector(openPhoneView), for: .touchUpInside)
+        openEmailLoginView.addTarget(self, action: #selector(openEmailView), for: .touchUpInside)
+        openRegistrationButton.addTarget(self, action: #selector(openRegistration), for: .touchUpInside)
     }
     
     //ЛОГИН ПО EMAIL
@@ -325,17 +338,6 @@ final class LoginViewController: UIViewController {
 
     }
     
-    //обработка закрытия клавиатуры
-//    @objc func editingDidBegin(_ textField: UITextField) {
-//        closeEditing.setUpButton(text: "", colorText: UIColor(red: 0, green: 0, blue: 0, alpha: 0), colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-//        closeEditing.addTarget(self, action: #selector(closeEditingAction(_:)), for: .touchUpInside)
-//        //view.bringSubviewToFront(closeEditing)
-//        view.addSubview(closeEditing)
-//    }
-//    @objc func closeEditingAction(_ textField: UITextField){
-//        closeEditing.removeFromSuperview()
-//        view.endEditing(true)
-//    }
      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          view.endEditing(true)
      }
@@ -388,6 +390,40 @@ final class LoginViewController: UIViewController {
 //        let toview = isFlipped ? self : tb
 //        self.transition(from: self, to: tb, duration: 0.4, options: [UIView.AnimationOptions.curveEaseOut, UIView.AnimationOptions.transitionFlipFromLeft,UIView.AnimationOptions.showHideTransitionViews], animations: nil, completion: nil)
 
+    }
+    deinit {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        NotificationCenter.default.removeObserver(self)
+     }
+    func setupKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        keyboard = view.frame.height/6
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            if self.keybordIsOpen == false {
+                self.keybordIsOpen = true
+                let frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY - self.keyboard - 10, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.frame = frame
+                
+                //self.customViews[1].moveUp(delta: self.keyboard + 10)
+                //self.customViews[2].moveUp(delta: self.keyboard + 10)
+                self.view.layoutIfNeeded()
+            }
+            
+        })
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            if self.keybordIsOpen == true {
+                self.keybordIsOpen = false
+                let frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY + self.keyboard + 10, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.frame = frame
+                self.view.layoutIfNeeded()
+            }
+        })
     }
   
 
@@ -489,8 +525,15 @@ final class LoginViewController: UIViewController {
             else{
                 self.disappearSecondPhone()
             }
-            
             self.openMainCustomView()
+        }
+    }
+    
+    func loginSucceededAfterRegistration(){
+        self.showMainTabBar()
+        DispatchQueue.main.async {
+            Account.shared.loadData()
+            self.resetMainCustomView()
         }
     }
     
@@ -532,18 +575,20 @@ extension LoginViewController: PhoneCheckDelegate{
     
     func checkingReturn(b: Bool) {
         checked = b
-        if !checked{
-            showAlert(title: "Неверный код", message: "Попробуйте ввести ещё раз")
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-            isEnabledEverything(b: true)
+        if SettingOnMap.shared.currentuserID != ""{
+            if !checked{
+                showAlert(title: "Неверный код", message: "Попробуйте ввести ещё раз")
+            }
+            else{
+                loginSucceeded()
+            }
         }
         else{
-            loginSucceeded()
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-            isEnabledEverything(b: true)
+            showAlert(title: "Ошибка", message: "Такого пользователя не существует. Зарегистрируйтесь или завершите регистрацию")
         }
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        isEnabledEverything(b: true)
         
     }
     

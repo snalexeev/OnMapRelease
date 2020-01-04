@@ -10,7 +10,9 @@ import UIKit
 
 class PhoneAuthViewContoller: UIViewController {
     var wayOfSignIn: Bool = false
-
+    var keybordIsOpen: Bool = false
+    var keyboard: CGFloat = 0
+    
     private let logoText = UILabel()
     private var customViews: Array<Custom> = []
     private var gradient = Gradient()
@@ -42,6 +44,7 @@ class PhoneAuthViewContoller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupKeyboardNotifications()
         NetworkingService.shared.showChecked = self
         NetworkingService.shared.showAlertDelegate = self
         activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -58,7 +61,6 @@ class PhoneAuthViewContoller: UIViewController {
         for i in 0...2{
             setUpCustomView(index: i)
         }
-        
         customViews[1].animateUp(delta: view.bounds.height/1.4-view.bounds.width, delay: 0, duration: 0.25)
         customViews[0].animateDown(delta: view.bounds.width, delay: 0, duration: 0)
         customViews[2].animateDown(delta: view.bounds.width, delay: 0, duration: 0)
@@ -78,8 +80,41 @@ class PhoneAuthViewContoller: UIViewController {
         fillLoginWithEmailCustomView()
 
     }
-   
- 
+    deinit {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        NotificationCenter.default.removeObserver(self)
+     }
+    func setupKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        keyboard = view.frame.height/6
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            if self.keybordIsOpen == false {
+                self.keybordIsOpen = true
+                let frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY - self.keyboard - 10, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.frame = frame
+                
+                //self.customViews[1].moveUp(delta: self.keyboard + 10)
+                //self.customViews[2].moveUp(delta: self.keyboard + 10)
+                self.view.layoutIfNeeded()
+            }
+            
+        })
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            if self.keybordIsOpen == true {
+                self.keybordIsOpen = false
+                let frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY + self.keyboard + 10, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.frame = frame
+                self.view.layoutIfNeeded()
+            }
+        })
+    }
+
     func isEnabledEverything(b: Bool){
         openPhoneLoginView.isEnabled = b
         openEmailLoginView.isEnabled = b
@@ -161,10 +196,10 @@ class PhoneAuthViewContoller: UIViewController {
         
         emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "custom@mail.ru", strokeColor: Const.gray)
         
-        passwordTextField.isSecureTextEntry = false
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
-       repeatedPasswordTextField.isSecureTextEntry = false
+       repeatedPasswordTextField.isSecureTextEntry = true
        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
         nextEmailButton.setUpButton(text: "next", colorText: Const.themeColor, colorBack: Const.green, textSize: customViews[1].bounds.width/17, y: 12.9/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20)
@@ -264,18 +299,15 @@ class PhoneAuthViewContoller: UIViewController {
         
     }
     
-    //обработка закрытия клавиатуры
+//    //обработка закрытия клавиатуры
 //    @objc func editingDidBegin(_ textField: UITextField) {
-//        closeEditing.setUpButton(text: "", colorText: UIColor(red: 0, green: 0, blue: 0, alpha: 0), colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-//        closeEditing.addTarget(self, action: #selector(closeEditingAction(_:)), for: .touchUpInside)
-//        //view.bringSubviewToFront(closeEditing)
-//        view.addSubview(closeEditing)
+//       setupKeyboardNotifications()
+//
 //    }
 //    @objc func closeEditingAction(_ textField: UITextField){
-//        closeEditing.removeFromSuperview()
-//        //view.endEditing(true)
+//        turnOffkeyboardNotifications()
 //    }
-//
+
     //обработка редактирования textField для кода
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count ?? 0 >= startBorder && textField.text?.count ?? 0 <= endBorder{
@@ -401,18 +433,25 @@ extension PhoneAuthViewContoller: PhoneCheckDelegate{
     }
     
     func checkingReturn(b: Bool) {
-        if !b{
-            showAlert(title: "Неверный код", message: "Попробуйте ввести ещё раз")
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-            isEnabledEverything(b: true)
+        if SettingOnMap.shared.currentuserID == ""{
+            if !b{
+                showAlert(title: "Неверный код", message: "Попробуйте ввести ещё раз")
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+                isEnabledEverything(b: true)
+            }
+            else{
+                self.openEmailView()
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+                isEnabledEverything(b: true)
+            }
+            
         }
         else{
-            self.openEmailView()
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
-            isEnabledEverything(b: true)
+            endRegistration()
         }
+        
         
     }
     
@@ -435,6 +474,4 @@ extension PhoneAuthViewContoller: ShowAlertDelegate{
         activityIndicator.removeFromSuperview()
         isEnabledEverything(b: true)
     }
-    
-    
 }

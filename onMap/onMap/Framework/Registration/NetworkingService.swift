@@ -51,6 +51,7 @@ class NetworkingService{
             if error == nil{
                 if let result = result{
                     self.showAlertDelegate?.showNext(from: 1)
+                    SettingOnMap.shared.currentuserID = Auth.auth().currentUser?.uid ?? ""
                 }
             }
             else{
@@ -80,8 +81,14 @@ class NetworkingService{
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: codeForCheck)
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if error == nil {
-                self.showChecked?.checkingReturn(b: true)
-                SettingOnMap.shared.currentuserID = Auth.auth().currentUser?.uid ?? ""
+                if Auth.auth().currentUser?.email != nil{
+                    SettingOnMap.shared.currentuserID = authResult?.user.uid ?? ""
+                    self.showChecked?.checkingReturn(b: true)
+                }
+                else{
+                    self.showChecked?.checkingReturn(b: true)
+                }
+
                 return
             }
             else{
