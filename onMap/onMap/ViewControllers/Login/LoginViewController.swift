@@ -392,7 +392,7 @@ final class LoginViewController: UIViewController {
   
 
     func showRegistration(){
-        customViews[0].animateDown(delta: 7*view.bounds.width/8, delay: 0.1, duration: 0.3)
+        customViews[0].animateDown(delta: view.bounds.height/2.2 -  view.bounds.height/14, delay: 0.1, duration: 0.3)
         logoText.alpha = 1
         
         let scaleDuration: TimeInterval = 0.8

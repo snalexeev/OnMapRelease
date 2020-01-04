@@ -38,7 +38,7 @@ class PhoneAuthViewContoller: UIViewController {
     private var repeatedPasswordTextField = UITextField()
     
     private var pickerView = UIPickerView()
-    
+    private var endRegistrationButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +72,7 @@ class PhoneAuthViewContoller: UIViewController {
                 self.logoText.alpha = 1
             }, completion: nil)
         }
+        endRegistrationButton.addTarget(self, action: #selector(endRegistration), for: .touchUpInside)
         fillLoginWithPhoneCustomView()
         openPhoneView()
         fillLoginWithEmailCustomView()
@@ -90,6 +91,7 @@ class PhoneAuthViewContoller: UIViewController {
         passwordTextField.isEnabled = b
         phoneCustomViewTextField.isEnabled = b
         repeatedPasswordTextField.isEnabled = b
+        endRegistrationButton.isEnabled = b
     }
      //заполняет view кастомными
      func setUpCustomView(index: Int){
@@ -198,6 +200,7 @@ class PhoneAuthViewContoller: UIViewController {
         customViews[1].addSubview(phoneCustomViewTextField)
         customViews[1].addSubview(tip1OnPhoneCustomView)
         customViews[1].addSubview(nextPhoneCustomViewButton)
+        customViews[1].addSubview(endRegistrationButton)
         phoneCustomViewTextField.addTarget(self, action: #selector(editingChangedPhone(_:)), for: .editingChanged)
         //phoneCustomViewTextField.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
         
@@ -211,6 +214,7 @@ class PhoneAuthViewContoller: UIViewController {
         phoneCustomViewTextField.setUpPhoneTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.3/14*self.view.bounds.height)
         
         nextPhoneCustomViewButton.setUpButton(text: "next", colorText: Const.themeColor, colorBack: Const.green, textSize: customViews[1].bounds.width/17, y: 10.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20)
+        endRegistrationButton.setUpButton(text: "Already have an account?", colorText: Const.mainBlueColor, colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: self.view.bounds.width/30, y: 11.5/14*self.view.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/15)
     }
     //заполняет характеристики второго окна для логина по телефону
     func setupSecondPhoneView(){
@@ -219,6 +223,7 @@ class PhoneAuthViewContoller: UIViewController {
         phoneCustomViewTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10/14*self.view.bounds.height, placeholder: "Insert 6-digit code", strokeColor: Const.themeColor)
         nextPhoneCustomViewButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 5*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
         backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
+        endRegistrationButton.setUpButton(text: "Already have an account?", colorText: Const.mainBlueColor, colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: self.view.bounds.width/30, y: 12.5/14*self.view.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/15)
     }
     @objc func decideToOpenSecondPhone(){
         DispatchQueue.main.async {
@@ -363,12 +368,12 @@ class PhoneAuthViewContoller: UIViewController {
             DispatchQueue.main.async {
                 NetworkingService.shared.addInformation(name: self.emailTextField.text!, surname: self.passwordTextField.text!)
             }
-            showPickerPhoto()
+            endRegistration()
             
         }
         
     }
-    func showPickerPhoto(){
+    @objc func endRegistration(){
         dismiss(animated: false, completion: nil)
 //        let storyboard = UIStoryboard(name: "PhotoSB", bundle: nil)
 //        let vc = storyboard.instantiateViewController(withIdentifier: "PickUpPhotoController") as! PickUpPhotoController
