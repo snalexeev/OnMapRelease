@@ -16,7 +16,6 @@ struct ChatInfo {
     var yCoordinate: Double
     var chatLink: String    //  ссылка на чатрум
     var firebaseID: String //  id в firebase
-    
 }
 
 extension ChatInfo: ExploitDictonary {
