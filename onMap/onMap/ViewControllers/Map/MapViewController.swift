@@ -7,7 +7,8 @@ import UIKit
 import MapKit
 
 final class MapViewController: UIViewController {
-    var textUsername = ""
+    
+    
     let locationManager = CLLocationManager()
     var theMessenger: MessengerOnMap = FirestoreMessenger.shared
 
@@ -79,14 +80,15 @@ final class MapViewController: UIViewController {
     }
     
     func setupAnotations() {
-            annotationsArray.removeAll()
-            let size = theMessenger.numberOfChats
-            for i in 0..<size {
-                let info = theMessenger.getInfoAboutChat(index: i)
-                let pin = PinChat(title: info.name, locationName: "беседа", coordinate: CLLocationCoordinate2D(latitude: info.xCoordinate, longitude: info.yCoordinate))
-                annotationsArray.append(pin)
-                self.mapView.addAnnotation(pin)
-            }
+        annotationsArray.removeAll()
+        mapView.removeAnnotations(mapView.annotations)
+        let size = theMessenger.numberOfChats
+        for i in 0..<size {
+            let info = theMessenger.getInfoAboutChat(index: i)
+            let pin = PinChat(title: info.name, locationName: "беседа", coordinate: CLLocationCoordinate2D(latitude: info.xCoordinate, longitude: info.yCoordinate))
+            annotationsArray.append(pin)
+            self.mapView.addAnnotation(pin)
+        }
     //        DispatchQueue.main.async {
     //            self.mapView.addAnnotations(self.annotationsArray)
     //        }

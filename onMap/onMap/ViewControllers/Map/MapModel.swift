@@ -7,5 +7,10 @@
 import Foundation
 
 final class MapModel {
-    private var chatRoomArray: [ChatRoom] = [ChatRoom]()
+    public var annotationsArray: [PinChat]
+    public init() {
+        annotationsArray = [PinChat]()
+        
+        // загрузка всех чатов и их генерация
+    }
 }
