@@ -126,21 +126,39 @@ final class MapViewController: UIViewController {
 extension MapViewController: CLLocationManagerDelegate {
 }
 
+
+
 extension MapViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//       let reuseIdentifier = "pin"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-//
-//        if annotationView == nil {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//            annotationView?.canShowCallout = true
-//        } else {
-//            annotationView?.annotation = annotation
-//        }
-//
-//        annotationView?.image = #imageLiteral(resourceName: "saucer")
-//        return annotationView
-//    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+       let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+
+        //annotationView?.detailCalloutAccessoryView =
+        let test = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 20))
+        test.text = annotation.title!
+
+        test.textColor = .systemBlue
+        
+        test.textAlignment = .center
+
+        test.layer.cornerRadius = (test.bounds.height ) / 2
+        test.layer.borderWidth = 1
+        test.layer.borderColor = test.backgroundColor?.cgColor
+
+        let image = UIImage.imageWithLabel(test)
+
+        annotationView?.image = image
+
+        return annotationView
+    }
     
     func displayAlert(message: String, action: String) {
         let composeAlert = UIAlertController(title: "Ошибочка!", message: message, preferredStyle: .alert)
@@ -174,8 +192,20 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         }
+    
+        //view.canShowCallout = false
         
-        view.isSelected = false
+        //view.isSelected = false
         return
+    }
+}
+
+
+extension UIImage {
+    class func imageWithLabel(_ label: UILabel) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
+        defer { UIGraphicsEndImageContext() }
+        label.layer.render(in: UIGraphicsGetCurrentContext()!)
+        return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     }
 }
