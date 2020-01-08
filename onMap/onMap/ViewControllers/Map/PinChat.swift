@@ -4,9 +4,6 @@
 import Foundation
 import MapKit
 
-class CustomPointAnnotation: MKPointAnnotation {
-    var imageName: UIImage!
-}
 
 class PinChat: NSObject, MKAnnotation {
     let title: String?

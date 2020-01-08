@@ -8,7 +8,6 @@ import MapKit
 
 final class MapViewController: UIViewController {
     
-    
     let locationManager = CLLocationManager()
     var theMessenger: MessengerOnMap = FirestoreMessenger.shared
 
@@ -109,9 +108,9 @@ final class MapViewController: UIViewController {
                         if (self.theMessenger.addChat(nameDiscussion: name, xCoordinate: pressCoordinate.latitude, yCoordinate: pressCoordinate.longitude)) {
         //                    let pressPin = PinChat(title: name, locationName: "DiscussionRoom", coordinate: pressCoordinate)
         //                    self.mapView.addAnnotation(pressPin)
-                            let pin = CustomPointAnnotation()
-                            pin.coordinate = pressCoordinate
-                            pin.title = name
+                            let pin = PinChat.init(title: name, locationName: "", coordinate: pressCoordinate)
+//                            pin.coordinate = pressCoordinate
+//                            pin.title = name
                             //pin.imageName = #imageLiteral(resourceName: "thePinImage")
                             self.mapView.addAnnotation(pin)
                         } else {
@@ -128,20 +127,20 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-       let reuseIdentifier = "pin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView?.canShowCallout = true
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        annotationView?.image = #imageLiteral(resourceName: "saucer")
-        return annotationView
-    }
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//       let reuseIdentifier = "pin"
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+//
+//        if annotationView == nil {
+//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//            annotationView?.canShowCallout = true
+//        } else {
+//            annotationView?.annotation = annotation
+//        }
+//
+//        annotationView?.image = #imageLiteral(resourceName: "saucer")
+//        return annotationView
+//    }
     
     func displayAlert(message: String, action: String) {
         let composeAlert = UIAlertController(title: "Ошибочка!", message: message, preferredStyle: .alert)
@@ -163,7 +162,6 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // нижнее выплыващие окно с информации вызвать, а на ней кнопку
         
         if let name = view.annotation?.title {
             if theMessenger.chatIsExist(name: name!) {
@@ -173,8 +171,8 @@ extension MapViewController: MKMapViewDelegate {
                 displayAlert(message: "Упс, в чат войти не удалось", action: "cancel")
                 if let pin = view.annotation {
                     mapView.removeAnnotation(pin)
-                    }
                 }
+            }
         }
         
         view.isSelected = false
