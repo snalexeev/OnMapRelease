@@ -76,7 +76,7 @@ final class ChatRoomViewController: UIViewController {
                UIView.animate(withDuration: 0.1, animations: { () -> Void in
                 if self.keybordIsOpen == false {
                     self.keybordIsOpen = true
-                    self.bottomTextFieldConstraint.constant = keyboardSize.height + 10
+                    self.bottomTextFieldConstraint.constant = keyboardSize.height - 25
                     self.view.layoutIfNeeded()
                 }
                    

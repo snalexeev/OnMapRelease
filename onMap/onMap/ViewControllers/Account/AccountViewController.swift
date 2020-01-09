@@ -31,7 +31,11 @@ final class AccountViewController: UIViewController {
     var uploadPhotoButton = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+        }
         tableView.backgroundColor = Const.accountback
         firstFooterTitle.text = "Укажите имя и, если хотите, добавьте фотографию для вашего профиля"
         secondFooterTitle.text = "Любые подробности, например, возраст, род занятий или город.\nПример: 23 года, дизайнер из Санкт-Петербурга"

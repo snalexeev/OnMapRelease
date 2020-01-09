@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: bounds)
         let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         let nc = UINavigationController.init(rootViewController: vc)
-        self.window?.rootViewController = nc
+        self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }
 

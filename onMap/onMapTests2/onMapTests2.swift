@@ -1,22 +1,18 @@
 //
-//  onMapTests.swift
-//  onMapTests
+//  onMapTests2.swift
+//  onMapTests2
 //
-//  Created by Екатерина on 27/12/2019.
-//  Copyright © 2019 onMap. All rights reserved.
+//  Created by Sergei Alexeev on 09.01.2020.
+//  Copyright © 2020 onMap. All rights reserved.
 //
 
 import XCTest
-@testable import onMap
-//import
 
-class onMapTests: XCTestCase {
+class onMapTests2: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        let test = FirestoreMessenger.shared
-        let test2 = LoginViewController()
         
+    
     }
 
     override func tearDown() {
@@ -30,7 +26,7 @@ class onMapTests: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
