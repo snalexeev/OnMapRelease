@@ -31,7 +31,7 @@ class Account{
         let userID = SettingOnMap.shared.currentuserID
         storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
             
-        storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
+        storeRef.getData(maxSize: 32 * 1024 * 1024) { data, error in
           if let error = error {
             print("Error \(error)")
           } else {
@@ -102,7 +102,9 @@ class Account{
     func getPhoto()->UIImage?{
         return self.image
     }
-    
+    func setUserPhoto(){
+        
+    }
     func setUserName(name: String){
         ref = Database.database().reference().child("users")
         ref.child(id).updateChildValues(["name": name])

@@ -63,6 +63,10 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
                     cell.selectionStyle = .none
                     profileUIImageView = setupProfilePhoto(minY: cell.bounds.maxY)
                     cell.addSubview(profileUIImageView)
+                    cell.setupUploadPhotoButton(minY: cell.bounds.maxY, leftInset: leftInsetNormal)
+                    uploadPhotoButton = cell.uploadPhotoButton
+                    uploadPhotoButton.addTarget(self, action: #selector(choseUpload), for: .touchUpInside)
+                    cell.addSubview(uploadPhotoButton)
                     nameTextField = cell.nameTextField
                     nameTextField.tintColor = Const.accountText
                     cell.setupNameCell(viewWidth: view.frame.width, leftInset: leftInset*1.1)
@@ -82,6 +86,10 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
                     cell.selectionStyle = .none
                     profileUIImageView = setupProfilePhoto(minY: cell.bounds.minY)
                     cell.addSubview(profileUIImageView)
+                    cell.setupUploadPhotoButton(minY: cell.bounds.minY, leftInset: leftInsetNormal)
+                    uploadPhotoButton = cell.uploadPhotoButton
+                    uploadPhotoButton.addTarget(self, action: #selector(choseUpload), for: .touchUpInside)
+                    cell.addSubview(uploadPhotoButton)
                     surnameTextField = cell.surnameTextField
                     surnameTextField.addTarget(self, action: #selector(beginEditingAction(_:)), for: .editingDidBegin)
                     surnameTextField.addTarget(self, action: #selector(endEditingActionSurname(_:)), for: .editingDidEnd)
@@ -244,9 +252,20 @@ class AccountTableViewCell: UITableViewCell {
     var phoneLabel = UILabel()
     var emailLabel = UILabel()
     var deleteButton = UIButton()
+    var uploadPhotoButton = UIButton()
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
+    }
+    func setupUploadPhotoButton(minY: CGFloat, leftInset: CGFloat){
+        let cell = UITableViewCell()
+        let imageHeight = cell.frame.size.height*1.5
+        uploadPhotoButton.frame = CGRect(x: leftInset*2 - imageHeight/2, y: minY-imageHeight/2, width: imageHeight, height: imageHeight)
+        uploadPhotoButton.setImage(UIImage.init(named: "1.png"), for: .normal)
+        uploadPhotoButton.alpha = 0.6
+        uploadPhotoButton.backgroundColor = Const.transpGray
+        uploadPhotoButton.layer.cornerRadius = imageHeight/2
+        uploadPhotoButton.layer.masksToBounds = true
     }
     func setupNameCell(viewWidth: CGFloat, leftInset: CGFloat){
         nameTextField.setUpAccountTextField(width: viewWidth-leftInset, height: self.frame.size.height, textSize: self.frame.size.height/2, colorText: Const.accountText , colorBack: Const.transp, y: self.bounds.minY, placeholder: "Имя", strokeColor: Const.gray, x:self.frame.minX + leftInset)

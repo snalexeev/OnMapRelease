@@ -11,7 +11,6 @@ class PickUpPhotoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PhotoNetworking.shared.resultDelegate = self
-       
         image = imageView.image!
        
     }

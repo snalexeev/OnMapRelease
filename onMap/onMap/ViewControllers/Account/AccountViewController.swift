@@ -26,6 +26,9 @@ final class AccountViewController: UIViewController {
     var status = ""
     var reuse = [true, true, true, true, true, true, true]
     
+    var image = UIImage()
+    let imagePicker = UIImagePickerController()
+    var uploadPhotoButton = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -48,11 +51,14 @@ final class AccountViewController: UIViewController {
         phone = Account.shared.getPhone()
         email = Account.shared.getEmail()
         status = Account.shared.getStatus()
-        //profileImageView.image = Account.shared.getPhoto()
+        profileUIImageView.image = Account.shared.getPhoto()
+        PhotoNetworking.shared.resultDelegate = self
+        image = UIImage(named: "1.png")!
+        setupPhotoExtension()
+        
     
     }
 
-    
 //    @IBAction func save(_ sender: Any) {
 //        Account.shared.setUserInfo(name: nameTextField.text!, surname: surnameTextField.text!)
 //        isNotEditing(state: true)
@@ -120,18 +126,6 @@ final class AccountViewController: UIViewController {
         }
         reloadTable()
     }
-    func setupProfilePhoto(minY: CGFloat)->UIImageView{
-        let imageName = "1.jpg"
-        let image = UIImage(named: imageName)
-        let cell = UITableViewCell()
-        let imageHeight = cell.frame.size.height*1.5
-        let newImage = resizeImage(image: image!, toTheSize: CGSize(width: imageHeight, height: imageHeight))
-        let imageView = UIImageView.init(image: newImage)
-        imageView.layer.position = CGPoint(x: leftInsetNormal*2, y: minY)
-        imageView.layer.cornerRadius = imageHeight/2
-        imageView.layer.masksToBounds = true
-        return imageView
-    }
 
     
     @objc func hideKeyboard(){
@@ -152,7 +146,8 @@ extension AccountViewController: AccountDelegate{
     }
     
     func setImage(image: UIImage?) {
-        //profileImageView.image = image
+        self.profileUIImageView.image = image
+        self.reloadTable()
     }
     
     func setFields(name: String, surname: String, phone: String, email: String, status: String) {

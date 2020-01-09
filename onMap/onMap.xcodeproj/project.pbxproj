@@ -28,6 +28,9 @@
 		048C6F3723BB95980028A908 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */; };
 		048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */; };
 		441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83C823C68F6F00383F53 /* AccountTableViewExtension.swift */; };
+		441A83CB23C72B6C00383F53 /* PhotoPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83CA23C72B6C00383F53 /* PhotoPickerExtension.swift */; };
+		441A83CD23C7394C00383F53 /* ChooseActionWithPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83CC23C7394C00383F53 /* ChooseActionWithPhotoController.swift */; };
+		441A83CF23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */; };
 		441F97B523BD7416009858EA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B423BD7416009858EA /* Account.swift */; };
 		441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B623BD7447009858EA /* LoginNetworking.swift */; };
 		441F97BB23BD745C009858EA /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B823BD745C009858EA /* NetworkingService.swift */; };
@@ -108,6 +111,9 @@
 		2E7DBF1A8C922F1C76E0107F /* Pods-onMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.debug.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.debug.xcconfig"; sourceTree = "<group>"; };
 		3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		441A83C823C68F6F00383F53 /* AccountTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewExtension.swift; sourceTree = "<group>"; };
+		441A83CA23C72B6C00383F53 /* PhotoPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerExtension.swift; sourceTree = "<group>"; };
+		441A83CC23C7394C00383F53 /* ChooseActionWithPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseActionWithPhotoController.swift; sourceTree = "<group>"; };
+		441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseActionWithPhotoController.storyboard; sourceTree = "<group>"; };
 		441F97B423BD7416009858EA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		441F97B623BD7447009858EA /* LoginNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworking.swift; sourceTree = "<group>"; };
 		441F97B823BD745C009858EA /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -243,6 +249,9 @@
 				441F97CE23BD74C3009858EA /* Confirmation.storyboard */,
 				441F97CF23BD74C3009858EA /* ConfirmationViewController.swift */,
 				441A83C823C68F6F00383F53 /* AccountTableViewExtension.swift */,
+				441A83CA23C72B6C00383F53 /* PhotoPickerExtension.swift */,
+				441A83CC23C7394C00383F53 /* ChooseActionWithPhotoController.swift */,
+				441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -534,6 +543,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441A83CF23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard in Resources */,
 				441F97E023BD75BC009858EA /* RegistrationSB.storyboard in Resources */,
 				048C6F3423BB95830028A908 /* OtherMessageTableViewCell.xib in Resources */,
 				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
@@ -697,6 +707,7 @@
 			files = (
 				448C9EA423C0D8CA00469E94 /* Recapcha.swift in Sources */,
 				441F97DB23BD75BC009858EA /* PickUpPhotoController.swift in Sources */,
+				441A83CB23C72B6C00383F53 /* PhotoPickerExtension.swift in Sources */,
 				0418FDA023B79490004F6200 /* MapModel.swift in Sources */,
 				0418FDAA23B79853004F6200 /* PinChat.swift in Sources */,
 				441F97D123BD74C3009858EA /* AccountViewController.swift in Sources */,
@@ -714,6 +725,7 @@
 				441F97BD23BD745C009858EA /* User.swift in Sources */,
 				441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */,
 				441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */,
+				441A83CD23C7394C00383F53 /* ChooseActionWithPhotoController.swift in Sources */,
 				441F97C323BD7484009858EA /* LoginViewController.swift in Sources */,
 				441F97BC23BD745C009858EA /* PhotoNetworking.swift in Sources */,
 				441F97C223BD7484009858EA /* InterFaceExtensions.swift in Sources */,

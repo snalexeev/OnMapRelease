@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootMainTabBar()
             DispatchQueue.main.async {
                 Account.shared.loadData()
-                print("load data")
             }
         } else {
             rootLoginViewController()
