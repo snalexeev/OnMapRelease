@@ -20,6 +20,7 @@
 		0418FDA823B79724004F6200 /* MessengerOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA723B79724004F6200 /* MessengerOnMap.swift */; };
 		0418FDAA23B79853004F6200 /* PinChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA923B79853004F6200 /* PinChat.swift */; };
 		043EB4DC23BBAD3800BEFC4A /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043EB4DB23BBAD3800BEFC4A /* LocalNotifications.swift */; };
+		045E627323C7536700A53245 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045E627223C7536700A53245 /* CoreLocation.framework */; };
 		048C6F2C23BB8C460028A908 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F2B23BB8C460028A908 /* ChatRoomViewController.swift */; };
 		048C6F2E23BB8C580028A908 /* ChatRoomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F2D23BB8C580028A908 /* ChatRoomViewController.storyboard */; };
 		048C6F3023BB8C9B0028A908 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F2F23BB8C9B0028A908 /* MessageCell.swift */; };
@@ -95,6 +96,7 @@
 		0418FDA723B79724004F6200 /* MessengerOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerOnMap.swift; sourceTree = "<group>"; };
 		0418FDA923B79853004F6200 /* PinChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChat.swift; sourceTree = "<group>"; };
 		043EB4DB23BBAD3800BEFC4A /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		045E627223C7536700A53245 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		048C6F2B23BB8C460028A908 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		048C6F2D23BB8C580028A908 /* ChatRoomViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoomViewController.storyboard; sourceTree = "<group>"; };
 		048C6F2F23BB8C9B0028A908 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045E627323C7536700A53245 /* CoreLocation.framework in Frameworks */,
 				0405BED223B775DC00AA2880 /* MapKit.framework in Frameworks */,
 				E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */,
 			);
@@ -295,6 +298,7 @@
 		3DC71A3901D2889BB9C1F1C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				045E627223C7536700A53245 /* CoreLocation.framework */,
 				0405BED123B775DC00AA2880 /* MapKit.framework */,
 				0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */,
 				BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */,
@@ -489,7 +493,7 @@
 		4426C89823B682C700DE03BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = onMap;
 				TargetAttributes = {
@@ -907,10 +911,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.75;
 				PRODUCT_BUNDLE_IDENTIFIER = onMapTeam.onMapRelease;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -927,10 +932,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.75;
 				PRODUCT_BUNDLE_IDENTIFIER = onMapTeam.onMapRelease;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -963,7 +969,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3U55223VND;
+				DEVELOPMENT_TEAM = R9MA39W3RG;
 				INFOPLIST_FILE = onMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

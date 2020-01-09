@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import onMap
+//@testable import onMap
 
 class onMapTests: XCTestCase {
 
