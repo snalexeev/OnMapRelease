@@ -45,6 +45,9 @@ class PhoneAuthViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardNotifications()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        repeatedPasswordTextField.delegate = self
         NetworkingService.shared.showChecked = self
         NetworkingService.shared.showAlertDelegate = self
         activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -194,11 +197,17 @@ class PhoneAuthViewContoller: UIViewController {
         tip1OnEmailLoginView.setUpLabel(text: "Please, enter your", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnEmailLoginView.setUpLabel(text: "Email and password", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9/14*self.view.bounds.height)
         
+        emailTextField.tag = 0
+        emailTextField.returnKeyType = .next
         emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "custom@mail.ru", strokeColor: Const.gray)
         
+        passwordTextField.tag = 1
+        passwordTextField.returnKeyType = .next
         passwordTextField.isSecureTextEntry = true
         passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
+        repeatedPasswordTextField.tag = 2
+        repeatedPasswordTextField.returnKeyType = .next
        repeatedPasswordTextField.isSecureTextEntry = true
        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
@@ -214,7 +223,7 @@ class PhoneAuthViewContoller: UIViewController {
         passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "second name", strokeColor: Const.gray)
         
         repeatedPasswordTextField.isSecureTextEntry = false
-        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "nickname", strokeColor: Const.gray)
+        repeatedPasswordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 11.8/14*self.view.bounds.height, placeholder: "about yorself", strokeColor: Const.gray)
         nextEmailButton.setUpButton(text: "next", colorText: Const.themeColor, colorBack: Const.green, textSize: customViews[1].bounds.width/17, y: 12.9/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20)
         //backEmailButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: 1.4*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
         
@@ -256,8 +265,8 @@ class PhoneAuthViewContoller: UIViewController {
         tip1OnPhoneCustomView.setUpLabel(text: "We just sent to you a code.", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnPhoneCustomView.setUpLabel(text: "Usually arrives fast...", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9.2/14*self.view.bounds.height)
         phoneCustomViewTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10/14*self.view.bounds.height, placeholder: "Insert 6-digit code", strokeColor: Const.themeColor)
-        nextPhoneCustomViewButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 5*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
-        backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
+        nextPhoneCustomViewButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 5*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.green.cgColor, borderWidth: 0)
+        backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.green.cgColor, borderWidth: 1)
         endRegistrationButton.setUpButton(text: "Already have an account?", colorText: Const.mainBlueColor, colorBack: UIColor(red: 0, green: 0, blue: 0, alpha: 0), textSize: self.view.bounds.width/30, y: 12.5/14*self.view.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/15)
     }
     @objc func decideToOpenSecondPhone(){
@@ -312,7 +321,7 @@ class PhoneAuthViewContoller: UIViewController {
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count ?? 0 >= startBorder && textField.text?.count ?? 0 <= endBorder{
             textField.layer.borderWidth = 1
-            textField.layer.borderColor = .init(srgbRed: 42/255, green: 0, blue: 178/255, alpha: 1)
+            textField.layer.borderColor = Const.secondBlueColor.cgColor
         }
         else{
             textField.layer.borderWidth = 0
@@ -332,7 +341,7 @@ class PhoneAuthViewContoller: UIViewController {
         }
         if textField.text?.count == 18{
             textField.layer.borderWidth = 1
-            textField.layer.borderColor = CGColor(srgbRed: 42/255, green: 0, blue: 178/255, alpha: 1)
+            textField.layer.borderColor = Const.secondBlueColor.cgColor
         }
         else{
             textField.layer.borderWidth = 0
@@ -398,7 +407,7 @@ class PhoneAuthViewContoller: UIViewController {
         }
         else{
             DispatchQueue.main.async {
-                NetworkingService.shared.addInformation(name: self.emailTextField.text!, surname: self.passwordTextField.text!)
+                NetworkingService.shared.addInformation(name: self.emailTextField.text!, surname: self.passwordTextField.text!, status: self.repeatedPasswordTextField.text!)
             }
             endRegistration()
             

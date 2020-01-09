@@ -19,7 +19,6 @@ final class LoginViewController: UIViewController {
     private var gradient = Gradient()
     private var activityIndicator = UIActivityIndicatorView()
     
-    
     private var tipOnMainViewLabel = UILabel()
     private var areYouNewViewLabel = UILabel()
     private var openRegistrationButton = UIButton()
@@ -52,10 +51,12 @@ final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         LoginNetworking.shared.loginDelegate = self
         NetworkingService.shared.showChecked = self
         setupKeyboardNotifications()
-        activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         activityIndicator.frame = CGRect(x: view.bounds.width/2-view.bounds.width/6, y: view.bounds.height/2-view.bounds.width/6, width: view.bounds.width/3, height: view.bounds.width/3)
         activityIndicator.color = UIColor.gray
         
@@ -68,14 +69,12 @@ final class LoginViewController: UIViewController {
         //setting up start points of rects
         for i in 0...2{
             setUpCustomView(index: i, delta: view.bounds.height/2.2)
-
         }
         //animations with rects
         fillMainCustomView()
         fillLoginWithEmailCustomView()
         fillLoginWithPhoneCustomView()
         //customViews[0].animateUp(delta: view.bounds.height/3, delay: 0.5, duration: 0.2)
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         if !Const.didAppearLogin{
@@ -91,8 +90,7 @@ final class LoginViewController: UIViewController {
         if SettingOnMap.shared.currentuserID != ""{
             loginSucceededAfterRegistration()
         }
-        
- 
+
     }
     func isEnabledEverything(b: Bool){
         openPhoneLoginView.isEnabled = b
@@ -199,7 +197,7 @@ final class LoginViewController: UIViewController {
     @objc
     private func openEmailView(){
         wayOfSignIn = false
-        setupEmailLoginView()
+        disappearReset()
         view.bringSubviewToFront(customViews[2])
         customViews[2].animateUp(delta: view.bounds.height/1.4, delay: 0, duration: 0.22)
         closeMainCustomView()
@@ -235,7 +233,7 @@ final class LoginViewController: UIViewController {
         customViews[2].addSubview(passwordTextField)
         backEmailButton.removeFromSuperview()
         customViews[2].addSubview(resetButton)
-        
+        nextEmailButton.addTarget(self, action:  #selector(logIn), for: .touchUpInside)
     }
     
     func setupEmailLoginView(){
@@ -244,8 +242,11 @@ final class LoginViewController: UIViewController {
         tip1OnEmailLoginView.setUpLabel(text: "Please, enter your", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnEmailLoginView.setUpLabel(text: "Email and password", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9/14*self.view.bounds.height)
         
+        emailTextField.tag = 0
+        emailTextField.returnKeyType = .next
         emailTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 9.8/14*self.view.bounds.height, placeholder: "custom@mail.ru", strokeColor: Const.gray)
         
+        passwordTextField.tag = 1
         passwordTextField.isSecureTextEntry = true
         passwordTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10.8/14*self.view.bounds.height, placeholder: "", strokeColor: Const.gray)
         
@@ -255,8 +256,8 @@ final class LoginViewController: UIViewController {
     func setupResetView(){
         tip1OnEmailLoginView.setUpLabel(text: "Please, enter", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnEmailLoginView.setUpLabel(text: " your Email", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9/14*self.view.bounds.height)
-        nextEmailButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 4.6*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
-        backEmailButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: 1.4*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
+        nextEmailButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 4.6*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.green.cgColor, borderWidth: 0)
+        backEmailButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: 1.4*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.green.cgColor, borderWidth: 1)
         
     }
     
@@ -296,8 +297,8 @@ final class LoginViewController: UIViewController {
         tip1OnPhoneCustomView.setUpLabel(text: "We just sent to you a code.", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 8.5/14*self.view.bounds.height)
         tip2OnPhoneCustomView.setUpLabel(text: "Usually arrives fast...", color: Const.gray, textSize: customViews[1].bounds.width/17, y: 9.2/14*self.view.bounds.height)
         phoneCustomViewTextField.setUpAnyTextField(width: self.view.bounds.width/1.8, height: UIScreen.main.bounds.height/18, textSize: self.view.bounds.width/35, colorText: Const.gray, colorBack: Const.grayAlpha, y: 10/14*self.view.bounds.height, placeholder: "Insert 6-digit code", strokeColor: Const.themeColor)
-        nextPhoneCustomViewButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 5*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 0)
-        backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.greenCG, borderWidth: 1)
+        nextPhoneCustomViewButton.setUpButtonWithX(text: "next", colorText: Const.themeColor, colorBack: Const.green, x: 5*view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.green.cgColor, borderWidth: 0)
+        backPhoneCustomViewButton.setUpButtonWithX(text: "back", colorText: Const.green, colorBack: Const.themeColor, x: view.bounds.width/9, textSize: customViews[1].bounds.width/17, y: 11.5/14*self.view.bounds.height, width: view.bounds.width/3, height: view.bounds.height/20, borderColor: Const.green.cgColor, borderWidth: 1)
     }
     @objc func decideToOpenSecondPhone(){
         DispatchQueue.main.async {
@@ -345,7 +346,7 @@ final class LoginViewController: UIViewController {
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count ?? 0 >= startBorder && textField.text?.count ?? 0 <= endBorder{
             textField.layer.borderWidth = 1
-            textField.layer.borderColor = .init(srgbRed: 42/255, green: 0, blue: 178/255, alpha: 1)
+            textField.layer.borderColor = Const.secondBlueColor.cgColor
         }
         else{
             textField.layer.borderWidth = 0
@@ -362,7 +363,7 @@ final class LoginViewController: UIViewController {
         }
         if textField.text?.count == 18{
             textField.layer.borderWidth = 1
-            textField.layer.borderColor = CGColor(srgbRed: 42/255, green: 0, blue: 178/255, alpha: 1)
+            textField.layer.borderColor = Const.secondBlueColor.cgColor
         }
         else{
             textField.layer.borderWidth = 0

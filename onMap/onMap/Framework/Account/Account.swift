@@ -3,7 +3,7 @@ import Foundation
 import Firebase
 import UIKit
 protocol AccountDelegate {
-    func setFields(name: String, surname: String, phone: String, email: String)
+    func setFields(name: String, surname: String, phone: String, email: String, status: String)
     func setImage(image: UIImage?)
     func showError(title: String, message: String, status: Bool)
 }
@@ -23,6 +23,7 @@ class Account{
     private var email: String = ""
     private var id: String = ""
     private var image: UIImage?
+    private var status: String = ""
     var ref: DatabaseReference!
     var storeRef: StorageReference!
 
@@ -30,7 +31,7 @@ class Account{
         let userID = SettingOnMap.shared.currentuserID
         storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
             
-        storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
+        storeRef.getData(maxSize: 32 * 1024 * 1024) { data, error in
           if let error = error {
             print("Error \(error)")
           } else {
@@ -44,11 +45,13 @@ class Account{
             let value = snapshot.value as? NSDictionary
             self.name = value?["name"] as? String ?? ""
             self.surname = value?["surname"] as? String ?? ""
+            self.status =  value?["status"] as? String ?? ""
             self.phone =  Auth.auth().currentUser?.phoneNumber ?? ""
             self.email = Auth.auth().currentUser?.email ?? ""
-            self.accountDelegate?.setFields(name: self.name, surname: self.surname, phone: self.phone, email: self.email)
+            
+            self.accountDelegate?.setFields(name: self.name, surname: self.surname, phone: self.phone, email: self.email, status: self.status)
           }) { (error) in
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
         }
     }
     func loadTextDataByID(userID: String, completion: @escaping ((_ name: String, _ surname: String)->Void)){
@@ -86,6 +89,9 @@ class Account{
     func getSurname()->String{
         return self.surname
     }
+    func getStatus()->String{
+        return self.status
+    }
     func getPhone()->String{
         return self.phone
     }
@@ -96,13 +102,30 @@ class Account{
     func getPhoto()->UIImage?{
         return self.image
     }
-    
-    func setUserInfo(name: String, surname: String){
+    func setUserPhoto(){
+        
+    }
+    func setUserName(name: String){
         ref = Database.database().reference().child("users")
-        ref.child(id).updateChildValues(["name": name, "surname": surname])
+        ref.child(id).updateChildValues(["name": name])
         self.name = name
+    }
+    
+    func setUserSurname(surname: String){
+        ref = Database.database().reference().child("users")
+        ref.child(id).updateChildValues(["surname": surname])
         self.surname = surname
     }
+    func setUserStatus(status: String){
+        ref = Database.database().reference().child("users")
+        ref.child(id).updateChildValues(["status": status])
+        self.status = status
+    }
+    func setPhone(phone: String){
+        //NetworkingService.shared.sendCode(text: phone)
+    }
+    
+    
     func deleteAccount(password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error == nil{
