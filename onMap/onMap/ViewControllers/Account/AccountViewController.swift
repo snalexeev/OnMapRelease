@@ -3,111 +3,63 @@
 
 import UIKit
 final class AccountViewController: UIViewController {
-    
-// @IBOutlet weak var testPhoto: UIImageView!
-//
-//@IBOutlet weak var test: UILabel!
-    
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    @IBOutlet weak var textUsernameLabel: UILabel!
-    
-    @IBOutlet weak var secondNameLabel: UILabel!
-    
-    @IBOutlet weak var phoneLabel: UILabel!
-    
-    @IBOutlet weak var emailLabel: UILabel!
-    
-    @IBOutlet weak var nameTextField: UITextField!
-    
-    @IBOutlet weak var surnameTextField: UITextField!
-    
-    @IBOutlet weak var barButton: UIBarButtonItem!
-    
-    @IBOutlet weak var saveButton: UIButton!
-    
-    var editStr = "редактировать"
-    var cancelStr = "отменить"
+    let tableView = UITableView.init(frame: .zero, style: UITableView.Style.grouped)
+    var leftInset = CGFloat()
+    var leftInsetNormal = CGFloat()
+    var firstFooterTitle = UITextView()
+    var secondFooterTitle = UITextView()
+    var nameTextField = UITextField()
+    var surnameTextField = UITextField()
+    var aboutTextField = UITextField()
+    var exitButton = UIButton()
+    var deleteButton = UIButton()
+    var profileUIImageView = UIImageView()
+    var changePhoneLabel = UILabel()
+    var changeEmailLabel = UILabel()
+    var phoneLabel = UILabel()
+    var emailLabel = UILabel()
+    let hideKeyboardGesture =  UITapGestureRecognizer()
+    var phone = ""
+    var email = ""
+    var name = ""
+    var surname = ""
+    var status = ""
+    var reuse = [true, true, true, true, true, true, true]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-//        loadTest()
-        barButton.title = editStr
-        isNotEditing(state: true)
+        view.backgroundColor = .systemBackground
+        tableView.backgroundColor = Const.accountback
+        firstFooterTitle.text = "Укажите имя и, если хотите, добавьте фотографию для вашего профиля"
+        secondFooterTitle.text = "Любые подробности, например, возраст, род занятий или город.\nПример: 23 года, дизайнер из Санкт-Петербурга"
+        leftInset = view.frame.width/4
+        let cell = UITableViewCell()
+        leftInsetNormal = 6*cell.frame.size.height/11
+        self.view.addSubview(self.tableView)
+        self.tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.updateLayout(with: self.view.frame.size)
+        hideKeyboardGesture.addTarget(self, action: #selector(hideKeyboard))
+
         Account.shared.accountDelegate = self
-        if Account.shared.getName() == ""{
-            Account.shared.accountDelegate = self
-            Account.shared.loadData()
-        }
-        self.textUsernameLabel.text! = Account.shared.getName()
-        self.secondNameLabel.text! = Account.shared.getSurname()
-        self.phoneLabel.text! = Account.shared.getPhone()
-        self.emailLabel.text! = Account.shared.getEmail()
-        self.profileImageView.image = Account.shared.getPhoto()
+        name = Account.shared.getName()
+        surname = Account.shared.getSurname()
+        phone = Account.shared.getPhone()
+        email = Account.shared.getEmail()
+        status = Account.shared.getStatus()
+        //profileImageView.image = Account.shared.getPhoto()
     
     }
-    //пример использования функции
-//    func loadTest(){
-//        var id = Auth.auth().currentUser!.uid
-//        print(id)
-//        Account.shared.loadTextDataByID(userID: id) { (name, surname) in
-//            DispatchQueue.main.async {
-//                self.test.text! = name + surname
-//            }
-//        }
-//        Account.shared.loadPhotoByID(userID: id) { (photo) in
-//            DispatchQueue.main.async {
-//                self.testPhoto.image! = photo
-//            }
-//
-//        }
+
+    
+//    @IBAction func save(_ sender: Any) {
+//        Account.shared.setUserInfo(name: nameTextField.text!, surname: surnameTextField.text!)
+//        isNotEditing(state: true)
+//        self.textUsernameLabel.text! = Account.shared.getName()
+//        self.secondNameLabel.text! = Account.shared.getSurname()
+//        barButton.title = editStr
 //    }
-    
-    @IBAction func save(_ sender: Any) {
-        Account.shared.setUserInfo(name: nameTextField.text!, surname: surnameTextField.text!)
-        isNotEditing(state: true)
-        self.textUsernameLabel.text! = Account.shared.getName()
-        self.secondNameLabel.text! = Account.shared.getSurname()
-        barButton.title = editStr
-    }
-    
-    
-    func isNotEditing(state: Bool){
-        if !state{
-            nameTextField.text! = textUsernameLabel.text!
-            surnameTextField.text! = secondNameLabel.text!
-        }
-        textUsernameLabel.isHidden = !state
-        textUsernameLabel.isEnabled = state
-        
-        secondNameLabel.isHidden = !state
-        secondNameLabel.isEnabled = state
-        
-        nameTextField.isHidden = state
-        nameTextField.isEnabled = !state
-    
-        surnameTextField.isHidden = state
-        surnameTextField.isEnabled = !state
-        
-        saveButton.isHidden = state
-        saveButton.isEnabled = !state
-    }
-    
-    @IBAction func edit(_ sender: Any) {
-        if barButton.title == editStr{
-            barButton.title = cancelStr
-            isNotEditing(state: false)
-        }
-        else{
-            barButton.title = editStr
-            isNotEditing(state: true)
-        }
-    }
-    
-    @IBAction func deleteAccount(_ sender: Any) {
-        showConfirmation()
-    }
     func showConfirmation(){
         let storyboard = UIStoryboard(name: "Confirmation", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ConfirmationViewController") as! ConfirmationViewController
@@ -125,9 +77,65 @@ final class AccountViewController: UIViewController {
         }
     }
    
-    @IBAction func LogOut(_ sender: Any) {
+    func reloadTable(){
+        self.reuse = [true, true, true, true, true, true, true]
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    @objc func exit(){
         SettingOnMap.shared.currentuserID = ""
         presentLoginViewController()
+    }
+    @objc func deleteAccount(){
+        showConfirmation()
+    }
+    func changeNumber(){
+        print("changeNumber")
+        reloadTable()
+        
+    }
+    func changeEmail(){
+        print("changeEmail")
+        reloadTable()
+    }
+    func changeName(){
+        name = nameTextField.text ?? ""
+        DispatchQueue.main.async {
+            Account.shared.setUserName(name: self.name)
+        }
+        reloadTable()
+    }
+    func changeSurname(){
+        surname = surnameTextField.text ?? ""
+        DispatchQueue.main.async {
+            Account.shared.setUserSurname(surname: self.surname)
+        }
+        reloadTable()
+    }
+    func changeStatus(){
+        status = aboutTextField.text ?? ""
+        DispatchQueue.main.async {
+            Account.shared.setUserStatus(status: self.status)
+        }
+        reloadTable()
+    }
+    func setupProfilePhoto(minY: CGFloat)->UIImageView{
+        let imageName = "1.jpg"
+        let image = UIImage(named: imageName)
+        let cell = UITableViewCell()
+        let imageHeight = cell.frame.size.height*1.5
+        let newImage = resizeImage(image: image!, toTheSize: CGSize(width: imageHeight, height: imageHeight))
+        let imageView = UIImageView.init(image: newImage)
+        imageView.layer.position = CGPoint(x: leftInsetNormal*2, y: minY)
+        imageView.layer.cornerRadius = imageHeight/2
+        imageView.layer.masksToBounds = true
+        return imageView
+    }
+
+    
+    @objc func hideKeyboard(){
+        tableView.endEditing(true)
     }
 
 }
@@ -144,14 +152,16 @@ extension AccountViewController: AccountDelegate{
     }
     
     func setImage(image: UIImage?) {
-        profileImageView.image = image
+        //profileImageView.image = image
     }
     
-    func setFields(name: String, surname: String, phone: String, email: String) {
-        self.textUsernameLabel.text! = name
-        self.secondNameLabel.text! = surname
-        self.phoneLabel.text! = phone
-        self.emailLabel.text! = email
+    func setFields(name: String, surname: String, phone: String, email: String, status: String) {
+        self.name = name
+        self.surname = surname
+        self.phone = phone
+        self.email = email
+        self.status = status
+        self.reloadTable()
     }
   
 }

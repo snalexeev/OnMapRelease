@@ -21,7 +21,7 @@ class NetworkingService{
     var message: String = ""
     let success: String = "Success"
     
-    func addInformation(name: String, surname: String){
+    func addInformation(name: String, surname: String, status: String){
         title = success
         message = success
         if (name.isEmpty || surname.isEmpty){
@@ -31,8 +31,11 @@ class NetworkingService{
         }
         user.name = name
         user.surname = surname
+        
         let refToDataBase = Database.database().reference().child("users")
-        refToDataBase.child(Auth.auth().currentUser?.uid ?? "").updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname])
+        refToDataBase.child(Auth.auth().currentUser?.uid ?? "").updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname, "status": status])
+       // let myTopPostsQuery = (refToDataBase.child("nickname").child(Auth.auth().currentUser?.uid ?? "")).queryEqual(toValue: nickname)
+
         
     }
     
