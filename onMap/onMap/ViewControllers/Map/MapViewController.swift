@@ -5,7 +5,6 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 final class MapViewController: UIViewController {
     
@@ -26,7 +25,6 @@ final class MapViewController: UIViewController {
             }
         }
     }
-    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +68,6 @@ final class MapViewController: UIViewController {
         mapView.delegate = self
         mapView.mapType = .standard
         mapView.showsUserLocation = true
-        //mapView.showsUserLocation = true
     }
     
     func checkLocationAuthorizationStatus() {
@@ -132,36 +129,36 @@ extension MapViewController: CLLocationManagerDelegate {
 
 
 extension MapViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//       let reuseIdentifier = "pin"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-//
-//        if annotationView == nil {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//            annotationView?.canShowCallout = true
-//        } else {
-//            annotationView?.annotation = annotation
-//        }
-//
-//
-//        //annotationView?.detailCalloutAccessoryView =
-//        let test = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 20))
-//        test.text = annotation.title!
-//
-//        test.textColor = .systemBlue
-//        
-//        test.textAlignment = .center
-//
-//        test.layer.cornerRadius = (test.bounds.height ) / 2
-//        test.layer.borderWidth = 1
-//        test.layer.borderColor = test.backgroundColor?.cgColor
-//
-//        let image = UIImage.imageWithLabel(test)
-//
-//        annotationView?.image = image
-//
-//        return annotationView
-//    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+       let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+
+        //annotationView?.detailCalloutAccessoryView =
+        let test = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 20))
+        test.text = annotation.title!
+
+        test.textColor = .systemBlue
+        
+        test.textAlignment = .center
+
+        test.layer.cornerRadius = (test.bounds.height ) / 2
+        test.layer.borderWidth = 1
+        test.layer.borderColor = test.backgroundColor?.cgColor
+
+        let image = UIImage.imageWithLabel(test)
+
+        annotationView?.image = image
+
+        return annotationView
+    }
     
     func displayAlert(message: String, action: String) {
         let composeAlert = UIAlertController(title: "Ошибочка!", message: message, preferredStyle: .alert)

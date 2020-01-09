@@ -124,6 +124,17 @@ extension UITextField{
         self.textAlignment  = .center
         self.layer.borderWidth = 0
     }
+    func setUpAccountPhoneTextField(width: CGFloat, height: CGFloat, textSize: CGFloat, colorText: UIColor, colorBack: UIColor, y: CGFloat, x: CGFloat, placeholder: String){
+        self.text = ""
+        self.placeholder = placeholder
+        self.frame = CGRect(x: UIScreen.main.bounds.width/2-width/2, y: y, width: width, height: height)
+        self.backgroundColor = colorBack
+        self.textColor = colorText
+        self.font = UIFont(name:"TimesNewRoman", size: textSize)
+        self.layer.cornerRadius = UIScreen.main.bounds.width/25
+        self.textAlignment  = .left
+        self.layer.borderWidth = 0
+    }
     func setUpAccountTextField(width: CGFloat, height: CGFloat, textSize: CGFloat, colorText: UIColor, colorBack: UIColor, y: CGFloat, placeholder: String, strokeColor: UIColor, x: CGFloat){
            self.text = ""
            self.frame = CGRect(x: x, y: y, width: width, height: height)

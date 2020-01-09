@@ -97,7 +97,8 @@ final class AccountViewController: UIViewController {
         showConfirmation()
     }
     func changeNumber(){
-        print("changeNumber")
+        let vc = UIStoryboard(name: "ChangePhoneViewController", bundle: nil).instantiateViewController(withIdentifier: "ChangePhoneViewController") as! ChangePhoneViewController
+        navigationController?.pushViewController(vc, animated: true)
         reloadTable()
         
     }

@@ -15,6 +15,7 @@ class ConfirmationViewController: UIViewController, AccountDelegateForConfirmati
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Const.accountback
         Account.shared.accountDelegateForConfirmation = self
         // Do any additional setup after loading the view.
     }
