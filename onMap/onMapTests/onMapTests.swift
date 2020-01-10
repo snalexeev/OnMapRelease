@@ -2,9 +2,6 @@
 //  onMapTests.swift
 //  onMapTests
 //
-//  Created by Екатерина on 27/12/2019.
-//  Copyright © 2019 onMap. All rights reserved.
-//
 
 import XCTest
 @testable import onMap
@@ -14,8 +11,8 @@ class onMapTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let test = FirestoreMessenger.shared
-        let test2 = LoginViewController()
+        
+        //let test2 = LoginViewController()
         
     }
 
@@ -26,6 +23,9 @@ class onMapTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let test = FirestoreMessengerTest()
+        test.startTestAddChat(n: 30)
+        XCTAssert(test.result, "создание чатов")
     }
 
     func testPerformanceExample() {

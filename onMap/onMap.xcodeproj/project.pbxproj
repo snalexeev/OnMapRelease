@@ -13,7 +13,7 @@
 		0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED523B7760500AA2880 /* MapViewController.storyboard */; };
 		0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BED723B7774D00AA2880 /* SettingsViewController.swift */; };
 		0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED923B7778700AA2880 /* SettingsViewController.storyboard */; };
-		041227FE23C79186009C36CF /* onMapTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041227FD23C79186009C36CF /* onMapTests2.swift */; };
+		0412280623C8AFB1009C36CF /* FirestoreMessengerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */; };
 		0418FDA023B79490004F6200 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FD9F23B79490004F6200 /* MapModel.swift */; };
 		0418FDA223B796D9004F6200 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA123B796D9004F6200 /* ChatInfo.swift */; };
 		0418FDA423B796F4004F6200 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA323B796F4004F6200 /* ChatRoom.swift */; };
@@ -72,13 +72,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0412280023C79186009C36CF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4426C89823B682C700DE03BE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4426C89F23B682C700DE03BE;
-			remoteInfo = onMap;
-		};
 		4426C8B523B682C900DE03BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4426C89823B682C700DE03BE /* Project object */;
@@ -102,9 +95,7 @@
 		0405BED523B7760500AA2880 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		0405BED723B7774D00AA2880 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0405BED923B7778700AA2880 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
-		041227FB23C79186009C36CF /* onMapTests2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = onMapTests2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		041227FD23C79186009C36CF /* onMapTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onMapTests2.swift; sourceTree = "<group>"; };
-		041227FF23C79186009C36CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessengerTest.swift; sourceTree = "<group>"; };
 		0418FD9F23B79490004F6200 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		0418FDA123B796D9004F6200 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
 		0418FDA323B796F4004F6200 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
@@ -175,13 +166,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		041227F823C79186009C36CF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4426C89D23B682C700DE03BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,15 +264,6 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
-		041227FC23C79186009C36CF /* onMapTests2 */ = {
-			isa = PBXGroup;
-			children = (
-				041227FD23C79186009C36CF /* onMapTests2.swift */,
-				041227FF23C79186009C36CF /* Info.plist */,
-			);
-			path = onMapTests2;
-			sourceTree = "<group>";
-		};
 		043B47C723B690100083ABAC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +347,6 @@
 				4426C8A223B682C700DE03BE /* onMap */,
 				4426C8B723B682C900DE03BE /* onMapTests */,
 				4426C8C223B682C900DE03BE /* onMapUITests */,
-				041227FC23C79186009C36CF /* onMapTests2 */,
 				4426C8A123B682C700DE03BE /* Products */,
 				7E66EECBC0C997329D14BCCA /* Pods */,
 				3DC71A3901D2889BB9C1F1C1 /* Frameworks */,
@@ -385,7 +359,6 @@
 				4426C8A023B682C700DE03BE /* onMap.app */,
 				4426C8B423B682C900DE03BE /* onMapTests.xctest */,
 				4426C8BF23B682C900DE03BE /* onMapUITests.xctest */,
-				041227FB23C79186009C36CF /* onMapTests2.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,6 +382,7 @@
 		4426C8B723B682C900DE03BE /* onMapTests */ = {
 			isa = PBXGroup;
 			children = (
+				0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */,
 				4426C8B823B682C900DE03BE /* onMapTests.swift */,
 				4426C8BA23B682C900DE03BE /* Info.plist */,
 			);
@@ -471,24 +445,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		041227FA23C79186009C36CF /* onMapTests2 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0412280223C79186009C36CF /* Build configuration list for PBXNativeTarget "onMapTests2" */;
-			buildPhases = (
-				041227F723C79186009C36CF /* Sources */,
-				041227F823C79186009C36CF /* Frameworks */,
-				041227F923C79186009C36CF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0412280123C79186009C36CF /* PBXTargetDependency */,
-			);
-			name = onMapTests2;
-			productName = onMapTests2;
-			productReference = 041227FB23C79186009C36CF /* onMapTests2.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		4426C89F23B682C700DE03BE /* onMap */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4426C8C823B682C900DE03BE /* Build configuration list for PBXNativeTarget "onMap" */;
@@ -558,10 +514,6 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = onMap;
 				TargetAttributes = {
-					041227FA23C79186009C36CF = {
-						CreatedOnToolsVersion = 11.3;
-						TestTargetID = 4426C89F23B682C700DE03BE;
-					};
 					4426C89F23B682C700DE03BE = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -591,19 +543,11 @@
 				4426C89F23B682C700DE03BE /* onMap */,
 				4426C8B323B682C900DE03BE /* onMapTests */,
 				4426C8BE23B682C900DE03BE /* onMapUITests */,
-				041227FA23C79186009C36CF /* onMapTests2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		041227F923C79186009C36CF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4426C89E23B682C700DE03BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -767,14 +711,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		041227F723C79186009C36CF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				041227FE23C79186009C36CF /* onMapTests2.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4426C89C23B682C700DE03BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -823,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4426C8B923B682C900DE03BE /* onMapTests.swift in Sources */,
+				0412280623C8AFB1009C36CF /* FirestoreMessengerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,11 +774,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0412280123C79186009C36CF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4426C89F23B682C700DE03BE /* onMap */;
-			targetProxy = 0412280023C79186009C36CF /* PBXContainerItemProxy */;
-		};
 		4426C8B623B682C900DE03BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4426C89F23B682C700DE03BE /* onMap */;
@@ -874,48 +806,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0412280323C79186009C36CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R9MA39W3RG;
-				INFOPLIST_FILE = onMapTests2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vexella.onMapTests2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/onMap.app/onMap";
-			};
-			name = Debug;
-		};
-		0412280423C79186009C36CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R9MA39W3RG;
-				INFOPLIST_FILE = onMapTests2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = vexella.onMapTests2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/onMap.app/onMap";
-			};
-			name = Release;
-		};
 		4426C8C623B682C900DE03BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1163,15 +1053,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0412280223C79186009C36CF /* Build configuration list for PBXNativeTarget "onMapTests2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0412280323C79186009C36CF /* Debug */,
-				0412280423C79186009C36CF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4426C89B23B682C700DE03BE /* Build configuration list for PBXProject "onMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
