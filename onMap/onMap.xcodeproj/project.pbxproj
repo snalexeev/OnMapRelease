@@ -34,6 +34,10 @@
 		441A83CF23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */; };
 		441A83D123C7580A00383F53 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */; };
 		441A83D323C759D800383F53 /* ChangePhoneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */; };
+		441A83D523C7EDEC00383F53 /* NewPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */; };
+		441A83D723C7EF3100383F53 /* NewPhoneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83D623C7EF3100383F53 /* NewPhoneViewController.storyboard */; };
+		441A83D923C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */; };
+		441A83DB23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83DA23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard */; };
 		441F97B523BD7416009858EA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B423BD7416009858EA /* Account.swift */; };
 		441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B623BD7447009858EA /* LoginNetworking.swift */; };
 		441F97BB23BD745C009858EA /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B823BD745C009858EA /* NetworkingService.swift */; };
@@ -129,6 +133,10 @@
 		441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseActionWithPhotoController.storyboard; sourceTree = "<group>"; };
 		441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
 		441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePhoneViewController.storyboard; sourceTree = "<group>"; };
+		441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhoneViewController.swift; sourceTree = "<group>"; };
+		441A83D623C7EF3100383F53 /* NewPhoneViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewPhoneViewController.storyboard; sourceTree = "<group>"; };
+		441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailDeleteAccountViewController.swift; sourceTree = "<group>"; };
+		441A83DA23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateEmailDeleteAccountViewController.storyboard; sourceTree = "<group>"; };
 		441F97B423BD7416009858EA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		441F97B623BD7447009858EA /* LoginNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworking.swift; sourceTree = "<group>"; };
 		441F97B823BD745C009858EA /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -276,6 +284,10 @@
 				441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */,
 				441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */,
 				441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */,
+				441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */,
+				441A83D623C7EF3100383F53 /* NewPhoneViewController.storyboard */,
+				441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */,
+				441A83DA23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -613,12 +625,14 @@
 				048C6F3423BB95830028A908 /* OtherMessageTableViewCell.xib in Resources */,
 				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
 				441F97D023BD74C3009858EA /* AccountViewController.storyboard in Resources */,
+				441A83D723C7EF3100383F53 /* NewPhoneViewController.storyboard in Resources */,
 				441F97C923BD74A7009858EA /* ResetPasswordSB.storyboard in Resources */,
 				448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */,
 				4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */,
 				441F97DE23BD75BC009858EA /* PhotoSB.storyboard in Resources */,
 				048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */,
 				441A83D323C759D800383F53 /* ChangePhoneViewController.storyboard in Resources */,
+				441A83DB23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard in Resources */,
 				048C6F2E23BB8C580028A908 /* ChatRoomViewController.storyboard in Resources */,
 				4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */,
 				441F97DF23BD75BC009858EA /* PhoneAuthSB.storyboard in Resources */,
@@ -797,8 +811,10 @@
 				448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */,
 				441F97DD23BD75BC009858EA /* RegistrationVC.swift in Sources */,
 				441F97BD23BD745C009858EA /* User.swift in Sources */,
+				441A83D523C7EDEC00383F53 /* NewPhoneViewController.swift in Sources */,
 				441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */,
 				441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */,
+				441A83D923C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift in Sources */,
 				441A83CD23C7394C00383F53 /* ChooseActionWithPhotoController.swift in Sources */,
 				441F97C323BD7484009858EA /* LoginViewController.swift in Sources */,
 				441F97BC23BD745C009858EA /* PhotoNetworking.swift in Sources */,

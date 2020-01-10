@@ -1,14 +1,15 @@
 //
-//  ChangePhoneViewController.swift
+//  UpdateEmailDeleteAccountViewController.swift
 //  onMap
 //
-//  Created by Екатерина on 09/01/2020.
+//  Created by Екатерина on 10/01/2020.
 //  Copyright © 2020 onMap. All rights reserved.
 //
 
 import UIKit
 
-class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class UpdateEmailDeleteAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.grouped)
     let barButtonNext = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTo))
     var header = ""
@@ -20,14 +21,23 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
     let hideKeyboardGesture =  UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkingService.shared.showChecked = self
+        which = Const.updateDelete
+        Account.shared.accountDelegateForConfirmation = self
         NetworkingService.shared.showAlertDelegate = self
         navigationItem.rightBarButtonItem = barButtonNext
         let cell = UITableViewCell()
         leftInset = 6*cell.frame.size.height/11
-        header = "Старый номер телефона"
-        footer = "Мы отправим вам код для подтверждения\n\nНедавняя авторизация нужна для всех действий с аккаунтом, связанных с изменением информации о пользователе"
-        text = "+7 (123) 456-78-99"
+        if !which{
+            header = "новый Email"
+            footer = ""
+            text = "custom@mail.ru"
+        }
+        else{
+            header = "ваш пароль"
+            footer = "Для удаления аккаунта в целях безопасности необходимо ввести пароль от учётной записи"
+            text = "пароль"
+        }
+        
         self.view.backgroundColor = Const.transp
         tableView.backgroundColor = Const.accountback
         self.view.addSubview(self.tableView)
@@ -43,10 +53,10 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-       super.viewWillTransition(to: size, with: coordinator)
-       coordinator.animate(alongsideTransition: { (contex) in
-          self.updateLayout(with: size)
-       }, completion: nil)
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { (contex) in
+            self.updateLayout(with: size)
+        }, completion: nil)
     }
     
     func reloadTable(){
@@ -56,21 +66,14 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
     }
     @objc func nextTo(){
         if !which{
-            which = true
             DispatchQueue.main.async {
-                let phone = self.phoneTextField.getRealPhone(phone: self.phoneTextField.text ?? "+")
-                if phone != Account.shared.getPhone(){
-                    self.showAlert(title: "Ошибка", message: "Неверный номер")
-                }
-                else{
-                    NetworkingService.shared.sendCode(text: phone)
-                }
-                
+                let email = self.phoneTextField.text ?? ""
+                NetworkingService.shared.updateEmail(email: email)
             }
         }
         else{
             DispatchQueue.main.async {
-                NetworkingService.shared.reauth(codeForCheck: self.phoneTextField.text ?? "")
+                Account.shared.deleteAccount(password: self.phoneTextField.text ?? " ")
             }
             
         }
@@ -113,29 +116,21 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
             phoneTextField = cell.phoneTextField
             phoneTextField.addTarget(self, action: #selector(becomeFirstResponder), for: .editingDidBegin)
             if !which{
-                phoneTextField.addTarget(self, action: #selector(editingChangedPhone(_:)), for: .editingChanged)
+                phoneTextField.isSecureTextEntry = false
             }
             else{
-                phoneTextField.removeTarget(self, action: #selector(editingChangedPhone(_:)), for: .editingChanged)
+                phoneTextField.isSecureTextEntry = true
             }
-            
             phoneTextField.addTarget(self, action: #selector(endEditingTextField), for: .editingDidEnd)
             cell.addSubview(phoneTextField)
-       
+            
         default:
             break
         }
         return cell
         
     }
-    @objc func editingChangedPhone(_ textField: UITextField) {
-        if textField.text != ""{
-            textField.text = textField.workWithPhone(phone: textField.text ?? "+")
-        }
-        else{
-            textField.text = "+"
-        }
-    }
+    
     @objc func endEditingTextField(){
         tableView.removeGestureRecognizer(hideKeyboardGesture)
     }
@@ -153,48 +148,23 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
     
     
 }
-class PhoneTableViewCell: UITableViewCell{
-    var phoneTextField = UITextField()
-    func setupPhoneTextField(viewWidth: CGFloat, leftInset: CGFloat, text: String){
-        phoneTextField.setUpAccountPhoneTextField(width: viewWidth-leftInset, height: self.frame.size.height, textSize: self.frame.size.height/2, colorText: Const.accountText, colorBack: Const.transp, y: self.bounds.minY, x: self.frame.minX + leftInset, placeholder: text)
+
+extension UpdateEmailDeleteAccountViewController: ShowAlertDelegate, AccountDelegateForConfirmation{
+    func showErrorWithConfirmation(error: String) {
+        showAlert(title: "Ошибка", message: error)
     }
     
+    func dismissConfirmation() {
+        navigationController?.popToRootViewController(animated: true)
+    }
     
-}
-extension ChangePhoneViewController: PhoneCheckDelegate, ShowAlertDelegate{
     
     func showNext(from: Int) {
-        //
+        Account.shared.setEmail(email: phoneTextField.text ?? "")
+        navigationController?.popToRootViewController(animated: true)
     }
     
-    func checkingReturn(b: Bool) {
-        if b{
-            if Const.updatePhoneEmail{
-                let vc = UIStoryboard(name: "UpdateEmailDeleteAccountViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdateEmailDeleteAccountViewController") as! UpdateEmailDeleteAccountViewController
-                navigationController?.pushViewController(vc, animated: true)
-            }
-            else{
-                let vc = UIStoryboard(name: "NewPhoneViewController", bundle: nil).instantiateViewController(withIdentifier: "NewPhoneViewController") as! NewPhoneViewController
-                navigationController?.pushViewController(vc, animated: true)
-            }
-           
-            
-           
-        }
-    }
     
-    func sendCodeReturn(b: Bool) {
-        if b{
-            header = "Ваш код"
-            footer = "Мы отправили код для подтверждения"
-            text = "код"
-            reloadTable()
-        }
-        else{
-            showAlert(title: "Ошибка", message: "Неверный номер телефона")
-        }
-        
-    }
     
     
 }

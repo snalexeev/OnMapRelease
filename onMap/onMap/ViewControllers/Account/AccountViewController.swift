@@ -60,6 +60,7 @@ final class AccountViewController: UIViewController {
         image = UIImage(named: "1.png")!
         setupPhotoExtension()
         
+        NetworkingService.shared.reAuthDelegate = self
     
     }
 
@@ -98,17 +99,22 @@ final class AccountViewController: UIViewController {
         presentLoginViewController()
     }
     @objc func deleteAccount(){
-        showConfirmation()
+        Const.updateDelete = true
+        let vc = UIStoryboard(name: "UpdateEmailDeleteAccountViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdateEmailDeleteAccountViewController") as! UpdateEmailDeleteAccountViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     func changeNumber(){
+        Const.updateDelete = true
         let vc = UIStoryboard(name: "ChangePhoneViewController", bundle: nil).instantiateViewController(withIdentifier: "ChangePhoneViewController") as! ChangePhoneViewController
         navigationController?.pushViewController(vc, animated: true)
-        reloadTable()
         
     }
     func changeEmail(){
-        print("changeEmail")
-        reloadTable()
+        Const.updateDelete = false
+        Const.updatePhoneEmail = true
+       let vc = UIStoryboard(name: "ChangePhoneViewController", bundle: nil).instantiateViewController(withIdentifier: "ChangePhoneViewController") as! ChangePhoneViewController
+        navigationController?.pushViewController(vc, animated: true)
+
     }
     func changeName(){
         name = nameTextField.text ?? ""
@@ -164,4 +170,15 @@ extension AccountViewController: AccountDelegate{
         self.reloadTable()
     }
   
+}
+
+extension AccountViewController: ReAuthDelegate{
+    func reAuthDelegate() {
+        phone = Account.shared.getPhone()
+        email = Account.shared.getEmail()
+        reloadTable()
+    }
+    
+    
+    
 }
