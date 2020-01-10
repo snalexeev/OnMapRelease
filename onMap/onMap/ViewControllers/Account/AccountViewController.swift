@@ -71,11 +71,6 @@ final class AccountViewController: UIViewController {
 //        self.secondNameLabel.text! = Account.shared.getSurname()
 //        barButton.title = editStr
 //    }
-    func showConfirmation(){
-        let storyboard = UIStoryboard(name: "Confirmation", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ConfirmationViewController") as! ConfirmationViewController
-        present(vc, animated: true)
-    }
     func presentLoginViewController() {
         let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         //let nc = UINavigationController.init(rootViewController: vc)

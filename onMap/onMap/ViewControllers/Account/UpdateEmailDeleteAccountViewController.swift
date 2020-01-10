@@ -152,6 +152,7 @@ class UpdateEmailDeleteAccountViewController: UIViewController, UITableViewDeleg
 extension UpdateEmailDeleteAccountViewController: ShowAlertDelegate, AccountDelegateForConfirmation{
     func showErrorWithConfirmation(error: String) {
         showAlert(title: "Ошибка", message: error)
+        phoneTextField.text = ""
     }
     
     func dismissConfirmation() {
