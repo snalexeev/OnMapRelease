@@ -34,6 +34,11 @@
 		441A83CF23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */; };
 		441A83D123C7580A00383F53 /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */; };
 		441A83D323C759D800383F53 /* ChangePhoneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */; };
+		441A83D523C7EDEC00383F53 /* NewPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */; };
+		441A83D723C7EF3100383F53 /* NewPhoneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83D623C7EF3100383F53 /* NewPhoneViewController.storyboard */; };
+		441A83D923C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */; };
+		441A83DB23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83DA23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard */; };
+		441A83DE23C805B200383F53 /* PhoneAuthSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441A83DD23C805B200383F53 /* PhoneAuthSB.storyboard */; };
 		441F97B523BD7416009858EA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B423BD7416009858EA /* Account.swift */; };
 		441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B623BD7447009858EA /* LoginNetworking.swift */; };
 		441F97BB23BD745C009858EA /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97B823BD745C009858EA /* NetworkingService.swift */; };
@@ -43,19 +48,9 @@
 		441F97C323BD7484009858EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97BF23BD7483009858EA /* LoginViewController.swift */; };
 		441F97C423BD7484009858EA /* CustomAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97C023BD7484009858EA /* CustomAnimations.swift */; };
 		441F97C523BD7484009858EA /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97C123BD7484009858EA /* LoginViewController.storyboard */; };
-		441F97C823BD74A7009858EA /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97C623BD74A7009858EA /* ResetPasswordVC.swift */; };
-		441F97C923BD74A7009858EA /* ResetPasswordSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97C723BD74A7009858EA /* ResetPasswordSB.storyboard */; };
 		441F97CB23BD74AF009858EA /* ConstantsWithAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97CA23BD74AF009858EA /* ConstantsWithAnimations.swift */; };
 		441F97D023BD74C3009858EA /* AccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97CC23BD74C2009858EA /* AccountViewController.storyboard */; };
 		441F97D123BD74C3009858EA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97CD23BD74C3009858EA /* AccountViewController.swift */; };
-		441F97D223BD74C3009858EA /* Confirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97CE23BD74C3009858EA /* Confirmation.storyboard */; };
-		441F97D323BD74C3009858EA /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97CF23BD74C3009858EA /* ConfirmationViewController.swift */; };
-		441F97DB23BD75BC009858EA /* PickUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97D523BD75A6009858EA /* PickUpPhotoController.swift */; };
-		441F97DC23BD75BC009858EA /* PhoneAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97D623BD75AC009858EA /* PhoneAuthVC.swift */; };
-		441F97DD23BD75BC009858EA /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441F97D723BD75AF009858EA /* RegistrationVC.swift */; };
-		441F97DE23BD75BC009858EA /* PhotoSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97D823BD75B3009858EA /* PhotoSB.storyboard */; };
-		441F97DF23BD75BC009858EA /* PhoneAuthSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97D923BD75B7009858EA /* PhoneAuthSB.storyboard */; };
-		441F97E023BD75BC009858EA /* RegistrationSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441F97DA23BD75BC009858EA /* RegistrationSB.storyboard */; };
 		441F97E223BD763C009858EA /* 16862.otf in Resources */ = {isa = PBXBuildFile; fileRef = 441F97E123BD763C009858EA /* 16862.otf */; };
 		4426C8A423B682C700DE03BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8A323B682C700DE03BE /* AppDelegate.swift */; };
 		4426C8A923B682C700DE03BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8A723B682C700DE03BE /* Main.storyboard */; };
@@ -65,7 +60,6 @@
 		4426C8C423B682C900DE03BE /* onMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8C323B682C900DE03BE /* onMapUITests.swift */; };
 		448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */; };
 		448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448C9EA123BE882F00469E94 /* GoogleService-Info.plist */; };
-		448C9EA423C0D8CA00469E94 /* Recapcha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9EA323C0D8CA00469E94 /* Recapcha.swift */; };
 		67DC022DFC9C4F8D64C44B42 /* Pods_onMap_onMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */; };
 		B07BA8863C9F7AE0908CC3CD /* Pods_onMap_onMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */; };
 		E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */; };
@@ -120,6 +114,11 @@
 		441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseActionWithPhotoController.storyboard; sourceTree = "<group>"; };
 		441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
 		441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePhoneViewController.storyboard; sourceTree = "<group>"; };
+		441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhoneViewController.swift; sourceTree = "<group>"; };
+		441A83D623C7EF3100383F53 /* NewPhoneViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewPhoneViewController.storyboard; sourceTree = "<group>"; };
+		441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailDeleteAccountViewController.swift; sourceTree = "<group>"; };
+		441A83DA23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateEmailDeleteAccountViewController.storyboard; sourceTree = "<group>"; };
+		441A83DD23C805B200383F53 /* PhoneAuthSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhoneAuthSB.storyboard; sourceTree = "<group>"; };
 		441F97B423BD7416009858EA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		441F97B623BD7447009858EA /* LoginNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworking.swift; sourceTree = "<group>"; };
 		441F97B823BD745C009858EA /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -129,19 +128,9 @@
 		441F97BF23BD7483009858EA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		441F97C023BD7484009858EA /* CustomAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimations.swift; sourceTree = "<group>"; };
 		441F97C123BD7484009858EA /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
-		441F97C623BD74A7009858EA /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
-		441F97C723BD74A7009858EA /* ResetPasswordSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordSB.storyboard; sourceTree = "<group>"; };
 		441F97CA23BD74AF009858EA /* ConstantsWithAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsWithAnimations.swift; sourceTree = "<group>"; };
 		441F97CC23BD74C2009858EA /* AccountViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountViewController.storyboard; sourceTree = "<group>"; };
 		441F97CD23BD74C3009858EA /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		441F97CE23BD74C3009858EA /* Confirmation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Confirmation.storyboard; sourceTree = "<group>"; };
-		441F97CF23BD74C3009858EA /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
-		441F97D523BD75A6009858EA /* PickUpPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpPhotoController.swift; sourceTree = "<group>"; };
-		441F97D623BD75AC009858EA /* PhoneAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthVC.swift; sourceTree = "<group>"; };
-		441F97D723BD75AF009858EA /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
-		441F97D823BD75B3009858EA /* PhotoSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoSB.storyboard; sourceTree = "<group>"; };
-		441F97D923BD75B7009858EA /* PhoneAuthSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhoneAuthSB.storyboard; sourceTree = "<group>"; };
-		441F97DA23BD75BC009858EA /* RegistrationSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationSB.storyboard; sourceTree = "<group>"; };
 		441F97E123BD763C009858EA /* 16862.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 16862.otf; sourceTree = "<group>"; };
 		4426C8A023B682C700DE03BE /* onMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4426C8A323B682C700DE03BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +146,6 @@
 		4426C8C523B682C900DE03BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewContoller.swift; sourceTree = "<group>"; };
 		448C9EA123BE882F00469E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		448C9EA323C0D8CA00469E94 /* Recapcha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recapcha.swift; sourceTree = "<group>"; };
 		5422A8C7CA791931FAA4EC0B /* Pods-onMap-onMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapTests.debug.xcconfig"; path = "Target Support Files/Pods-onMap-onMapTests/Pods-onMap-onMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE04F5416D3FCDA12405011 /* Pods-onMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.release.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.release.xcconfig"; sourceTree = "<group>"; };
 		BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,13 +224,11 @@
 		0405BEC523B770CC00AA2880 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				441F97BE23BD7483009858EA /* InterFaceExtensions.swift */,
 				441F97C123BD7484009858EA /* LoginViewController.storyboard */,
 				441F97BF23BD7483009858EA /* LoginViewController.swift */,
-				441F97C023BD7484009858EA /* CustomAnimations.swift */,
+				441F97BE23BD7483009858EA /* InterFaceExtensions.swift */,
 				441F97CA23BD74AF009858EA /* ConstantsWithAnimations.swift */,
-				447FF79423B7AA720004091B /* Reset */,
-				448C9EA323C0D8CA00469E94 /* Recapcha.swift */,
+				441F97C023BD7484009858EA /* CustomAnimations.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -250,16 +236,14 @@
 		0405BEC623B770DB00AA2880 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				441F97CC23BD74C2009858EA /* AccountViewController.storyboard */,
+				441A83DC23C804C300383F53 /* Storyboards */,
 				441F97CD23BD74C3009858EA /* AccountViewController.swift */,
-				441F97CE23BD74C3009858EA /* Confirmation.storyboard */,
-				441F97CF23BD74C3009858EA /* ConfirmationViewController.swift */,
 				441A83C823C68F6F00383F53 /* AccountTableViewExtension.swift */,
 				441A83CA23C72B6C00383F53 /* PhotoPickerExtension.swift */,
 				441A83CC23C7394C00383F53 /* ChooseActionWithPhotoController.swift */,
-				441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */,
 				441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */,
-				441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */,
+				441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */,
+				441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -321,6 +305,18 @@
 				3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		441A83DC23C804C300383F53 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				441F97CC23BD74C2009858EA /* AccountViewController.storyboard */,
+				441A83CE23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard */,
+				441A83D223C759D800383F53 /* ChangePhoneViewController.storyboard */,
+				441A83D623C7EF3100383F53 /* NewPhoneViewController.storyboard */,
+				441A83DA23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		441F97B223BD73A5009858EA /* Login */ = {
@@ -401,24 +397,10 @@
 		447FF76F23B7A93D0004091B /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				441F97D923BD75B7009858EA /* PhoneAuthSB.storyboard */,
-				441F97D623BD75AC009858EA /* PhoneAuthVC.swift */,
-				441F97D823BD75B3009858EA /* PhotoSB.storyboard */,
-				441F97D523BD75A6009858EA /* PickUpPhotoController.swift */,
-				441F97DA23BD75BC009858EA /* RegistrationSB.storyboard */,
-				441F97D723BD75AF009858EA /* RegistrationVC.swift */,
 				448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */,
+				441A83DD23C805B200383F53 /* PhoneAuthSB.storyboard */,
 			);
 			path = Registration;
-			sourceTree = "<group>";
-		};
-		447FF79423B7AA720004091B /* Reset */ = {
-			isa = PBXGroup;
-			children = (
-				441F97C723BD74A7009858EA /* ResetPasswordSB.storyboard */,
-				441F97C623BD74A7009858EA /* ResetPasswordVC.swift */,
-			);
-			path = Reset;
 			sourceTree = "<group>";
 		};
 		447FF79C23B7AB8B0004091B /* Account */ = {
@@ -552,25 +534,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441A83DE23C805B200383F53 /* PhoneAuthSB.storyboard in Resources */,
 				441A83CF23C739FE00383F53 /* ChooseActionWithPhotoController.storyboard in Resources */,
-				441F97E023BD75BC009858EA /* RegistrationSB.storyboard in Resources */,
 				048C6F3423BB95830028A908 /* OtherMessageTableViewCell.xib in Resources */,
 				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
 				441F97D023BD74C3009858EA /* AccountViewController.storyboard in Resources */,
-				441F97C923BD74A7009858EA /* ResetPasswordSB.storyboard in Resources */,
+				441A83D723C7EF3100383F53 /* NewPhoneViewController.storyboard in Resources */,
 				448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */,
 				4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */,
-				441F97DE23BD75BC009858EA /* PhotoSB.storyboard in Resources */,
 				048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */,
 				441A83D323C759D800383F53 /* ChangePhoneViewController.storyboard in Resources */,
+				441A83DB23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard in Resources */,
 				048C6F2E23BB8C580028A908 /* ChatRoomViewController.storyboard in Resources */,
 				4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */,
-				441F97DF23BD75BC009858EA /* PhoneAuthSB.storyboard in Resources */,
 				441F97C523BD7484009858EA /* LoginViewController.storyboard in Resources */,
 				4426C8A923B682C700DE03BE /* Main.storyboard in Resources */,
 				441F97E223BD763C009858EA /* 16862.otf in Resources */,
 				0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */,
-				441F97D223BD74C3009858EA /* Confirmation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,15 +695,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448C9EA423C0D8CA00469E94 /* Recapcha.swift in Sources */,
-				441F97DB23BD75BC009858EA /* PickUpPhotoController.swift in Sources */,
 				441A83CB23C72B6C00383F53 /* PhotoPickerExtension.swift in Sources */,
 				0418FDA023B79490004F6200 /* MapModel.swift in Sources */,
 				0418FDAA23B79853004F6200 /* PinChat.swift in Sources */,
 				441F97D123BD74C3009858EA /* AccountViewController.swift in Sources */,
-				441F97D323BD74C3009858EA /* ConfirmationViewController.swift in Sources */,
 				0405BED423B775F300AA2880 /* MapViewController.swift in Sources */,
-				441F97DC23BD75BC009858EA /* PhoneAuthVC.swift in Sources */,
 				441F97BB23BD745C009858EA /* NetworkingService.swift in Sources */,
 				043EB4DC23BBAD3800BEFC4A /* LocalNotifications.swift in Sources */,
 				441F97C423BD7484009858EA /* CustomAnimations.swift in Sources */,
@@ -731,10 +707,11 @@
 				441F97B523BD7416009858EA /* Account.swift in Sources */,
 				0418FDA223B796D9004F6200 /* ChatInfo.swift in Sources */,
 				448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */,
-				441F97DD23BD75BC009858EA /* RegistrationVC.swift in Sources */,
 				441F97BD23BD745C009858EA /* User.swift in Sources */,
+				441A83D523C7EDEC00383F53 /* NewPhoneViewController.swift in Sources */,
 				441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */,
 				441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */,
+				441A83D923C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift in Sources */,
 				441A83CD23C7394C00383F53 /* ChooseActionWithPhotoController.swift in Sources */,
 				441F97C323BD7484009858EA /* LoginViewController.swift in Sources */,
 				441F97BC23BD745C009858EA /* PhotoNetworking.swift in Sources */,
@@ -750,7 +727,6 @@
 				441F97CB23BD74AF009858EA /* ConstantsWithAnimations.swift in Sources */,
 				441A83D123C7580A00383F53 /* ChangePhoneViewController.swift in Sources */,
 				048C6F3323BB95830028A908 /* OtherMessageTableViewCell.swift in Sources */,
-				441F97C823BD74A7009858EA /* ResetPasswordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

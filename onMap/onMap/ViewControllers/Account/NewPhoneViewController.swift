@@ -1,18 +1,18 @@
 //
-//  ChangePhoneViewController.swift
+//  ViewController.swift
 //  onMap
 //
-//  Created by Екатерина on 09/01/2020.
+//  Created by Екатерина on 10/01/2020.
 //  Copyright © 2020 onMap. All rights reserved.
 //
 
 import UIKit
-
-class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewPhoneViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.grouped)
     let barButtonNext = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTo))
     var header = ""
     var footer = ""
+    var newPhone = ""
     var phoneTextField = UITextField()
     var leftInset = CGFloat()
     var which = false
@@ -25,8 +25,8 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
         navigationItem.rightBarButtonItem = barButtonNext
         let cell = UITableViewCell()
         leftInset = 6*cell.frame.size.height/11
-        header = "Старый номер телефона"
-        footer = "Мы отправим вам код для подтверждения\n\nНедавняя авторизация нужна для всех действий с аккаунтом, связанных с изменением информации о пользователе"
+        header = "New phone"
+        footer = "We will send you verification code"
         text = "+7 (123) 456-78-99"
         self.view.backgroundColor = Const.transp
         tableView.backgroundColor = Const.accountback
@@ -58,19 +58,13 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
         if !which{
             which = true
             DispatchQueue.main.async {
-                let phone = self.phoneTextField.getRealPhone(phone: self.phoneTextField.text ?? "+")
-                if phone != Account.shared.getPhone(){
-                    self.showAlert(title: "Ошибка", message: "Неверный номер")
-                }
-                else{
-                    NetworkingService.shared.sendCode(text: phone)
-                }
-                
+                self.newPhone = self.phoneTextField.getRealPhone(phone: self.phoneTextField.text ?? "+")
+                NetworkingService.shared.sendCode(text: self.newPhone)
             }
         }
         else{
             DispatchQueue.main.async {
-                NetworkingService.shared.reauth(codeForCheck: self.phoneTextField.text ?? "")
+                NetworkingService.shared.updatePhone(codeForCheck: self.phoneTextField.text ?? "")
             }
             
         }
@@ -153,15 +147,8 @@ class ChangePhoneViewController: UIViewController, UITableViewDelegate, UITableV
     
     
 }
-class PhoneTableViewCell: UITableViewCell{
-    var phoneTextField = UITextField()
-    func setupPhoneTextField(viewWidth: CGFloat, leftInset: CGFloat, text: String){
-        phoneTextField.setUpAccountPhoneTextField(width: viewWidth-leftInset, height: self.frame.size.height, textSize: self.frame.size.height/2, colorText: Const.accountText, colorBack: Const.transp, y: self.bounds.minY, x: self.frame.minX + leftInset, placeholder: text)
-    }
-    
-    
-}
-extension ChangePhoneViewController: PhoneCheckDelegate, ShowAlertDelegate{
+
+extension NewPhoneViewController: PhoneCheckDelegate, ShowAlertDelegate{
     
     func showNext(from: Int) {
         //
@@ -169,25 +156,16 @@ extension ChangePhoneViewController: PhoneCheckDelegate, ShowAlertDelegate{
     
     func checkingReturn(b: Bool) {
         if b{
-            if Const.updatePhoneEmail{
-                let vc = UIStoryboard(name: "UpdateEmailDeleteAccountViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdateEmailDeleteAccountViewController") as! UpdateEmailDeleteAccountViewController
-                navigationController?.pushViewController(vc, animated: true)
-            }
-            else{
-                let vc = UIStoryboard(name: "NewPhoneViewController", bundle: nil).instantiateViewController(withIdentifier: "NewPhoneViewController") as! NewPhoneViewController
-                navigationController?.pushViewController(vc, animated: true)
-            }
-           
-            
-           
+            Account.shared.setPhone(phone: newPhone)
+            navigationController?.popToRootViewController(animated: true)
         }
     }
     
     func sendCodeReturn(b: Bool) {
         if b{
-            header = "Ваш код"
-            footer = "Мы отправили код для подтверждения"
-            text = "код"
+            header = ""
+            footer = "We have sent you SMS"
+            text = "code"
             reloadTable()
         }
         else{

@@ -18,7 +18,9 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
         case 2:
             return 2
         case 3:
-            return 2
+            return 1
+        case 4:
+            return 1
          default:
            return 0
         }
@@ -34,7 +36,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2{
@@ -175,23 +177,21 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource{
                     let index = IndexPath(row: 0, section: 3)
                     self.tableView.reloadRows(at: [index], with: .automatic)
                 }
-            case 1:
-                if reuse[6]{
-                    reuse[6] = false
-                    cell.setupDeleteButton(viewWidth: view.frame.width)
-                    deleteButton = cell.deleteButton
-                    deleteButton.addTarget(self, action: #selector(deleteAccount), for: .touchUpInside)
-                    cell.addSubview(deleteButton)
-                }
-                else{
-                    let index = IndexPath(row: 1, section: 3)
-                    self.tableView.reloadRows(at: [index], with: .automatic)
-                }
             default:
                 break
             }
-            
-       
+        case 4:
+            if reuse[6]{
+                reuse[6] = false
+                cell.setupDeleteButton(viewWidth: view.frame.width)
+                deleteButton = cell.deleteButton
+                deleteButton.addTarget(self, action: #selector(deleteAccount), for: .touchUpInside)
+                cell.addSubview(deleteButton)
+            }
+            else{
+                let index = IndexPath(row: 1, section: 3)
+                self.tableView.reloadRows(at: [index], with: .automatic)
+            }
         default:
             break
         }

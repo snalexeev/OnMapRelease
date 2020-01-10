@@ -11,16 +11,57 @@ protocol ShowAlertDelegate {
     func showAlert(title: String, message: String)
     func showNext(from: Int)
 }
+protocol ReAuthDelegate{
+    func reAuthDelegate()
+}
 class NetworkingService{
     private init() {}
     public static let shared = NetworkingService()
     var showAlertDelegate: ShowAlertDelegate?
     var showChecked: PhoneCheckDelegate?
+    var reAuthDelegate: ReAuthDelegate?
     var user: User = User()
     var title: String = ""
     var message: String = ""
     let success: String = "Success"
+    func reauth(codeForCheck: String){
+        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") ?? "0"
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: codeForCheck)
+        Auth.auth().currentUser?.reauthenticate(with: credential, completion: { (result, error) in
+            if error != nil{
+                self.showAlertDelegate?.showAlert(title: "Ошибка", message: error.debugDescription)
+            }
+            else{
+                self.showChecked?.checkingReturn(b: true)
+            }
+        })
+    }
+    func updatePhone(codeForCheck: String){
+        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") ?? "0"
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: codeForCheck)
+        Auth.auth().currentUser?.updatePhoneNumber(credential, completion: { (error) in
+            if error != nil{
+                self.showAlertDelegate?.showAlert(title: "Ошибка", message: error.debugDescription)
+            }
+            else{
+                self.showChecked?.checkingReturn(b: true)
+                self.reAuthDelegate?.reAuthDelegate()
+            }
+        })
+    }
     
+    func updateEmail(email: String){
+        Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
+            if error == nil{
+                self.showAlertDelegate?.showNext(from: 0)
+                self.reAuthDelegate?.reAuthDelegate()
+            }
+            else{
+                self.showAlertDelegate?.showAlert(title: "Ошибка", message: error?.localizedDescription ?? "")
+            }
+        })
+        
+    }
     func addInformation(name: String, surname: String, status: String){
         title = success
         message = success
@@ -82,6 +123,7 @@ class NetworkingService{
     func check(codeForCheck: String){
         let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") ?? "0"
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: codeForCheck)
+        
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if error == nil {
                 if Auth.auth().currentUser?.email != nil{

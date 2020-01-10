@@ -27,4 +27,6 @@ final class Const{
     static let fontName = "LazyTypebeta"
     static var didAppearLogin = false
     static var source = "c"
+    static var updateDelete = false
+    static var updatePhoneEmail = false
 }

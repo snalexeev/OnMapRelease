@@ -122,7 +122,10 @@ class Account{
         self.status = status
     }
     func setPhone(phone: String){
-        //NetworkingService.shared.sendCode(text: phone)
+        self.phone = phone
+    }
+    func setEmail(email: String){
+        self.email = email
     }
     
     
