@@ -8,11 +8,12 @@ import XCTest
 //import
 
 class onMapTests: XCTestCase {
+    
+    var messengerTest: FirestoreMessengerTest = FirestoreMessengerTest()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        //let test2 = LoginViewController()
         
     }
 
@@ -21,11 +22,14 @@ class onMapTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let test = FirestoreMessengerTest()
-        test.startTestAddChat(n: 30)
-        XCTAssert(test.result, "создание чатов")
+        
+        messengerTest.testAddChat()
+        //XCTAssert(messengerTest.resultAddChat, "Создание чата")
+        
+//        messengerTest.testSendMessage()
+//        XCTAssert(messengerTest.resultSendChat, "Отправка сообщения")
+        
+        
     }
 
     func testPerformanceExample() {
