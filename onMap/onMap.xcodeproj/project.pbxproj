@@ -297,12 +297,12 @@
 			children = (
 				048C6F2D23BB8C580028A908 /* ChatRoomViewController.storyboard */,
 				048C6F2B23BB8C460028A908 /* ChatRoomViewController.swift */,
+				049E22C323CB8564002C9EBC /* ModelChatRoom.swift */,
 				048C6F2F23BB8C9B0028A908 /* MessageCell.swift */,
 				048C6F3123BB95830028A908 /* OtherMessageTableViewCell.swift */,
 				048C6F3223BB95830028A908 /* OtherMessageTableViewCell.xib */,
 				048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */,
 				048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */,
-				049E22C323CB8564002C9EBC /* ModelChatRoom.swift */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";

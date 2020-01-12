@@ -25,10 +25,10 @@ final class ModelChatRoom {
         if let image = buffer[id] {
             theAvatar = image
         } else {
-            var temp = theAvatar
-            Account.shared.loadPhotoByID(userID: id) { (newImage) in
+            buffer[id] = #imageLiteral(resourceName: "standartAvatar")
+            Account.shared.loadPhotoByID(userID: id) { [weak theAvatar] (newImage) in
                 self.buffer[id] = newImage
-                temp = newImage
+                theAvatar = newImage
             }
         }
         
