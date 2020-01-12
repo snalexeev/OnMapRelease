@@ -56,41 +56,41 @@ class Account{
             //print(error.localizedDescription)
         }
     }
-    func loadTextDataByID(userID: String, completion: @escaping ((_ name: String, _ surname: String)->Void)){
-        var name = ""
-        var surname = ""
-        ref = Database.database().reference()
-        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            name = value?["name"] as? String ?? ""
-            surname = value?["surname"] as? String ?? ""
-            completion(name, surname)
-          }) { (error) in
-            print(error.localizedDescription)
-        }
-    }
+//    func loadTextDataByID(userID: String, completion: @escaping ((_ name: String, _ surname: String)->Void)){
+//        var name = ""
+//        var surname = ""
+//        ref = Database.database().reference()
+//        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+//            let value = snapshot.value as? NSDictionary
+//            name = value?["name"] as? String ?? ""
+//            surname = value?["surname"] as? String ?? ""
+//            completion(name, surname)
+//          }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//    }
     
     
-    func loadPhotoByID(userID: String, completion: @escaping ((_ photo: UIImage)->Void)){
+    func loadInfoByID(userID: String, completion: @escaping ((_ photo: UIImage, _ name: String, _ surname: String)->Void)){
         let person = AccountLocalStorage.shared.checkPerson(id: userID)
         if person.id != ""{
-            storeRef = Storage.storage().reference().child("images/profiles/" + String(id)+".png")
-            storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
-                self.ref = Database.database().reference()
-                self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let value = snapshot.value as? NSDictionary
-                    let name = value?["name"] as? String ?? ""
-                    let surname = value?["surname"] as? String ?? ""
-                    print(userID)
-                    print("2")
-                    completion(UIImage(named: "saucer")!)
-                    AccountLocalStorage.shared.updatePerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
-                }) { (error) in
-                    
+            self.ref = Database.database().reference()
+            self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let date = value?["date"] as? String ?? ""
+                let name = value?["name"] as? String ?? ""
+                let surname = value?["surname"] as? String ?? ""
+                if date != person.date{
+                    self.storeRef = Storage.storage().reference().child("images/profiles/" + String(self.id)+".png")
+                    self.storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
+                        AccountLocalStorage.shared.updatePerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
+                        completion(UIImage(named: "saucer")!, name, surname)
+                    }
                 }
-                
-            
-            }
+                else{
+                    completion(UIImage(data: (person.image! as Data)) ?? UIImage(named: "saucer")!, person.name, person.surname)
+                }
+            })
             
         }
         else{
@@ -101,11 +101,9 @@ class Account{
                     let value = snapshot.value as? NSDictionary
                     let name = value?["name"] as? String ?? ""
                     let surname = value?["surname"] as? String ?? ""
-                    completion(UIImage(named: "saucer")!)
                     AccountLocalStorage.shared.addPerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
-                }) { (error) in
-                    //print(error.localizedDescription)
-                }
+                    completion(UIImage(named: "saucer")!, name, surname)
+                })
 
             }
         }
@@ -134,6 +132,10 @@ class Account{
     }
     func setUserPhoto(){
         
+    }
+    func setDate(date: String, id: String){
+        ref = Database.database().reference().child("users")
+        ref.child(id).updateChildValues(["date": date])
     }
     func setUserName(name: String){
         ref = Database.database().reference().child("users")
