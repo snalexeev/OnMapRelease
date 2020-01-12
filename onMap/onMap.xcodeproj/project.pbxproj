@@ -28,6 +28,7 @@
 		048C6F3423BB95830028A908 /* OtherMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F3223BB95830028A908 /* OtherMessageTableViewCell.xib */; };
 		048C6F3723BB95980028A908 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */; };
 		048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */; };
+		049E22C423CB8564002C9EBC /* ModelChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E22C323CB8564002C9EBC /* ModelChatRoom.swift */; };
 		04AAFAEB23CB503100110813 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AAFAEA23CB503100110813 /* GoogleService-Info.plist */; };
 		04AAFAEC23CB503100110813 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AAFAEA23CB503100110813 /* GoogleService-Info.plist */; };
 		441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83C823C68F6F00383F53 /* AccountTableViewExtension.swift */; };
@@ -108,6 +109,7 @@
 		048C6F3223BB95830028A908 /* OtherMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherMessageTableViewCell.xib; sourceTree = "<group>"; };
 		048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMessageTableViewCell.xib; sourceTree = "<group>"; };
+		049E22C323CB8564002C9EBC /* ModelChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelChatRoom.swift; sourceTree = "<group>"; };
 		04AAFAEA23CB503100110813 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE1D38C1F2E2DA5BE15BE53 /* Pods-onMap-onMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapUITests.release.xcconfig"; path = "Target Support Files/Pods-onMap-onMapUITests/Pods-onMap-onMapUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				048C6F3223BB95830028A908 /* OtherMessageTableViewCell.xib */,
 				048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */,
 				048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */,
+				049E22C323CB8564002C9EBC /* ModelChatRoom.swift */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				0418FDA023B79490004F6200 /* MapModel.swift in Sources */,
 				0418FDAA23B79853004F6200 /* PinChat.swift in Sources */,
 				441F97D123BD74C3009858EA /* AccountViewController.swift in Sources */,
+				049E22C423CB8564002C9EBC /* ModelChatRoom.swift in Sources */,
 				0405BED423B775F300AA2880 /* MapViewController.swift in Sources */,
 				441F97BB23BD745C009858EA /* NetworkingService.swift in Sources */,
 				043EB4DC23BBAD3800BEFC4A /* LocalNotifications.swift in Sources */,

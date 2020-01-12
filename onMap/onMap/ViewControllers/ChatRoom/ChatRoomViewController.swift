@@ -4,6 +4,7 @@ import UIKit
 
 final class ChatRoomViewController: UIViewController {
     var theMessenger: MessengerOnMap?
+    var model = ModelChatRoom()
     private let idCellOtherMessage = "otherMessage"
     private let idCellMyMessage = "myMessage"
     var nameOfDiscussion: String?
@@ -203,24 +204,25 @@ extension ChatRoomViewController: UITableViewDataSource {
         
         let info = theMessenger?.getInfoAboutMessage(index: index)
         
-        var resultCell: MessageCell?
+        var resultCell: MessageCell = MessageCell()
         if myAccountId == info?.idOwner {
             resultCell = tableView.dequeueReusableCell(withIdentifier: idCellMyMessage) as! MyMessageTableViewCell
-            resultCell?.textMessage = info?.message
+            resultCell.textMessage = info?.message
         } else {
             resultCell = tableView.dequeueReusableCell(withIdentifier: idCellOtherMessage) as! OtherMessageTableViewCell
-            resultCell?.textMessage = info?.message
+            resultCell.textMessage = info?.message
             
             
             DispatchQueue.main.async {
-                if let id = info?.idOwner {
-                    Account.shared.loadPhotoByID(userID: id) { (image) in
-                        resultCell?.imageAvatar = image
-                    }
+                if let id = info?.idOwner{
+                    self.model.setAvatarForCell(id: id, theAvatar: &resultCell.imageAvatar)
+//                    Account.shared.loadPhotoByID(userID: id) { (image) in
+//                        resultCell?.imageAvatar = image
+//                    }
                     
                     Account.shared.loadTextDataByID(userID: (info?.idOwner)!) { (name, surname) in
                         let nameOwner = name + " " + surname + ":"
-                        resultCell?.textOwner = nameOwner
+                        resultCell.textOwner = nameOwner
                     }
                 }
                 
@@ -230,13 +232,13 @@ extension ChatRoomViewController: UITableViewDataSource {
             let calendar = Calendar.current
             let hour = calendar.component(.hour, from: timeSend)
             let minute = calendar.component(.minute, from: timeSend)
-            resultCell?.textTimeSend = "\(hour):\(minute)"
+            resultCell.textTimeSend = "\(hour):\(minute)"
         }
         
-        resultCell?.textMessage = info?.message
-        resultCell?.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        resultCell.textMessage = info?.message
+        resultCell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         
-        return resultCell ?? UITableViewCell.init()
+        return resultCell
     }
 }
 
