@@ -9,6 +9,8 @@ final class OtherMessageTableViewCell: DiscussionMessageCell {
     @IBOutlet weak var textMessageLabel: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var theOwnerLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +26,8 @@ final class OtherMessageTableViewCell: DiscussionMessageCell {
         super.theAvatar = theAvatarImage
         //super.imageAvatar = #imageLiteral(resourceName: "thePinImage")
         super.timeSendLabel = timeLabel
-        //owner
+        
+        super.ownerLabel = theOwnerLabel
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

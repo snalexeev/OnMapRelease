@@ -14,7 +14,6 @@
 		0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BED723B7774D00AA2880 /* SettingsViewController.swift */; };
 		0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED923B7778700AA2880 /* SettingsViewController.storyboard */; };
 		0412280623C8AFB1009C36CF /* FirestoreMessengerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */; };
-		0412280823C8CBDC009C36CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0412280723C8CBDC009C36CF /* GoogleService-Info.plist */; };
 		0418FDA023B79490004F6200 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FD9F23B79490004F6200 /* MapModel.swift */; };
 		0418FDA223B796D9004F6200 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA123B796D9004F6200 /* ChatInfo.swift */; };
 		0418FDA423B796F4004F6200 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA323B796F4004F6200 /* ChatRoom.swift */; };
@@ -29,6 +28,8 @@
 		048C6F3423BB95830028A908 /* OtherMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F3223BB95830028A908 /* OtherMessageTableViewCell.xib */; };
 		048C6F3723BB95980028A908 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */; };
 		048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */; };
+		04AAFAEB23CB503100110813 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AAFAEA23CB503100110813 /* GoogleService-Info.plist */; };
+		04AAFAEC23CB503100110813 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AAFAEA23CB503100110813 /* GoogleService-Info.plist */; };
 		441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83C823C68F6F00383F53 /* AccountTableViewExtension.swift */; };
 		441A83CB23C72B6C00383F53 /* PhotoPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83CA23C72B6C00383F53 /* PhotoPickerExtension.swift */; };
 		441A83CD23C7394C00383F53 /* ChooseActionWithPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441A83CC23C7394C00383F53 /* ChooseActionWithPhotoController.swift */; };
@@ -63,7 +64,6 @@
 		446C6CDF23CB44E200186D49 /* AccountLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C6CDE23CB44E200186D49 /* AccountLocalStorage.swift */; };
 		446C6CE123CB458800186D49 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C6CE023CB458800186D49 /* People.swift */; };
 		448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */; };
-		448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448C9EA123BE882F00469E94 /* GoogleService-Info.plist */; };
 		67DC022DFC9C4F8D64C44B42 /* Pods_onMap_onMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */; };
 		B07BA8863C9F7AE0908CC3CD /* Pods_onMap_onMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */; };
 		E070E7E46282CF496115CF01 /* Pods_onMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */; };
@@ -94,7 +94,6 @@
 		0405BED723B7774D00AA2880 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0405BED923B7778700AA2880 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessengerTest.swift; sourceTree = "<group>"; };
-		0412280723C8CBDC009C36CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "onMap/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0418FD9F23B79490004F6200 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		0418FDA123B796D9004F6200 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
 		0418FDA323B796F4004F6200 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		048C6F3223BB95830028A908 /* OtherMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherMessageTableViewCell.xib; sourceTree = "<group>"; };
 		048C6F3523BB95980028A908 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		048C6F3623BB95980028A908 /* MyMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMessageTableViewCell.xib; sourceTree = "<group>"; };
+		04AAFAEA23CB503100110813 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FF7B4E7B1571EC4A1802369 /* Pods_onMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE1D38C1F2E2DA5BE15BE53 /* Pods-onMap-onMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapUITests.release.xcconfig"; path = "Target Support Files/Pods-onMap-onMapUITests/Pods-onMap-onMapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2E7DBF1A8C922F1C76E0107F /* Pods-onMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.debug.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 		446C6CDE23CB44E200186D49 /* AccountLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLocalStorage.swift; sourceTree = "<group>"; };
 		446C6CE023CB458800186D49 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewContoller.swift; sourceTree = "<group>"; };
-		448C9EA123BE882F00469E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5422A8C7CA791931FAA4EC0B /* Pods-onMap-onMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapTests.debug.xcconfig"; path = "Target Support Files/Pods-onMap-onMapTests/Pods-onMap-onMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AE04F5416D3FCDA12405011 /* Pods-onMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap.release.xcconfig"; path = "Target Support Files/Pods-onMap/Pods-onMap.release.xcconfig"; sourceTree = "<group>"; };
 		BC83340DE9FF3394E5F23E95 /* Pods_onMap_onMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onMap_onMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,7 +377,7 @@
 				043B47C723B690100083ABAC /* Framework */,
 				043B47C823B690170083ABAC /* ViewControllers */,
 				441F97E123BD763C009858EA /* 16862.otf */,
-				448C9EA123BE882F00469E94 /* GoogleService-Info.plist */,
+				04AAFAEA23CB503100110813 /* GoogleService-Info.plist */,
 				4426C8AF23B682C900DE03BE /* Info.plist */,
 			);
 			path = onMap;
@@ -389,7 +388,6 @@
 			children = (
 				4426C8B823B682C900DE03BE /* onMapTests.swift */,
 				0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */,
-				0412280723C8CBDC009C36CF /* GoogleService-Info.plist */,
 				4426C8BA23B682C900DE03BE /* Info.plist */,
 			);
 			path = onMapTests;
@@ -552,13 +550,13 @@
 				0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */,
 				441F97D023BD74C3009858EA /* AccountViewController.storyboard in Resources */,
 				441A83D723C7EF3100383F53 /* NewPhoneViewController.storyboard in Resources */,
-				448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */,
 				4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */,
 				048C6F3823BB95980028A908 /* MyMessageTableViewCell.xib in Resources */,
 				441A83D323C759D800383F53 /* ChangePhoneViewController.storyboard in Resources */,
 				441A83DB23C7F86100383F53 /* UpdateEmailDeleteAccountViewController.storyboard in Resources */,
 				048C6F2E23BB8C580028A908 /* ChatRoomViewController.storyboard in Resources */,
 				4426C8AB23B682C900DE03BE /* Assets.xcassets in Resources */,
+				04AAFAEB23CB503100110813 /* GoogleService-Info.plist in Resources */,
 				441F97C523BD7484009858EA /* LoginViewController.storyboard in Resources */,
 				4426C8A923B682C700DE03BE /* Main.storyboard in Resources */,
 				441F97E223BD763C009858EA /* 16862.otf in Resources */,
@@ -570,7 +568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0412280823C8CBDC009C36CF /* GoogleService-Info.plist in Resources */,
+				04AAFAEC23CB503100110813 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
