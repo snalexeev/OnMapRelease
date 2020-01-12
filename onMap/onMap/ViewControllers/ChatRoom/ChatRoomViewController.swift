@@ -215,14 +215,10 @@ extension ChatRoomViewController: UITableViewDataSource {
             
             DispatchQueue.main.async {
                 if let id = info?.idOwner{
-                    self.model.setAvatarForCell(id: id, theAvatar: &resultCell.imageAvatar)
-//                    Account.shared.loadPhotoByID(userID: id) { (image) in
-//                        resultCell?.imageAvatar = image
-//                    }
-                    
-                    Account.shared.loadTextDataByID(userID: (info?.idOwner)!) { (name, surname) in
-                        let nameOwner = name + " " + surname + ":"
-                        resultCell.textOwner = nameOwner
+                    self.model.setAvatarForCell(id: id, cell: resultCell)
+                    Account.shared.loadInfoByID(userID: id) { [ resultCell ] (avatar, name, surname) in
+                        resultCell.imageAvatar = avatar
+                        resultCell.textOwner = name + " " + surname + ":"
                     }
                 }
                 

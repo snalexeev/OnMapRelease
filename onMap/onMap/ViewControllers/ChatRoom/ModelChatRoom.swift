@@ -2,35 +2,49 @@
 //  ModelChatRoom.swift
 //  onMap
 //
-//  Created by Sergei Alexeev on 12.01.2020.
-//  Copyright © 2020 onMap. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
 
+struct MessageInfo {
+    var idOwner: String
+    var theMessage: String
+    var time: String
+}
+
 final class ModelChatRoom {
+    
+    private let bd = FirestoreMessenger.shared
     //хранение аватарок пользователей
-    var buffer: [String : UIImage]
+    private var buffer: [String : UIImage]
+    // все сообщения
     
-    
-    init() {
+    public init() {
         buffer = [String : UIImage]()
     }
     deinit {
         buffer.removeAll()
     }
     
-    func setAvatarForCell(id: String, theAvatar: inout UIImage?) {
-        if let image = buffer[id] {
-            theAvatar = image
-        } else {
-            buffer[id] = #imageLiteral(resourceName: "standartAvatar")
-            Account.shared.loadPhotoByID(userID: id) { [weak theAvatar] (newImage) in
-                self.buffer[id] = newImage
-                theAvatar = newImage
-            }
-        }
+    public func setAvatarForCell(id: String, cell: MessageCell) {
+//        if let image = buffer[id] {
+//            if image != #imageLiteral(resourceName: "saucer") {
+//                cell.imageAvatar = image
+//            } else {
+//                DispatchQueue.main.async { [cell]
+//                    sleep(2)
+//                    self.setAvatarForCell(id: id, cell: cell)
+//                }
+//            }
+//            
+//        } else {
+//            buffer[id] = #imageLiteral(resourceName: "saucer")
+//            Account.shared.loadPhotoByID(userID: id) { [weak cell] (newImage) in
+//                self.buffer[id] = newImage
+//                cell?.imageAvatar = newImage
+//            }
+//        }
         
     }
 }
