@@ -211,11 +211,16 @@ extension ChatRoomViewController: UITableViewDataSource {
             resultCell = tableView.dequeueReusableCell(withIdentifier: idCellOtherMessage) as! OtherMessageTableViewCell
             resultCell?.textMessage = info?.message
             
-            resultCell?.textOwner = "Тут будет имя"
+            
             DispatchQueue.main.async {
                 if let id = info?.idOwner {
                     Account.shared.loadPhotoByID(userID: id) { (image) in
                         resultCell?.imageAvatar = image
+                    }
+                    
+                    Account.shared.loadTextDataByID(userID: (info?.idOwner)!) { (name, surname) in
+                        let nameOwner = name + " " + surname + ":"
+                        resultCell?.textOwner = nameOwner
                     }
                 }
                 
