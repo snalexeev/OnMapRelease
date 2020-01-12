@@ -3,7 +3,7 @@
 import UIKit
 
 final class ChatRoomViewController: UIViewController {
-    var theMessenger: MessengerOnMap?
+    var theMessenger: MessengerOnMap = FirestoreMessenger.shared
     var model = ModelChatRoom()
     private let idCellOtherMessage = "otherMessage"
     private let idCellMyMessage = "myMessage"
@@ -29,7 +29,7 @@ final class ChatRoomViewController: UIViewController {
         settingsView.layer.borderWidth = 1
         settingsView.layer.borderColor = UIColor.darkGray.cgColor
         
-        theMessenger?.startDiscussRoom(name: nameOfDiscussion!)
+        theMessenger.startDiscussRoom(name: nameOfDiscussion!)
         
         setupTableView()
         
@@ -37,7 +37,7 @@ final class ChatRoomViewController: UIViewController {
         
         myAccountId = Account.shared.getID()
         
-        theMessenger?.loadDiscussionRoom( { [weak self] in
+        theMessenger.loadDiscussionRoom( { [weak self] in
             DispatchQueue.main.async {
                 self?.reloadTableView()
             }
@@ -47,7 +47,7 @@ final class ChatRoomViewController: UIViewController {
         
         textField.delegate = self
         
-        theMessenger?.setupObserverChatRoom({
+        theMessenger.setupObserverChatRoom({
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -57,7 +57,7 @@ final class ChatRoomViewController: UIViewController {
     deinit {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         NotificationCenter.default.removeObserver(self)
-        theMessenger?.closeDiscussRoom()
+        theMessenger.closeDiscussRoom()
     }
     
     func reloadTableView() {
@@ -117,34 +117,13 @@ final class ChatRoomViewController: UIViewController {
         if textField.text == nil || textField?.text == "" {
             return
         } else {
-            theMessenger?.sendMessage(owner: Account.shared.getID(),
+            theMessenger.sendMessage(owner: Account.shared.getID(),
                                       message: textField.text!)
             reloadTableView()
             textField.text = ""
         }
         
     }
-    
-
-    
-//    @IBAction func didClickDeleteButton(_ sender: Any) {
-//        if let name = nameOfDiscussion {
-//            theMessenger?.deleteChat(name: name)
-//            //удалить из массива пинов и обновить карту
-//            closeViewController()
-//        } else {
-//            //алерт кинуть
-//            return
-//        }
-//
-//    }
-    
-    
-//    @IBAction func didClickBackButton(_ sender: Any) {
-//            theMessenger?.closeDiscussRoom()
-//            closeViewController()
-//        }
-
     
     
 
@@ -155,17 +134,11 @@ final class ChatRoomViewController: UIViewController {
         if key2 {
             for _ in 0..<100 {
                 UIView.animate(withDuration: 1, animations: { () -> Void in
-                    //self.settingsView.center.y -= 100
                     self.topTableConstraint.constant -= 1
                     
                 })
             }
             self.settingsView.isHidden = true
-//            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-//                //self.settingsView.center.y -= 100
-//                self.topTableConstraint.constant -= 100
-//                self.settingsView.isHidden = true
-//            })
         } else {
             UIView.animate(withDuration: 0.1, animations: { () -> Void in
                 //self.settingsView.center.y += 100
@@ -181,7 +154,7 @@ final class ChatRoomViewController: UIViewController {
     }
     @IBAction func didClickDeleteButton(_ sender: Any) {
         if let name = nameOfDiscussion {
-            theMessenger?.deleteChat(name: name)
+            theMessenger.deleteChat(name: name)
             //удалить из массива пинов и обновить карту
             self.navigationController?.popViewController(animated: true)
         } else {
@@ -193,45 +166,39 @@ final class ChatRoomViewController: UIViewController {
 
 extension ChatRoomViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return theMessenger?.countMessages ?? 0
+        return theMessenger.countMessages
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var index = 0
-        if let size = theMessenger?.countMessages {
-            index = size - indexPath.row - 1
-        }
         
-        let info = theMessenger?.getInfoAboutMessage(index: index)
+        let index = theMessenger.countMessages - indexPath.row - 1
+        
+        let info = theMessenger.getInfoAboutMessage(index: index)
         
         var resultCell: MessageCell = MessageCell()
-        if myAccountId == info?.idOwner {
+        if myAccountId == info.idOwner {
             resultCell = tableView.dequeueReusableCell(withIdentifier: idCellMyMessage) as! MyMessageTableViewCell
-            resultCell.textMessage = info?.message
+            resultCell.textMessage = info.message
         } else {
             resultCell = tableView.dequeueReusableCell(withIdentifier: idCellOtherMessage) as! OtherMessageTableViewCell
-            resultCell.textMessage = info?.message
+            resultCell.textMessage = info.message
             
-            
-            DispatchQueue.main.async {
-                if let id = info?.idOwner{
-                    self.model.setAvatarForCell(id: id, cell: resultCell)
-                    Account.shared.loadInfoByID(userID: id) { [ resultCell ] (avatar, name, surname) in
-                        resultCell.imageAvatar = avatar
-                        resultCell.textOwner = name + " " + surname + ":"
-                    }
+            if let id = info.idOwner {
+                self.model.setAvatarForCell(id: id, cell: resultCell)
+                Account.shared.loadInfoByID(userID: id) { [ resultCell ] (avatar, name, surname) in
+                    //resultCell.imageAvatar = avatar
+                    resultCell.textOwner = name + " " + surname + ":"
                 }
-                
             }
         }
-        if let timeSend = info?.timeSend {
+        if let timeSend = info.timeSend {
             let calendar = Calendar.current
             let hour = calendar.component(.hour, from: timeSend)
             let minute = calendar.component(.minute, from: timeSend)
             resultCell.textTimeSend = "\(hour):\(minute)"
         }
         
-        resultCell.textMessage = info?.message
+        resultCell.textMessage = info.message
         resultCell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         
         return resultCell
