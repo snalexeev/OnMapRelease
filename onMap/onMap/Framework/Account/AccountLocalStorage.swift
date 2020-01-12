@@ -15,14 +15,16 @@ class AccountLocalStorage{
     func setupRealm(){
         let realm = try! Realm()
         self.items = realm.objects(Person.self)
-        if SettingOnMap.shared.first{
-            SettingOnMap.shared.first = false
+        if !SettingOnMap.shared.first{
+            SettingOnMap.shared.first = true
             let item = Person()
             item.id = ""
             try! realm.write {
                 realm.add(item)
             }
         }
+        self.items = realm.objects(Person.self)
+        print(self.items.count)
     }
     func checkPerson(id: String) -> Person{
         let realm = try! Realm()
@@ -34,7 +36,8 @@ class AccountLocalStorage{
         }
         return items[0]
     }
-    func addPerson(id: String, image: UIImage, name: String, surname: String){
+    func addPerson(id: String, image: UIImage?, name: String, surname: String){
+        
         let realm = try! Realm()
         self.items = realm.objects(Person.self)
         let item = Person()
@@ -42,7 +45,8 @@ class AccountLocalStorage{
         item.date = date.description
         item.id = id
         item.name = name
-        item.image = image
+        let img = image?.pngData()! as NSData?
+        item.image = img
         item.surname = surname
         if self.items.count == 10{
             try! realm.write {
@@ -53,16 +57,23 @@ class AccountLocalStorage{
             realm.add(item)
         }
         self.items = realm.objects(Person.self)
+        print(self.items.count)
+        print("add")
     }
-    func updatePerson(id: String, image: UIImage, name: String, surname: String){
+    func updatePerson(id: String, image: UIImage?, name: String, surname: String){
+        
         let realm = try! Realm()
+        print(realm.objects(Person.self))
         self.items = realm.objects(Person.self)
+        print(self.items.count)
+        print("update")
         let item = Person()
         let date = Date()
         item.date = date.description
         item.id = id
         item.name = name
-        item.image = image
+        let img = image?.pngData()! as NSData?
+        item.image = img
         item.surname = surname
         var k = 0
         for i in 0...items.count - 1{
@@ -80,6 +91,8 @@ class AccountLocalStorage{
             realm.add(item)
         }
         self.items = realm.objects(Person.self)
+        print(self.items.count)
+        print("update")
     }
     
 }

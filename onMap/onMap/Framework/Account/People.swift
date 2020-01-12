@@ -14,6 +14,6 @@ class Person: Object{
     @objc dynamic var surname: String = ""
     @objc dynamic var id: String = ""
     @objc dynamic var date: String = ""
-    @objc dynamic var image = UIImage()
+    @objc dynamic var image: NSData?
     
 }
