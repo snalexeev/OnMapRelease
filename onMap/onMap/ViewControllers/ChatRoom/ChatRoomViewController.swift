@@ -3,12 +3,11 @@
 import UIKit
 
 final class ChatRoomViewController: UIViewController {
-    var theMessenger: MessengerOnMap = FirestoreMessenger.shared
-    var model = ModelChatRoom()
+    var model: ModelChatRoom = ModelChatRoom()
     private let idCellOtherMessage = "otherMessage"
     private let idCellMyMessage = "myMessage"
     var nameOfDiscussion: String?
-    var myAccountId: String?
+    var myAccountId: String = Account.shared.getID()
     private var keybordIsOpen: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,14 +21,14 @@ final class ChatRoomViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+        setupSettingsView()
         
-        self.didClickCommand((Any).self)
-        
-        settingsView.layer.cornerRadius = 15
-        settingsView.layer.borderWidth = 1
-        settingsView.layer.borderColor = UIColor.darkGray.cgColor
-        
-        theMessenger.startDiscussRoom(name: nameOfDiscussion!)
+        if let name = nameOfDiscussion {
+            model = ModelChatRoom(name: name)
+        } else {
+            // алерт о том, что чата нет или какая то ошибка
+            navigationController?.popViewController(animated: true)
+        }
         
         setupTableView()
         
@@ -37,27 +36,36 @@ final class ChatRoomViewController: UIViewController {
         
         myAccountId = Account.shared.getID()
         
-        theMessenger.loadDiscussionRoom( { [weak self] in
+        model.loadInfoForTable( { [weak self] in
             DispatchQueue.main.async {
-                self?.reloadTableView()
-            }
+                    self?.reloadTableView()
+                }
         })
+        
         
         setupKeyboardNotifications()
         
         textField.delegate = self
         
-        theMessenger.setupObserverChatRoom({
+        model.setupObserver( { [weak self] in
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }
         })
     }
     
     deinit {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         NotificationCenter.default.removeObserver(self)
-        theMessenger.closeDiscussRoom()
+        model.closeChatRoom()
+    }
+    
+    func setupSettingsView() {
+        self.didClickCommand((Any).self)
+        
+        settingsView.layer.cornerRadius = 15
+        settingsView.layer.borderWidth = 1
+        settingsView.layer.borderColor = UIColor.darkGray.cgColor
     }
     
     func reloadTableView() {
@@ -117,8 +125,7 @@ final class ChatRoomViewController: UIViewController {
         if textField.text == nil || textField?.text == "" {
             return
         } else {
-            theMessenger.sendMessage(owner: Account.shared.getID(),
-                                      message: textField.text!)
+            model.sendMessage(owner: Account.shared.getID(), message: textField.text!)
             reloadTableView()
             textField.text = ""
         }
@@ -154,7 +161,7 @@ final class ChatRoomViewController: UIViewController {
     }
     @IBAction func didClickDeleteButton(_ sender: Any) {
         if let name = nameOfDiscussion {
-            theMessenger.deleteChat(name: name)
+            model.deleteChat()
             //удалить из массива пинов и обновить карту
             self.navigationController?.popViewController(animated: true)
         } else {
@@ -166,14 +173,14 @@ final class ChatRoomViewController: UIViewController {
 
 extension ChatRoomViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return theMessenger.countMessages
+        return model.countMessages
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let index = theMessenger.countMessages - indexPath.row - 1
+        let index = model.countMessages - indexPath.row - 1
         
-        let info = theMessenger.getInfoAboutMessage(index: index)
+        let info = model.getInfoMessage(index: index)
         
         var resultCell: MessageCell = MessageCell()
         if myAccountId == info.idOwner {
@@ -184,11 +191,7 @@ extension ChatRoomViewController: UITableViewDataSource {
             resultCell.textMessage = info.message
             
             if let id = info.idOwner {
-                self.model.setAvatarForCell(id: id, cell: resultCell)
-                Account.shared.loadInfoByID(userID: id) { [ resultCell ] (avatar, name, surname) in
-                    //resultCell.imageAvatar = avatar
-                    resultCell.textOwner = name + " " + surname + ":"
-                }
+                self.model.setAvatarAndOwnerMessage(id: id, cell: resultCell)
             }
         }
         if let timeSend = info.timeSend {

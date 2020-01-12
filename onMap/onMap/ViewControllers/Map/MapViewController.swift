@@ -172,7 +172,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         let storyboard = UIStoryboard.init(name: "ChatRoomViewController", bundle: nil)
         let newViewController = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
-        newViewController.theMessenger = theMessenger
+        
         newViewController.nameOfDiscussion = name
         //theMessenger.startDiscussRoom(name: name)
         newViewController.modalPresentationStyle = .fullScreen
