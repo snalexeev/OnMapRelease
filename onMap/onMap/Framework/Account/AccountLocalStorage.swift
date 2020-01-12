@@ -57,16 +57,12 @@ class AccountLocalStorage{
             realm.add(item)
         }
         self.items = realm.objects(Person.self)
-        print(self.items.count)
+        print(realm.objects(Person.self))
         print("add")
     }
     func updatePerson(id: String, image: UIImage?, name: String, surname: String){
-        
         let realm = try! Realm()
-        print(realm.objects(Person.self))
         self.items = realm.objects(Person.self)
-        print(self.items.count)
-        print("update")
         let item = Person()
         let date = Date()
         item.date = date.description
@@ -75,23 +71,19 @@ class AccountLocalStorage{
         let img = image?.pngData()! as NSData?
         item.image = img
         item.surname = surname
-        var k = 0
         for i in 0...items.count - 1{
             if items[i].id == id{
-                k = i
+                try! realm.write {
+                    realm.delete(items[i])
+                }
                 break
-            }
-        }
-        if self.items.count == 10{
-            try! realm.write {
-                realm.delete(items[k])
             }
         }
         try! realm.write {
             realm.add(item)
         }
         self.items = realm.objects(Person.self)
-        print(self.items.count)
+        print(realm.objects(Person.self))
         print("update")
     }
     

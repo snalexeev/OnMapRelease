@@ -83,19 +83,17 @@ class Account{
                     let surname = value?["surname"] as? String ?? ""
                     print(userID)
                     print("2")
+                    completion(UIImage(named: "saucer")!)
                     AccountLocalStorage.shared.updatePerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
                 }) { (error) in
                     
                 }
-                //completion(UIImage(data: data!)!)
                 
             
             }
             
         }
         else{
-            print(person.id)
-            print("3")
             storeRef = Storage.storage().reference().child("images/profiles/" + String(id)+".png")
             storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
                 self.ref = Database.database().reference()
@@ -103,13 +101,11 @@ class Account{
                     let value = snapshot.value as? NSDictionary
                     let name = value?["name"] as? String ?? ""
                     let surname = value?["surname"] as? String ?? ""
-                    print(userID)
-                    print("4")
+                    completion(UIImage(named: "saucer")!)
                     AccountLocalStorage.shared.addPerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
                 }) { (error) in
                     //print(error.localizedDescription)
                 }
-                completion(UIImage(named: "saucer")!)
 
             }
         }
