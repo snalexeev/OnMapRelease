@@ -209,19 +209,16 @@ extension ChatRoomViewController: UITableViewDataSource {
             resultCell?.textMessage = info?.message
         } else {
             resultCell = tableView.dequeueReusableCell(withIdentifier: idCellOtherMessage) as! OtherMessageTableViewCell
-            
-//            Account.shared.loadPhotoByID(userID: (info?.idOwner)!) { (photo) in
-//               DispatchQueue.main.async {
-//                   resultCell?.imageAvatar = photo
-//               }
-//           }
             resultCell?.textMessage = info?.message
-//            Account.shared.loadTextDataByID(userID: (info?.idOwner)!) { (name, surname) in
-//                DispatchQueue.main.async {
-//                    print(name + surname)
-//                    //resultCell?.textMessage = name + " " + surname + (strMessage ?? "")
-//                }
-//            }
+            
+            DispatchQueue.main.async {
+                if let id = info?.idOwner {
+                    Account.shared.loadPhotoByID(userID: id) { (image) in
+                        resultCell?.imageAvatar = image
+                    }
+                }
+                
+            }
         }
         if let timeSend = info?.timeSend {
             let calendar = Calendar.current
