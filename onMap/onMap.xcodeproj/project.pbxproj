@@ -59,6 +59,9 @@
 		4426C8AE23B682C900DE03BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4426C8AC23B682C900DE03BE /* LaunchScreen.storyboard */; };
 		4426C8B923B682C900DE03BE /* onMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8B823B682C900DE03BE /* onMapTests.swift */; };
 		4426C8C423B682C900DE03BE /* onMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426C8C323B682C900DE03BE /* onMapUITests.swift */; };
+		446C6CDD23CB3B5000186D49 /* AnyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C6CDC23CB3B5000186D49 /* AnyAccountViewController.swift */; };
+		446C6CDF23CB44E200186D49 /* AccountLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C6CDE23CB44E200186D49 /* AccountLocalStorage.swift */; };
+		446C6CE123CB458800186D49 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446C6CE023CB458800186D49 /* People.swift */; };
 		448C9E9E23BE4A9600469E94 /* PhoneAuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */; };
 		448C9EA223BE882F00469E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448C9EA123BE882F00469E94 /* GoogleService-Info.plist */; };
 		67DC022DFC9C4F8D64C44B42 /* Pods_onMap_onMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5F36482631ECF39940CF3 /* Pods_onMap_onMapUITests.framework */; };
@@ -146,6 +149,9 @@
 		4426C8BF23B682C900DE03BE /* onMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = onMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4426C8C323B682C900DE03BE /* onMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onMapUITests.swift; sourceTree = "<group>"; };
 		4426C8C523B682C900DE03BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		446C6CDC23CB3B5000186D49 /* AnyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAccountViewController.swift; sourceTree = "<group>"; };
+		446C6CDE23CB44E200186D49 /* AccountLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLocalStorage.swift; sourceTree = "<group>"; };
+		446C6CE023CB458800186D49 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		448C9E9D23BE4A9600469E94 /* PhoneAuthViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewContoller.swift; sourceTree = "<group>"; };
 		448C9EA123BE882F00469E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5422A8C7CA791931FAA4EC0B /* Pods-onMap-onMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onMap-onMapTests.debug.xcconfig"; path = "Target Support Files/Pods-onMap-onMapTests/Pods-onMap-onMapTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +252,7 @@
 				441A83D023C7580A00383F53 /* ChangePhoneViewController.swift */,
 				441A83D423C7EDEC00383F53 /* NewPhoneViewController.swift */,
 				441A83D823C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift */,
+				446C6CDC23CB3B5000186D49 /* AnyAccountViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -409,6 +416,8 @@
 		447FF79C23B7AB8B0004091B /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				446C6CE023CB458800186D49 /* People.swift */,
+				446C6CDE23CB44E200186D49 /* AccountLocalStorage.swift */,
 				441F97B423BD7416009858EA /* Account.swift */,
 			);
 			path = Account;
@@ -714,6 +723,7 @@
 				441F97BD23BD745C009858EA /* User.swift in Sources */,
 				441A83D523C7EDEC00383F53 /* NewPhoneViewController.swift in Sources */,
 				441F97B723BD7447009858EA /* LoginNetworking.swift in Sources */,
+				446C6CDF23CB44E200186D49 /* AccountLocalStorage.swift in Sources */,
 				441A83C923C68F6F00383F53 /* AccountTableViewExtension.swift in Sources */,
 				441A83D923C7F84A00383F53 /* UpdateEmailDeleteAccountViewController.swift in Sources */,
 				441A83CD23C7394C00383F53 /* ChooseActionWithPhotoController.swift in Sources */,
@@ -727,10 +737,12 @@
 				0418FDA423B796F4004F6200 /* ChatRoom.swift in Sources */,
 				0418FDA623B79710004F6200 /* FirestoreMessenger.swift in Sources */,
 				4426C8A423B682C700DE03BE /* AppDelegate.swift in Sources */,
+				446C6CDD23CB3B5000186D49 /* AnyAccountViewController.swift in Sources */,
 				0418FDA823B79724004F6200 /* MessengerOnMap.swift in Sources */,
 				441F97CB23BD74AF009858EA /* ConstantsWithAnimations.swift in Sources */,
 				441A83D123C7580A00383F53 /* ChangePhoneViewController.swift in Sources */,
 				048C6F3323BB95830028A908 /* OtherMessageTableViewCell.swift in Sources */,
+				446C6CE123CB458800186D49 /* People.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,7 @@ class Account{
     var storeRef: StorageReference!
 
     func loadData(){
+        AccountLocalStorage.shared.setupRealm()
         let userID = SettingOnMap.shared.currentuserID
         storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
             
@@ -55,7 +56,6 @@ class Account{
         }
     }
     func loadTextDataByID(userID: String, completion: @escaping ((_ name: String, _ surname: String)->Void)){
-        //let storeRef = Storage.storage().reference().child("images/profiles/\(userID).png")
         var name = ""
         var surname = ""
         ref = Database.database().reference()
@@ -72,7 +72,7 @@ class Account{
     
     func loadPhotoByID(userID: String, completion: @escaping ((_ photo: UIImage)->Void)){
         storeRef = Storage.storage().reference().child("images/profiles/" + String(id)+".png")
-        storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
+        storeRef.getData(maxSize: 32 * 1024 * 1024) { data, error in
           if let error = error {
             print("Error \(error)")
           } else {

@@ -72,9 +72,9 @@ class NetworkingService{
         }
         user.name = name
         user.surname = surname
-        
+        let date = Date()
         let refToDataBase = Database.database().reference().child("users")
-        refToDataBase.child(Auth.auth().currentUser?.uid ?? "").updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname, "status": status])
+        refToDataBase.child(Auth.auth().currentUser?.uid ?? "").updateChildValues(["name": self.user.name, "email": self.user.email, "surname": self.user.surname, "status": status, "date": date])
        // let myTopPostsQuery = (refToDataBase.child("nickname").child(Auth.auth().currentUser?.uid ?? "")).queryEqual(toValue: nickname)
 
         

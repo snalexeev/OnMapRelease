@@ -61,16 +61,9 @@ final class AccountViewController: UIViewController {
         setupPhotoExtension()
         
         NetworkingService.shared.reAuthDelegate = self
-    
     }
 
-//    @IBAction func save(_ sender: Any) {
-//        Account.shared.setUserInfo(name: nameTextField.text!, surname: surnameTextField.text!)
-//        isNotEditing(state: true)
-//        self.textUsernameLabel.text! = Account.shared.getName()
-//        self.secondNameLabel.text! = Account.shared.getSurname()
-//        barButton.title = editStr
-//    }
+
     func presentLoginViewController() {
         let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         //let nc = UINavigationController.init(rootViewController: vc)

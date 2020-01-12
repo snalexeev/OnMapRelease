@@ -23,4 +23,13 @@ final class SettingOnMap {
             UserDefaults.standard.set(newValue, forKey: "loggedIn")
         }
     }
+    public var first: Bool {
+        get {
+            let firstSetup: Bool = UserDefaults.standard.bool(forKey: "firstLoggedIn")
+            return firstSetup
+        }
+        set (newValue) {
+            UserDefaults.standard.set(newValue, forKey: "firstLoggedIn")
+        }
+    }
 }
