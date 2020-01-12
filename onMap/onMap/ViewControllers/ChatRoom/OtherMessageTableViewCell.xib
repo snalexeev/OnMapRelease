@@ -24,29 +24,38 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-mQ-Dds">
-                        <rect key="frame" x="40" y="5" width="145.5" height="30.5"/>
+                        <rect key="frame" x="40" y="5" width="145.5" height="43.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMr-gP-zfu">
-                                <rect key="frame" x="5" y="5" width="105.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j07-qB-JCV">
+                                <rect key="frame" x="115.5" y="26" width="25" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j07-qB-JCV">
-                                <rect key="frame" x="115.5" y="13" width="25" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameOwner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM7-Ba-UZo">
+                                <rect key="frame" x="5" y="3" width="63" height="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMr-gP-zfu">
+                                <rect key="frame" x="5" y="18" width="105.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="IMr-gP-zfu" firstAttribute="top" secondItem="hM7-Ba-UZo" secondAttribute="bottom" constant="3" id="4AQ-q9-W0g"/>
                             <constraint firstItem="IMr-gP-zfu" firstAttribute="leading" secondItem="cpk-mQ-Dds" secondAttribute="leading" constant="5" id="AFP-4a-xVx"/>
                             <constraint firstItem="j07-qB-JCV" firstAttribute="leading" secondItem="IMr-gP-zfu" secondAttribute="trailing" constant="5" id="Wcq-de-sls"/>
+                            <constraint firstItem="hM7-Ba-UZo" firstAttribute="leading" secondItem="cpk-mQ-Dds" secondAttribute="leading" constant="5" id="YPD-Ds-JDk"/>
+                            <constraint firstItem="hM7-Ba-UZo" firstAttribute="top" secondItem="cpk-mQ-Dds" secondAttribute="top" constant="3" id="ig7-Y3-tTa"/>
                             <constraint firstAttribute="bottom" secondItem="IMr-gP-zfu" secondAttribute="bottom" constant="5" id="rtS-kH-aC9"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hM7-Ba-UZo" secondAttribute="trailing" constant="5" id="vy8-Bs-UfF"/>
                             <constraint firstAttribute="trailing" secondItem="j07-qB-JCV" secondAttribute="trailing" constant="5" id="wOa-39-59u"/>
                             <constraint firstAttribute="bottom" secondItem="j07-qB-JCV" secondAttribute="bottom" constant="2.5" id="whq-08-xsG"/>
-                            <constraint firstItem="IMr-gP-zfu" firstAttribute="top" secondItem="cpk-mQ-Dds" secondAttribute="top" constant="5" id="y4e-pT-ZEk"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -64,6 +73,7 @@
                 <outlet property="backView" destination="cpk-mQ-Dds" id="dhP-mb-SsS"/>
                 <outlet property="textMessageLabel" destination="IMr-gP-zfu" id="CNs-im-n7K"/>
                 <outlet property="theAvatarImage" destination="hQc-eH-QjA" id="cZA-2V-e0f"/>
+                <outlet property="theOwnerLabel" destination="hM7-Ba-UZo" id="dtZ-6t-wsL"/>
                 <outlet property="timeLabel" destination="j07-qB-JCV" id="odS-ip-D7i"/>
             </connections>
             <point key="canvasLocation" x="148.55072463768118" y="124.55357142857142"/>

@@ -37,7 +37,7 @@ class MessageCell: UITableViewCell {
     weak var theAvatar: UIImageView?
     
     internal func roundBackView() {
-        backMessageView?.layer.cornerRadius = (backMessageView?.bounds.height ?? 0) / 2
+        backMessageView?.layer.cornerRadius = 8//(backMessageView?.bounds.height ?? 0) / 2
         backMessageView?.layer.borderWidth = 1
         backMessageView?.layer.borderColor = backMessageView?.backgroundColor?.cgColor
         
