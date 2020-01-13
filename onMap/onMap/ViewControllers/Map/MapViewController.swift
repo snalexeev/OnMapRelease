@@ -28,11 +28,17 @@ final class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.checkFirestore()
 
         // скрытие навигатион контроллера
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         checkLocationAuthorizationStatus()
+        
+        
+        
+        
         
         setupMap()
         let initialLocation = CLLocation(latitude: 55.766, longitude: 37.684)
@@ -62,6 +68,14 @@ final class MapViewController: UIViewController {
         DispatchQueue.main.async {
             self.locationManager.startUpdatingLocation()
         }
+    }
+    
+    func checkFirestore() {
+        theMessenger.check({ [ weak self] in
+            self?.displayAlert(message: "Нет связи", action: "Cancel", {
+                self?.checkFirestore()
+            })
+        })
     }
     
     func setupMap() {
@@ -160,10 +174,10 @@ extension MapViewController: MKMapViewDelegate {
 //        return annotationView
 //    }
     
-    func displayAlert(message: String, action: String) {
+    func displayAlert(message: String, action: String, _ completion: (() -> Void)?) {
         let composeAlert = UIAlertController(title: "Ошибочка!", message: message, preferredStyle: .alert)
         composeAlert.addAction(UIAlertAction(title: action, style: .cancel, handler: nil))
-        self.present(composeAlert, animated: true, completion: nil)
+        self.present(composeAlert, animated: true, completion: completion)
     }
     
     func presentDuscussionViewController(name: String?) {
@@ -186,7 +200,7 @@ extension MapViewController: MKMapViewDelegate {
                 
                 presentDuscussionViewController(name: name)
             } else {
-                displayAlert(message: "Упс, в чат войти не удалось", action: "cancel")
+                displayAlert(message: "Упс, в чат войти не удалось", action: "cancel", nil)
                 if let pin = view.annotation {
                     mapView.removeAnnotation(pin)
                 }

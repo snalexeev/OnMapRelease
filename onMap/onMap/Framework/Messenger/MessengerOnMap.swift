@@ -8,6 +8,7 @@ protocol MessengerOnMap {
     static var shared: MessengerOnMap { get }
     var numberOfChats: Int { get }
     var countMessages: Int { get }
+    func check(_ completionIfError: (() -> Void)?)
     func addChat(nameDiscussion: String, xCoordinate: Double, yCoordinate: Double) -> Bool
     func setupObserverChats(_ completion: (() -> Void)?)
     func loadChatInfoArray(_ completion: (() -> Void)?)

@@ -6,6 +6,16 @@ import Firebase
 //import MapKit
 
 final class FirestoreMessenger: MessengerOnMap {
+    
+    func check(_ completionIfError: (() -> Void)?) {
+        Firestore.firestore().enableNetwork { (error) in
+
+            if error != nil {
+                completionIfError?()
+            }
+        }
+    }
+    
     //singleton
     private static var singleton: MessengerOnMap?
     static var shared: MessengerOnMap {

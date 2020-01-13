@@ -26,6 +26,7 @@ final class ModelChatRoom {
     //хранение аватарок пользователей
     private var buffer: [String : OtherMessageInfo]
     
+    
     public var countMessages: Int {
         return bd.countMessages
     }
