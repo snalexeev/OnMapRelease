@@ -13,7 +13,7 @@
 		0405BED623B7760500AA2880 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED523B7760500AA2880 /* MapViewController.storyboard */; };
 		0405BED823B7774D00AA2880 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405BED723B7774D00AA2880 /* SettingsViewController.swift */; };
 		0405BEDA23B7778700AA2880 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0405BED923B7778700AA2880 /* SettingsViewController.storyboard */; };
-		0412280623C8AFB1009C36CF /* FirestoreMessengerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */; };
+		0412280623C8AFB1009C36CF /* MessengerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412280523C8AFB1009C36CF /* MessengerMock.swift */; };
 		0418FDA223B796D9004F6200 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA123B796D9004F6200 /* ChatInfo.swift */; };
 		0418FDA423B796F4004F6200 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA323B796F4004F6200 /* ChatRoom.swift */; };
 		0418FDA623B79710004F6200 /* FirestoreMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA523B79710004F6200 /* FirestoreMessenger.swift */; };
@@ -93,7 +93,7 @@
 		0405BED523B7760500AA2880 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		0405BED723B7774D00AA2880 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0405BED923B7778700AA2880 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
-		0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessengerTest.swift; sourceTree = "<group>"; };
+		0412280523C8AFB1009C36CF /* MessengerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerMock.swift; sourceTree = "<group>"; };
 		0418FDA123B796D9004F6200 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
 		0418FDA323B796F4004F6200 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		0418FDA523B79710004F6200 /* FirestoreMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessenger.swift; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				4426C8B823B682C900DE03BE /* onMapTests.swift */,
-				0412280523C8AFB1009C36CF /* FirestoreMessengerTest.swift */,
+				0412280523C8AFB1009C36CF /* MessengerMock.swift */,
 				4426C8BA23B682C900DE03BE /* Info.plist */,
 			);
 			path = onMapTests;
@@ -749,7 +749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4426C8B923B682C900DE03BE /* onMapTests.swift in Sources */,
-				0412280623C8AFB1009C36CF /* FirestoreMessengerTest.swift in Sources */,
+				0412280623C8AFB1009C36CF /* MessengerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

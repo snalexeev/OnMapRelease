@@ -23,7 +23,7 @@ class onMapTests: XCTestCase {
 
     func testExample() {
         
-        messengerTest.testAddChat()
+        //messengerTest.testAddChat()
         //XCTAssert(messengerTest.resultAddChat, "Создание чата")
         
 //        messengerTest.testSendMessage()
