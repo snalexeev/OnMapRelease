@@ -27,7 +27,6 @@ class PhotoNetworking {
                   return
                 }
                 else{
-                    Account.shared.setDate(date: Date().description, id: id)
                     self.resultDelegate?.completed()
                 }
                 

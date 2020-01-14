@@ -73,13 +73,6 @@ class Account{
     
     func loadInfoByID(userID: String, completion: @escaping ((_ photo: UIImage, _ name: String, _ surname: String)->Void)){
         let person = AccountLocalStorage.shared.checkPerson(id: userID)
-        if waitingList.contains(person.id){
-            completion(UIImage(data: person.image! as Data) ?? UIImage(named: "saucer")!, person.name, person.surname)
-            return
-        }
-        else{
-            waitingList.append(person.id)
-        }
         if person.id != ""{
             self.ref = Database.database().reference()
             self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -88,33 +81,27 @@ class Account{
                 let name = value?["name"] as? String ?? ""
                 let surname = value?["surname"] as? String ?? ""
                 if date != person.date{
-                    print("hereUpdate")
-                    self.storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
+                    self.storeRef = Storage.storage().reference().child("images/profiles/" + String(self.id)+".png")
                     self.storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
-                        self.waitingList.remove(at: self.waitingList.firstIndex(of: person.id) ?? 0)
-                        AccountLocalStorage.shared.updatePerson(id: userID, image: UIImage(data: data!), name: name, surname: surname, date: date)
+                        AccountLocalStorage.shared.updatePerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
                         completion(UIImage(named: "saucer")!, name, surname)
                     }
                 }
                 else{
-                    self.waitingList.remove(at: self.waitingList.firstIndex(of: person.id) ?? 0)
                     completion(UIImage(data: (person.image! as Data)) ?? UIImage(named: "saucer")!, person.name, person.surname)
                 }
             })
             
         }
         else{
-            storeRef = Storage.storage().reference().child("images/profiles/" + userID + ".png")
+            storeRef = Storage.storage().reference().child("images/profiles/" + String(id)+".png")
             storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
                 self.ref = Database.database().reference()
                 self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-                    self.waitingList.remove(at: self.waitingList.firstIndex(of: person.id) ?? 0)
-                    print("hereADD")
                     let value = snapshot.value as? NSDictionary
                     let name = value?["name"] as? String ?? ""
                     let surname = value?["surname"] as? String ?? ""
-                    let date =  value?["date"] as? String ?? ""
-                    AccountLocalStorage.shared.addPerson(id: userID, image: UIImage(data: data!), name: name, surname: surname, date: date)
+                    AccountLocalStorage.shared.addPerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
                     completion(UIImage(named: "saucer")!, name, surname)
                 })
 
@@ -152,13 +139,13 @@ class Account{
     }
     func setUserName(name: String){
         ref = Database.database().reference().child("users")
-        ref.child(id).updateChildValues(["name": name, "date": Date().description])
+        ref.child(id).updateChildValues(["name": name])
         self.name = name
     }
     
     func setUserSurname(surname: String){
         ref = Database.database().reference().child("users")
-        ref.child(id).updateChildValues(["surname": surname, "date": Date().description])
+        ref.child(id).updateChildValues(["surname": surname])
         self.surname = surname
     }
     func setUserStatus(status: String){
