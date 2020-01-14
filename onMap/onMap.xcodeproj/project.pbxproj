@@ -19,6 +19,7 @@
 		0418FDA623B79710004F6200 /* FirestoreMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA523B79710004F6200 /* FirestoreMessenger.swift */; };
 		0418FDA823B79724004F6200 /* MessengerOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA723B79724004F6200 /* MessengerOnMap.swift */; };
 		0418FDAA23B79853004F6200 /* PinChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418FDA923B79853004F6200 /* PinChat.swift */; };
+		041927E423CE5E4F0040264F /* TestMessenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041927E323CE5E4F0040264F /* TestMessenger.swift */; };
 		043EB4DC23BBAD3800BEFC4A /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043EB4DB23BBAD3800BEFC4A /* LocalNotifications.swift */; };
 		048C6F2C23BB8C460028A908 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C6F2B23BB8C460028A908 /* ChatRoomViewController.swift */; };
 		048C6F2E23BB8C580028A908 /* ChatRoomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048C6F2D23BB8C580028A908 /* ChatRoomViewController.storyboard */; };
@@ -99,6 +100,7 @@
 		0418FDA523B79710004F6200 /* FirestoreMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMessenger.swift; sourceTree = "<group>"; };
 		0418FDA723B79724004F6200 /* MessengerOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerOnMap.swift; sourceTree = "<group>"; };
 		0418FDA923B79853004F6200 /* PinChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChat.swift; sourceTree = "<group>"; };
+		041927E323CE5E4F0040264F /* TestMessenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMessenger.swift; sourceTree = "<group>"; };
 		043EB4DB23BBAD3800BEFC4A /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
 		048C6F2B23BB8C460028A908 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		048C6F2D23BB8C580028A908 /* ChatRoomViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatRoomViewController.storyboard; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				4426C8B823B682C900DE03BE /* onMapTests.swift */,
 				0412280523C8AFB1009C36CF /* MessengerMock.swift */,
+				041927E323CE5E4F0040264F /* TestMessenger.swift */,
 				4426C8BA23B682C900DE03BE /* Info.plist */,
 			);
 			path = onMapTests;
@@ -749,6 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4426C8B923B682C900DE03BE /* onMapTests.swift in Sources */,
+				041927E423CE5E4F0040264F /* TestMessenger.swift in Sources */,
 				0412280623C8AFB1009C36CF /* MessengerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

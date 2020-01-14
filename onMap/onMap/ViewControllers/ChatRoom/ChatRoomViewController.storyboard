@@ -40,23 +40,28 @@
                                 <state key="normal" image="paperclip.circle" catalog="system"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98W-Vg-OEd">
-                                <rect key="frame" x="0.0" y="144" width="375" height="474"/>
+                                <rect key="frame" x="0.0" y="109" width="375" height="509"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoJ-sP-E7y">
-                                <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="65"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-Gr-qPC">
-                                        <rect key="frame" x="289" y="8" width="86" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="trash.fill" catalog="system"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-Gr-qPC">
+                                        <rect key="frame" x="315" y="10" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="Eln-QB-aNQ"/>
+                                            <constraint firstAttribute="height" constant="45" id="dVb-2A-REU"/>
+                                        </constraints>
+                                        <state key="normal" image="deleteButton"/>
                                         <connections>
                                             <action selector="didClickDeleteButton:" destination="uky-Ju-zmp" eventType="touchUpInside" id="ce9-aw-mzH"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="CzY-sm-sGI"/>
+                                    <constraint firstAttribute="height" constant="65" id="CzY-sm-sGI"/>
+                                    <constraint firstItem="TVr-Gr-qPC" firstAttribute="centerY" secondItem="DoJ-sP-E7y" secondAttribute="centerY" id="KgY-un-iST"/>
+                                    <constraint firstAttribute="trailing" secondItem="TVr-Gr-qPC" secondAttribute="trailing" constant="15" id="hk3-o4-FmN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -124,8 +129,8 @@
     </scenes>
     <resources>
         <image name="command" catalog="system" width="64" height="56"/>
+        <image name="deleteButton" width="256" height="256"/>
         <image name="paperclip.circle" catalog="system" width="64" height="60"/>
         <image name="paperplane" catalog="system" width="64" height="60"/>
-        <image name="trash.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>

@@ -102,10 +102,7 @@ final class MapViewController: UIViewController {
             annotationsArray.append(pin)
             self.mapView.addAnnotation(pin)
         }
-    //        DispatchQueue.main.async {
-    //            self.mapView.addAnnotations(self.annotationsArray)
-    //        }
-        }
+    }
 
     @IBAction func didLongPressMap(_ sender: Any) {
         let pressPoint = (sender as AnyObject).location(in: mapView)
@@ -120,12 +117,7 @@ final class MapViewController: UIViewController {
                 composeAlert.addAction(UIAlertAction(title: "Create", style: .default, handler: { (action: UIAlertAction) in
                     if let name = composeAlert.textFields?.first?.text {
                         if (self.theMessenger.addChat(nameDiscussion: name, xCoordinate: pressCoordinate.latitude, yCoordinate: pressCoordinate.longitude)) {
-        //                    let pressPin = PinChat(title: name, locationName: "DiscussionRoom", coordinate: pressCoordinate)
-        //                    self.mapView.addAnnotation(pressPin)
                             let pin = PinChat.init(title: name, locationName: "", coordinate: pressCoordinate)
-//                            pin.coordinate = pressCoordinate
-//                            pin.title = name
-                            //pin.imageName = #imageLiteral(resourceName: "thePinImage")
                             self.mapView.addAnnotation(pin)
                         } else {
                             //вызвать алерт с ошибкой
@@ -206,7 +198,6 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         }
-    
         //view.canShowCallout = false
         
         //view.isSelected = false

@@ -8,8 +8,6 @@ import XCTest
 //import
 
 class onMapTests: XCTestCase {
-    
-    var messengerTest: FirestoreMessengerTest = FirestoreMessengerTest()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,12 +21,11 @@ class onMapTests: XCTestCase {
 
     func testExample() {
         
-        //messengerTest.testAddChat()
-        //XCTAssert(messengerTest.resultAddChat, "Создание чата")
-        
-//        messengerTest.testSendMessage()
-//        XCTAssert(messengerTest.resultSendChat, "Отправка сообщения")
-        
+        let bd = TestMessenger()
+        var key = bd.testAddChat()
+        XCTAssert(key, "Создание чата")
+        key = bd.testSend()
+        XCTAssert(key, "Отправка сообщения")
         
     }
 
