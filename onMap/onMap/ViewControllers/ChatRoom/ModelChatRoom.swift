@@ -22,7 +22,7 @@ final class ModelChatRoom {
     
     public var name: String
     
-    private let bd: MessengerOnMap = FirestoreMessenger.shared
+    public var bd: MessengerOnMap = FirestoreMessenger.shared
     //хранение аватарок пользователей
     private var buffer: [String : OtherMessageInfo]
     

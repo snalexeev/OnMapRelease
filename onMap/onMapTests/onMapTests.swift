@@ -27,6 +27,12 @@ class onMapTests: XCTestCase {
         key = bd.testSend()
         XCTAssert(key, "Отправка сообщения")
         
+        
+        
+        let chatRoomVC = TestChatRoomVC()
+        //key = chatRoomVC.testSend()
+        XCTAssert(key, "Отправка сообщения в чатруме")
+        
     }
 
     func testPerformanceExample() {
