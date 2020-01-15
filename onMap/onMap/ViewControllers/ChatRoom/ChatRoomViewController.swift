@@ -39,7 +39,7 @@ final class ChatRoomViewController: UIViewController {
         model.loadInfoForTable( { [weak self] in
             DispatchQueue.main.async {
                     self?.reloadTableView()
-                }
+            }
         })
         
         

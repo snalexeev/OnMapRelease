@@ -25,6 +25,8 @@ final class ModelChatRoom {
     public var bd: MessengerOnMap = FirestoreMessenger.shared
     //хранение аватарок пользователей
     private var buffer: [String : OtherMessageInfo]
+    private var que1: [String] = []
+    private var que2: [MessageCell] = []
     
     
     public var countMessages: Int {
@@ -43,6 +45,8 @@ final class ModelChatRoom {
     
     deinit {
         buffer.removeAll()
+        que1.removeAll()
+        que2.removeAll()
     }
 
     
@@ -76,14 +80,34 @@ final class ModelChatRoom {
     
     public func setAvatarAndOwnerMessage(id: String, cell: MessageCell) {
         if let info = buffer[id] {
-            cell.imageAvatar = info.avatar
-            cell.textOwner = info.nameOwner
+            if info.nameOwner != "download" {
+                cell.imageAvatar = info.avatar
+                cell.textOwner = info.nameOwner
+            } else {
+                que1.append(id)
+                que2.append(cell)
+            }
         } else {
+            buffer[id] = OtherMessageInfo(avatar: #imageLiteral(resourceName: "deleteButton"), nameOwner: "download")
+            que1.append(id)
+            que2.append(cell)
             Account.shared.loadInfoByID(userID: id) { [ weak cell ] (avatar, name, surname) in
                 let info = OtherMessageInfo(avatar: avatar, nameOwner: name + " " + surname + ":")
                 self.buffer[id] = info
                 cell?.imageAvatar = info.avatar
                 cell?.textOwner = info.nameOwner
+                
+                for i in 0..<self.que1.count {
+                    if self.que1[i] == id {
+                        DispatchQueue.main.async {
+                            self.que2[i].imageAvatar = info.avatar
+                            self.que2[i].textOwner = info.nameOwner
+//
+//                            self.que1.remove(at: i)
+//                            self.que2.remove(at: i)
+                        }
+                    }
+                }
             }
         }
     }
