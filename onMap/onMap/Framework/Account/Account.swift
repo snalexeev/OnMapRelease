@@ -81,10 +81,16 @@ class Account{
                 let name = value?["name"] as? String ?? ""
                 let surname = value?["surname"] as? String ?? ""
                 if date != person.date{
-                    self.storeRef = Storage.storage().reference().child("images/profiles/" + String(self.id)+".png")
-                    self.storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
-                        AccountLocalStorage.shared.updatePerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
-                        completion(UIImage(named: "saucer")!, name, surname)
+                    self.storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
+                    self.storeRef.getData(maxSize: 32 * 1024 * 1024) { data, error in
+                        if error == nil{
+                            AccountLocalStorage.shared.updatePerson(id: userID, image: UIImage(data: data!), name: name, surname: surname,  date: date)
+                            completion(UIImage(data: data!) ?? UIImage(named: "saucer")!, name, surname)
+                        }
+                        else{
+                            AccountLocalStorage.shared.updatePerson(id: userID, image: UIImage(named: "saucer")!, name: name, surname: surname, date: date)
+                            completion(UIImage(named: "saucer")!, name, surname)
+                        }
                     }
                 }
                 else{
@@ -94,15 +100,24 @@ class Account{
             
         }
         else{
-            storeRef = Storage.storage().reference().child("images/profiles/" + String(id)+".png")
-            storeRef.getData(maxSize: 16 * 1024 * 1024) { data, error in
+            storeRef = Storage.storage().reference().child("images/profiles/" + String(userID)+".png")
+            storeRef.getData(maxSize: 32 * 1024 * 1024) { data, error in
                 self.ref = Database.database().reference()
                 self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as? NSDictionary
                     let name = value?["name"] as? String ?? ""
                     let surname = value?["surname"] as? String ?? ""
-                    AccountLocalStorage.shared.addPerson(id: userID, image: (UIImage(named: "saucer")!), name: name, surname: surname)
-                    completion(UIImage(named: "saucer")!, name, surname)
+                    let date = value?["date"] as? String ?? ""
+                    if error == nil{
+                        AccountLocalStorage.shared.addPerson(id: userID, image: UIImage(data: data!), name: name, surname: surname, date: date)
+                        completion(UIImage(data: data!) ?? UIImage(named: "saucer")!, name, surname)
+                    }
+                    else{
+                        AccountLocalStorage.shared.addPerson(id: userID, image: UIImage(named: "saucer")!, name: name, surname: surname, date: date)
+                        completion(UIImage(named: "saucer")!, name, surname)
+                    }
+                   
+                    
                 })
 
             }
@@ -138,14 +153,16 @@ class Account{
         ref.child(id).updateChildValues(["date": date])
     }
     func setUserName(name: String){
+        let date = Date().description
         ref = Database.database().reference().child("users")
-        ref.child(id).updateChildValues(["name": name])
+        ref.child(id).updateChildValues(["name": name, "date": date])
         self.name = name
     }
     
     func setUserSurname(surname: String){
+        let date = Date().description
         ref = Database.database().reference().child("users")
-        ref.child(id).updateChildValues(["surname": surname])
+        ref.child(id).updateChildValues(["surname": surname, "date": date])
         self.surname = surname
     }
     func setUserStatus(status: String){

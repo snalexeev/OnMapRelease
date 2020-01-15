@@ -36,12 +36,11 @@ class AccountLocalStorage{
         }
         return items[0]
     }
-    func addPerson(id: String, image: UIImage?, name: String, surname: String){
+    func addPerson(id: String, image: UIImage?, name: String, surname: String,  date: String){
         let realm = try! Realm()
         self.items = realm.objects(Person.self)
         let item = Person()
-        let date = Date()
-        item.date = date.description
+        item.date = date
         item.id = id
         item.name = name
         let img = image?.pngData()! as NSData?
@@ -59,17 +58,13 @@ class AccountLocalStorage{
         print(realm.objects(Person.self))
         print("add")
     }
-    func updatePerson(id: String, image: UIImage?, name: String, surname: String){
+    func updatePerson(id: String, image: UIImage?, name: String, surname: String,  date: String){
         let realm = try! Realm()
         self.items = realm.objects(Person.self)
         let item = Person()
-        let date = Date()
-        item.date = date.description
+        item.date = date
         item.id = id
         item.name = name
-        DispatchQueue.main.async {
-            Account.shared.setDate(date: date.description, id: id)
-        }
         let img = image?.pngData()! as NSData?
         item.image = img
         item.surname = surname
