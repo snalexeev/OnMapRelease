@@ -55,7 +55,7 @@ final class ChatRoomViewController: UIViewController {
     }
     
     deinit {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(false, animated: false)
         NotificationCenter.default.removeObserver(self)
         model.closeChatRoom()
     }

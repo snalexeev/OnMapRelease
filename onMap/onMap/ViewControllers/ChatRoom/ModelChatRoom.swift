@@ -72,6 +72,7 @@ final class ModelChatRoom {
     
     public func deleteChat() {
         bd.deleteChat(name: self.name)
+        bd.closeDiscussRoom()
     }
     
     public func getInfoMessage(index: Int) -> (message: String?, idOwner: String?, timeSend: Date?) {
