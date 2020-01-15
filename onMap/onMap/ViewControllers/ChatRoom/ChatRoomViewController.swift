@@ -122,6 +122,7 @@ final class ChatRoomViewController: UIViewController {
     }
     
     func sendMessage() {
+        checkFirestore()
         if textField.text == nil || textField?.text == "" {
             return
         } else {
@@ -160,13 +161,33 @@ final class ChatRoomViewController: UIViewController {
         sendMessage()
     }
     @IBAction func didClickDeleteButton(_ sender: Any) {
-        if let name = nameOfDiscussion {
-            model.deleteChat()
+        
+        if nameOfDiscussion != nil {
+            
+           let composeAlert = UIAlertController(title: "Удалить чат?", message: "Вы не сможете его восстановаить", preferredStyle: .alert)
+           
+           composeAlert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+           composeAlert.addAction(UIAlertAction(title: "Да", style: .default, handler: { (action: UIAlertAction) in
+                   self.model.deleteChat()
+                   self.navigationController?.popViewController(animated: true)
+                              
+           }))
+           self.present(composeAlert, animated: true, completion: nil)
             //удалить из массива пинов и обновить карту
-            self.navigationController?.popViewController(animated: true)
         } else {
             //алерт кинуть
             return
+        }
+    }
+    
+    func checkFirestore() {
+        model.bd.check {
+            let composeAlert = UIAlertController(title: "Нет соеденения!", message: "Проверьте его)", preferredStyle: .alert)
+            composeAlert.addAction(UIAlertAction(title: "Попробовать снова", style: .cancel, handler: {
+                (action: UIAlertAction) in
+                self.checkFirestore()
+            }))
+            self.present(composeAlert, animated: true, completion: nil)
         }
     }
 }
